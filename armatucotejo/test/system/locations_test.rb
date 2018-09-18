@@ -15,7 +15,6 @@ class LocationsTest < ApplicationSystemTestCase
     click_on "New Location"
 
     fill_in "Address", with: @location.address
-    fill_in "City", with: @location.city
     fill_in "Contactnumber", with: @location.contactnumber
     fill_in "Name", with: @location.name
     click_on "Create Location"
@@ -29,7 +28,6 @@ class LocationsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Address", with: @location.address
-    fill_in "City", with: @location.city
     fill_in "Contactnumber", with: @location.contactnumber
     fill_in "Name", with: @location.name
     click_on "Update Location"

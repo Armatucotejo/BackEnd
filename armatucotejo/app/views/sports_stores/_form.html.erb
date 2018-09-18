@@ -1,0 +1,22 @@
+<%= form_with(model: sports_store, local: true) do |form| %>
+  <% if sports_store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sports_store.errors.count, "error") %> prohibited this sports_store from being saved:</h2>
+
+      <ul>
+      <% sports_store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

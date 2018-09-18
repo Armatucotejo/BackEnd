@@ -1,0 +1,2 @@
+module StoreHasSuppliesHelper
+end

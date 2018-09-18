@@ -1,0 +1,17 @@
+<%= form_with(model: location_supports_sport, local: true) do |form| %>
+  <% if location_supports_sport.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(location_supports_sport.errors.count, "error") %> prohibited this location_supports_sport from being saved:</h2>
+
+      <ul>
+      <% location_supports_sport.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

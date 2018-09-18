@@ -1,0 +1,2 @@
+module SportInterestsHelper
+end

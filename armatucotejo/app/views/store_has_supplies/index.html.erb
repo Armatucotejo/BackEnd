@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Store Has Supplies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @store_has_supplies.each do |store_has_supply| %>
+      <tr>
+        <td><%= link_to 'Show', store_has_supply %></td>
+        <td><%= link_to 'Edit', edit_store_has_supply_path(store_has_supply) %></td>
+        <td><%= link_to 'Destroy', store_has_supply, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Store Has Supply', new_store_has_supply_path %>

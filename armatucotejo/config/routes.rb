@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  resources :store_has_supplies
+  resources :sports_supplies
+  resources :sports_stores
+  resources :sports_clubs
+  resources :sponsors
+  resources :cities
   resources :locations
-  resources :locationsupportssports
+  resources :location_supports_sports
   resources :matches
-  resources :matchparticipants
+  resources :match_participants
   resources :sports
-  resources :sportinterests
+  resources :sport_interests
   resources :players
   resources :users
   resources :bans

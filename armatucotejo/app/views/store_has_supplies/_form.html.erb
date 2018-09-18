@@ -1,0 +1,17 @@
+<%= form_with(model: store_has_supply, local: true) do |form| %>
+  <% if store_has_supply.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store_has_supply.errors.count, "error") %> prohibited this store_has_supply from being saved:</h2>
+
+      <ul>
+      <% store_has_supply.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

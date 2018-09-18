@@ -17,7 +17,6 @@ class MatchesTest < ApplicationSystemTestCase
     fill_in "Datetime", with: @match.datetime
     fill_in "Description", with: @match.description
     fill_in "Duration", with: @match.duration
-    fill_in "Organizerid", with: @match.organizerid_id
     click_on "Create Match"
 
     assert_text "Match was successfully created"
@@ -31,7 +30,6 @@ class MatchesTest < ApplicationSystemTestCase
     fill_in "Datetime", with: @match.datetime
     fill_in "Description", with: @match.description
     fill_in "Duration", with: @match.duration
-    fill_in "Organizerid", with: @match.organizerid_id
     click_on "Update Match"
 
     assert_text "Match was successfully updated"

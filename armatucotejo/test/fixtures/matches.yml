@@ -3,11 +3,9 @@
 one:
   description: MyString
   duration: 1
-  datetime: 2018-09-18
-  organizerid: one
+  datetime: 2018-09-18 19:51:47
 
 two:
   description: MyString
   duration: 1
-  datetime: 2018-09-18
-  organizerid: two
+  datetime: 2018-09-18 19:51:47
