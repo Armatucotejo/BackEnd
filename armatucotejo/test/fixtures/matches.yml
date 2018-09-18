@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  description: MyString
+  duration: 1
+  datetime: 2018-09-18
+  organizerid: one
+
+two:
+  description: MyString
+  duration: 1
+  datetime: 2018-09-18
+  organizerid: two

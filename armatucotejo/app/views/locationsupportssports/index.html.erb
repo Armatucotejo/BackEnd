@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Locationsupportssports</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sport</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @locationsupportssports.each do |locationsupportssport| %>
+      <tr>
+        <td><%= locationsupportssport.sport %></td>
+        <td><%= locationsupportssport.location %></td>
+        <td><%= link_to 'Show', locationsupportssport %></td>
+        <td><%= link_to 'Edit', edit_locationsupportssport_path(locationsupportssport) %></td>
+        <td><%= link_to 'Destroy', locationsupportssport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Locationsupportssport', new_locationsupportssport_path %>
