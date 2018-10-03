@@ -1,0 +1,2 @@
+class PlayerScoreMatch < ApplicationRecord
+end
