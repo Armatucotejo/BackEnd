@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Score:</strong>
-  <%= @player.score %>
-</p>
-
-<p>
   <strong>Birth:</strong>
   <%= @player.birth %>
 </p>
@@ -18,6 +13,21 @@
 <p>
   <strong>Cellphone:</strong>
   <%= @player.cellphone %>
+</p>
+
+<p>
+  <strong>Scorepuntuality:</strong>
+  <%= @player.scorepuntuality %>
+</p>
+
+<p>
+  <strong>Scorefairplay:</strong>
+  <%= @player.scorefairplay %>
+</p>
+
+<p>
+  <strong>Scoretechnique:</strong>
+  <%= @player.scoretechnique %>
 </p>
 
 <%= link_to 'Edit', edit_player_path(@player) %> |

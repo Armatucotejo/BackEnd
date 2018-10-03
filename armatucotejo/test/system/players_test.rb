@@ -17,7 +17,9 @@ class PlayersTest < ApplicationSystemTestCase
     fill_in "Birth", with: @player.birth
     fill_in "Cellphone", with: @player.cellphone
     fill_in "Gender", with: @player.gender
-    fill_in "Score", with: @player.score
+    fill_in "Scorefairplay", with: @player.scorefairplay
+    fill_in "Scorepuntuality", with: @player.scorepuntuality
+    fill_in "Scoretechnique", with: @player.scoretechnique
     click_on "Create Player"
 
     assert_text "Player was successfully created"
@@ -31,7 +33,9 @@ class PlayersTest < ApplicationSystemTestCase
     fill_in "Birth", with: @player.birth
     fill_in "Cellphone", with: @player.cellphone
     fill_in "Gender", with: @player.gender
-    fill_in "Score", with: @player.score
+    fill_in "Scorefairplay", with: @player.scorefairplay
+    fill_in "Scorepuntuality", with: @player.scorepuntuality
+    fill_in "Scoretechnique", with: @player.scoretechnique
     click_on "Update Player"
 
     assert_text "Player was successfully updated"

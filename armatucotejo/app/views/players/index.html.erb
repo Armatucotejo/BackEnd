@@ -5,10 +5,12 @@
 <table>
   <thead>
     <tr>
-      <th>Score</th>
       <th>Birth</th>
       <th>Gender</th>
       <th>Cellphone</th>
+      <th>Scorepuntuality</th>
+      <th>Scorefairplay</th>
+      <th>Scoretechnique</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +18,12 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.score %></td>
         <td><%= player.birth %></td>
         <td><%= player.gender %></td>
         <td><%= player.cellphone %></td>
+        <td><%= player.scorepuntuality %></td>
+        <td><%= player.scorefairplay %></td>
+        <td><%= player.scoretechnique %></td>
         <td><%= link_to 'Show', player %></td>
         <td><%= link_to 'Edit', edit_player_path(player) %></td>
         <td><%= link_to 'Destroy', player, method: :delete, data: { confirm: 'Are you sure?' } %></td>

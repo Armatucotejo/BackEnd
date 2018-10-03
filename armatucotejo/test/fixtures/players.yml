@@ -1,13 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  score: 1
-  birth: 2018-09-18
+  birth: 2018-10-03
   gender: MyString
   cellphone: MyString
+  scorepuntuality: 1
+  scorefairplay: 1
+  scoretechnique: 1
 
 two:
-  score: 1
-  birth: 2018-09-18
+  birth: 2018-10-03
   gender: MyString
   cellphone: MyString
+  scorepuntuality: 1
+  scorefairplay: 1
+  scoretechnique: 1

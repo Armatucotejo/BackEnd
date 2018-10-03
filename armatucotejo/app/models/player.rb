@@ -5,3 +5,4 @@ class Player < ApplicationRecord
   has_many :sports_interests
   has_many :sports, through: :sports_interests
 end
+
