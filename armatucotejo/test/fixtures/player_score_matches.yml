@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  playerqualifier: MyString
+  playerqualified: MyString
   scorepuntuality: 1
   scorefairplay: 1
   scoretechnique: 1
-  birth: 2018-10-03
-  gender: MyString
-  cellphone: MyString
+  match: MyString
 
 two:
+  playerqualifier: MyString
+  playerqualified: MyString
   scorepuntuality: 1
   scorefairplay: 1
   scoretechnique: 1
-  birth: 2018-10-03
-  gender: MyString
-  cellphone: MyString
+  match: MyString

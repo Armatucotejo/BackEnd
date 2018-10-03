@@ -5,7 +5,9 @@
 <table>
   <thead>
     <tr>
-      <th>Score</th>
+      <th>Scorepuntuality</th>
+      <th>Scorefairplay</th>
+      <th>Scoretechnique</th>
       <th>Birth</th>
       <th>Gender</th>
       <th>Cellphone</th>
@@ -16,7 +18,9 @@
   <tbody>
     <% @players.each do |player| %>
       <tr>
-        <td><%= player.score %></td>
+        <td><%= player.scorepuntuality %></td>
+        <td><%= player.scorefairplay %></td>
+        <td><%= player.scoretechnique %></td>
         <td><%= player.birth %></td>
         <td><%= player.gender %></td>
         <td><%= player.cellphone %></td>

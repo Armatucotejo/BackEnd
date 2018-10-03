@@ -1,0 +1,47 @@
+<%= form_with(model: player_score_match, local: true) do |form| %>
+  <% if player_score_match.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(player_score_match.errors.count, "error") %> prohibited this player_score_match from being saved:</h2>
+
+      <ul>
+      <% player_score_match.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :playerqualifier %>
+    <%= form.text_field :playerqualifier %>
+  </div>
+
+  <div class="field">
+    <%= form.label :playerqualified %>
+    <%= form.text_field :playerqualified %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scorepuntuality %>
+    <%= form.number_field :scorepuntuality %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scorefairplay %>
+    <%= form.number_field :scorefairplay %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scoretechnique %>
+    <%= form.number_field :scoretechnique %>
+  </div>
+
+  <div class="field">
+    <%= form.label :match %>
+    <%= form.text_field :match %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
