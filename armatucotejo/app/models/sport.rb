@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: sports
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Sport < ApplicationRecord
   has_many :sports_interests
   has_many :players, through: :sports_interests
