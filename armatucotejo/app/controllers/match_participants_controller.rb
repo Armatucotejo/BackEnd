@@ -1,6 +1,12 @@
 class MatchParticipantsController < ApplicationController
   before_action :set_match_participant, only: [:show, :edit, :update, :destroy]
 
+  def getPlayersInMatch
+    params.require(:match_id)
+    @match_id = params[:match_id]
+    @players = MatchParticipant.joins(:match, :user).where(match_id: @match_id)
+  end
+
   # GET /match_participants
   # GET /match_participants.json
   def index

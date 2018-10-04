@@ -1,6 +1,25 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
+
+  def getPlayersByPunctuality
+    params.require(:score)
+    score = params[:score]
+    @players = Player.where(scorepunctuality: score)
+  end
+
+  def getPlayersBySportsmanship
+    params.require(:score)
+    score = params[:score]
+    @players = Player.where(score_sportsmanship: score)
+  end
+
+  def getPlayersBySkill
+    params.require(:score)
+    score = params[:score]
+    @players = Player.where(score_skill: score)
+  end
+
   # GET /players
   # GET /players.json
   def index
