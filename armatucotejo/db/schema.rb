@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_18_125239) do
+ActiveRecord::Schema.define(version: 2018_10_03_204708) do
 
   create_table "admins", force: :cascade do |t|
     t.string "name"
@@ -80,11 +80,24 @@ ActiveRecord::Schema.define(version: 2018_09_18_125239) do
     t.index ["sport_id"], name: "index_matches_on_sport_id"
   end
 
+  create_table "player_score_matches", force: :cascade do |t|
+    t.string "playerqualifier"
+    t.string "playerqualified"
+    t.integer "scorepuntuality"
+    t.integer "scorefairplay"
+    t.integer "scoretechnique"
+    t.string "match"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "players", force: :cascade do |t|
-    t.integer "score"
     t.date "birth"
     t.string "gender"
     t.string "cellphone"
+    t.integer "scorepuntuality"
+    t.integer "scorefairplay"
+    t.integer "scoretechnique"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -95,13 +108,6 @@ ActiveRecord::Schema.define(version: 2018_09_18_125239) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ban_id"], name: "index_reasons_on_ban_id"
-  end
-
-  create_table "sponsors", force: :cascade do |t|
-    t.integer "sponsor_data_id"
-    t.string "sponsor_data_type"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "sport_interests", force: :cascade do |t|
@@ -117,33 +123,6 @@ ActiveRecord::Schema.define(version: 2018_09_18_125239) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "sports_clubs", force: :cascade do |t|
-    t.string "mainaddress"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sports_stores", force: :cascade do |t|
-    t.string "address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sports_supplies", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "store_has_supplies", force: :cascade do |t|
-    t.integer "sports_store_id"
-    t.integer "sports_supply_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["sports_store_id"], name: "index_store_has_supplies_on_sports_store_id"
-    t.index ["sports_supply_id"], name: "index_store_has_supplies_on_sports_supply_id"
   end
 
   create_table "users", force: :cascade do |t|
