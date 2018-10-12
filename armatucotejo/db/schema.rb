@@ -95,9 +95,10 @@ ActiveRecord::Schema.define(version: 2018_10_03_204708) do
     t.date "birth"
     t.string "gender"
     t.string "cellphone"
-    t.integer "scorepuntuality"
+    t.integer "scorepunctuality"
+    t.integer "score_sportsmanship"
     t.integer "scorefairplay"
-    t.integer "scoretechnique"
+    t.integer "score_skill"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

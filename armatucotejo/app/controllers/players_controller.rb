@@ -20,6 +20,12 @@ class PlayersController < ApplicationController
     @players = Player.where(score_skill: score)
   end
 
+  def getPlayersByScorefairplay
+    params.require(:score)
+    score = params[:score]
+    @players = Player.where(scorefairplay: score)
+  end
+
   # GET /players
   # GET /players.json
   def index
@@ -43,6 +49,7 @@ class PlayersController < ApplicationController
   # POST /players
   # POST /players.json
   def create
+    #Existe un error al crear los players
     @player = Player.new(player_params)
 
     respond_to do |format|
@@ -88,6 +95,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:birth, :gender, :cellphone, :scorepuntuality, :scorefairplay, :scoretechnique)
+      params.require(:player).permit(:birth, :gender, :cellphone, :scorepunctuality, :scorefairplay, :score_skill)
     end
 end

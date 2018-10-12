@@ -4,9 +4,11 @@ class CreatePlayers < ActiveRecord::Migration[5.2]
       t.date :birth
       t.string :gender
       t.string :cellphone
-      t.integer :score_punctuality
+      t.integer :scorepunctuality
       t.integer :score_sportsmanship
+      t.integer :scorefairplay
       t.integer :score_skill
+
 
       t.timestamps
     end

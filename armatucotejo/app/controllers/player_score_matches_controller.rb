@@ -69,6 +69,6 @@ class PlayerScoreMatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_score_match_params
-      params.require(:player_score_match).permit(:playerqualifier, :playerqualified, :scorepuntuality, :scorefairplay, :scoretechnique, :match)
+      params.require(:player_score_match).permit(:playerqualifier, :playerqualified, :scorepunctuality, :scorefairplay, :scoretechnique, :match)
     end
 end
