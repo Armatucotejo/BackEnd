@@ -1,0 +1,22 @@
+<%= form_with(model: sports_club, local: true) do |form| %>
+  <% if sports_club.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sports_club.errors.count, "error") %> prohibited this sports_club from being saved:</h2>
+
+      <ul>
+      <% sports_club.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :mainaddress %>
+    <%= form.text_field :mainaddress %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -14,8 +14,8 @@ class CreateLocations < ActiveRecord::Migration[5.2]
     add_index :locations, :city_id
     add_foreign_key :locations, :cities
 
-    add_index :locations, :sports_club_id
-    add_foreign_key :locations, :sports_clubs
+    #add_index :locations, :sports_club_id
+    #add_foreign_key :locations, :sports_clubs
 
   end
 end

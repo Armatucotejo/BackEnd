@@ -10,6 +10,7 @@ class PlayerScoreMatchesController < ApplicationController
   # GET /player_score_matches/1
   # GET /player_score_matches/1.json
   def show
+    @player_score_matches = PlayerScoreMatch.jugador.scoresReciv
   end
 
   # GET /player_score_matches/new
