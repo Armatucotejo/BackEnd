@@ -56,7 +56,6 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_locations_on_city_id"
-    t.index ["sports_club_id"], name: "index_locations_on_sports_club_id"
   end
 
   create_table "match_participants", force: :cascade do |t|
@@ -85,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
     t.string "playerqualified"
     t.integer "scorepuntuality"
     t.integer "scorefairplay"
-    t.integer "scoretechnique"
+    t.integer "score_skill"
     t.string "match"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
