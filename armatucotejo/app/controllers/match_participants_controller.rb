@@ -10,7 +10,7 @@ class MatchParticipantsController < ApplicationController
   # GET /match_participants
   # GET /match_participants.json
   def index
-    @match_participants = MatchParticipant.all
+    @match_participants = MatchParticipant.paginate(page: params[:page], per_page:5)
   end
 
   # GET /match_participants/1

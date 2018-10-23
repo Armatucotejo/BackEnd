@@ -4,7 +4,7 @@ class PlayerScoreMatchesController < ApplicationController
   # GET /player_score_matches
   # GET /player_score_matches.json
   def index
-    @player_score_matches = PlayerScoreMatch.all
+    @player_score_matches = PlayerScoreMatch.paginate(page: params[:page], per_page:5)
   end
 
   # GET /player_score_matches/1

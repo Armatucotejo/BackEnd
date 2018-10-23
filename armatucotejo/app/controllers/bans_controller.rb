@@ -10,7 +10,7 @@ class BansController < ApplicationController
   # GET /bans
   # GET /bans.json
   def index
-    @bans = Ban.all
+    @bans = Ban.paginate(page: params[:page], per_page:5)
   end
 
   # GET /bans/1

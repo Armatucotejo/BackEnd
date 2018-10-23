@@ -4,7 +4,7 @@ class LocationSupportsSportsController < ApplicationController
   # GET /location_supports_sports
   # GET /location_supports_sports.json
   def index
-    @location_supports_sports = LocationSupportsSport.all
+    @location_supports_sports = LocationSupportsSport.paginate(page: params[:page], per_page:5)
   end
 
   # GET /location_supports_sports/1

@@ -4,7 +4,7 @@ class SportsClubsController < ApplicationController
   # GET /sports_clubs
   # GET /sports_clubs.json
   def index
-    @sports_clubs = SportsClub.all
+    @sports_clubs = SportsClub.paginate(page: params[:page], per_page:5)
   end
 
   # GET /sports_clubs/1
