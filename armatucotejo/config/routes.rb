@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   resources :reasons
   resources :admins
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  match 'user/add_sport_interest' => 'users#addSportInterest', via: :post
+  match 'user/remove_sport_interest' => 'users#removeSportInterest', via: :delete
 end
