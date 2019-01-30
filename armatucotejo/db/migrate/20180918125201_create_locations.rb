@@ -7,6 +7,9 @@ class CreateLocations < ActiveRecord::Migration[5.2]
 
       t.integer :city_id
       t.integer :sports_club_id
+	  t.integer :googleMapsX
+	  t.integer :googleMapsY
+	  
 
       t.timestamps
     end
