@@ -1,10 +1,10 @@
 class SportsController < ApplicationController
   before_action :set_sport, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token
+
   # GET /sports
   # GET /sports.json
   def index
-    @sports = Sport.paginate(page: params[:page], per_page:5)
+    @sports = Sport.all
   end
 
   # GET /sports/1
@@ -25,8 +25,7 @@ class SportsController < ApplicationController
   # POST /sports.json
   def create
     @sport = Sport.new(sport_params)
-    puts sport_params
-    puts 'HOLAAAAAAAAAAAAAAAAAAAAAAAAAAA'
+
     respond_to do |format|
       if @sport.save
         format.html { redirect_to @sport, notice: 'Sport was successfully created.' }

@@ -1,16 +1,10 @@
 class BansController < ApplicationController
   before_action :set_ban, only: [:show, :edit, :update, :destroy]
 
-  def getBansByUser
-    params.require(:id)
-    user = params[:id]
-    @allUserBans = Ban.joins(:reason, :user, :admin).where(user_id: user_id)
-  end
-
   # GET /bans
   # GET /bans.json
   def index
-    @bans = Ban.paginate(page: params[:page], per_page:5)
+    @bans = Ban.all
   end
 
   # GET /bans/1

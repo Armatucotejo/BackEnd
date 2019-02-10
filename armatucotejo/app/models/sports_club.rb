@@ -1,2 +1,0 @@
-class SportsClub < ApplicationRecord
-end

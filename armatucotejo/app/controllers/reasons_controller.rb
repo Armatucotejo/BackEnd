@@ -4,7 +4,7 @@ class ReasonsController < ApplicationController
   # GET /reasons
   # GET /reasons.json
   def index
-    @reasons = Reason.paginate(page: params[:page], per_page:5)
+    @reasons = Reason.all
   end
 
   # GET /reasons/1

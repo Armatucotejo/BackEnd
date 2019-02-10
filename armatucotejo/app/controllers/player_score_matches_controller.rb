@@ -4,13 +4,12 @@ class PlayerScoreMatchesController < ApplicationController
   # GET /player_score_matches
   # GET /player_score_matches.json
   def index
-    @player_score_matches = PlayerScoreMatch.paginate(page: params[:page], per_page:5)
+    @player_score_matches = PlayerScoreMatch.all
   end
 
   # GET /player_score_matches/1
   # GET /player_score_matches/1.json
   def show
-    @player_score_matches = PlayerScoreMatch.jugador.scoresReciv
   end
 
   # GET /player_score_matches/new
@@ -70,6 +69,6 @@ class PlayerScoreMatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_score_match_params
-      params.require(:player_score_match).permit(:playerqualifier, :playerqualified, :scorepunctuality, :scorefairplay, :scoretechnique, :match)
+      params.require(:player_score_match).permit(:playerqualifier, :playerqualified, :scorepuntuality, :scorefairplay, :scoretechnique, :match)
     end
 end

@@ -1,32 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  skip_before_action :verify_authenticity_token
-
-  def addSportInterest
-    @sport = Sport.find(name: params[:sport][:name])
-    @user = User.find(id: params[:user][:id])
-    @player = Player.find(id: @user.user_data_id)
-    @sport_interest = SportInterest.new(player_id: @player.id,
-					sport_id: @sport.id)
-    if @sport_interest.save!
-      render json: @sport_interest, status: :ok
-    else
-      render json: @sport_interest.errors , status: :unprocessable_entity
-    end
-  end
-
-  def removeSportInterest
-    @sport = Sport.find(name: params[:sport][:name])
-    @user = User.find(id: params[:user][:id])
-    @player = Player.find(id: @user.user_data_id)
-    @sport_interest = SportInterest.where(player_id: @player.id, sport_id: @sport.id)
-    @sport_interest.destroy
-  end
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page], per_page:5)
+    @users = User.all
   end
 
   # GET /users/1

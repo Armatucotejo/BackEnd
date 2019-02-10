@@ -1,36 +1,10 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
 
-
-  def getPlayersByPunctuality
-    params.require(:score)
-    score = params[:score]
-    @players = Player.where(scorepunctuality: score)
-  end
-
-  def getPlayersBySportsmanship
-    params.require(:score)
-    score = params[:score]
-    @players = Player.where(score_sportsmanship: score)
-  end
-
-  def getPlayersBySkill
-    params.require(:score)
-    score = params[:score]
-    @players = Player.where(score_skill: score)
-  end
-
-  def getPlayersByScorefairplay
-    params.require(:score)
-    score = params[:score]
-    @players = Player.where(scorefairplay: score)
-  end
-
   # GET /players
   # GET /players.json
   def index
-    #@players = Player.all
-    @players = Player.paginate(page: params[:page], per_page:5)
+    @players = Player.all
   end
 
   # GET /players/1
@@ -50,7 +24,6 @@ class PlayersController < ApplicationController
   # POST /players
   # POST /players.json
   def create
-    #Existe un error al crear los players
     @player = Player.new(player_params)
 
     respond_to do |format|
@@ -96,6 +69,6 @@ class PlayersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def player_params
-      params.require(:player).permit(:birth, :gender, :cellphone, :scorepunctuality, :scorefairplay, :score_skill)
+      params.require(:player).permit(:scorepuntuality, :scorefairplay, :scoretechnique, :birth, :gender, :cellphone)
     end
 end

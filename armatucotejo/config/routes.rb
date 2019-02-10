@@ -1,21 +1,18 @@
 Rails.application.routes.draw do
-  resources :sports_clubs
+  root 'pages#index'
   resources :players
   resources :player_score_matches
-  resources :cities
   resources :locations
-  resources :location_supports_sports
+  resources :locationsupportssports
   resources :matches
-  resources :match_participants
+  resources :matchparticipants
   resources :sports
-  resources :sport_interests
+  resources :sportinterests
   resources :users
   resources :bans
   resources :reasons
   resources :admins
+  resources :pages
+  resources :eventos
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-
-
-  match 'user/add_sport_interest' => 'users#addSportInterest', via: :post
-  match 'user/remove_sport_interest' => 'users#removeSportInterest', via: :delete
 end
