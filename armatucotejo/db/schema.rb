@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
   create_table "player_score_matches", force: :cascade do |t|
     t.string "playerqualifier"
     t.string "playerqualified"
-    t.integer "scorepuntuality"
+    t.integer "scorepunctuality"
     t.integer "scorefairplay"
     t.integer "score_skill"
     t.string "match"
