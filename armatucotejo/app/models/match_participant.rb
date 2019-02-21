@@ -1,14 +1,15 @@
 # == Schema Information
 #
-# Table name: reasons
+# Table name: match_participants
 #
 #  id         :integer          not null, primary key
-#  name       :string
-#  ban_id     :integer
+#  player_id  :integer
+#  match_id   :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Reason < ApplicationRecord
-  belongs_to :ban
+class MatchParticipant < ApplicationRecord
+  belongs_to :player
+  belongs_to :match
 end

@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
   # GET /matches
   # GET /matches.json
   def index
-    @matches = Match.all
+    @matches = Match.paginate(page: params[:page], per_page:5)
   end
 
   # GET /matches/1
@@ -69,6 +69,6 @@ class MatchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def match_params
-      params.require(:match).permit(:description, :duration, :datetime, :organizerid_id)
+      params.require(:match).permit(:description, :duration, :datetime)
     end
 end

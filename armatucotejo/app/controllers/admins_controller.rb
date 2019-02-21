@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
   # GET /admins
   # GET /admins.json
   def index
-    @admins = Admin.all
+    @admin = Admin.paginate(page: params[:page], per_page:5)
   end
 
   # GET /admins/1
@@ -69,6 +69,6 @@ class AdminsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_params
-      params.require(:admin).permit(:name, :username)
+      params.require(:admin).permit(:name, :username, :password)
     end
 end

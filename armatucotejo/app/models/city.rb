@@ -1,14 +1,13 @@
 # == Schema Information
 #
-# Table name: reasons
+# Table name: cities
 #
 #  id         :integer          not null, primary key
 #  name       :string
-#  ban_id     :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
 
-class Reason < ApplicationRecord
-  belongs_to :ban
+class City < ApplicationRecord
+  has_many :locations
 end
