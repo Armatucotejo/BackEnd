@@ -1,2 +1,0 @@
-class Locationsupportssport < ApplicationRecord
-end

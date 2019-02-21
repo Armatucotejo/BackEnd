@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Sports Clubs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Mainaddress</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sports_clubs.each do |sports_club| %>
+      <tr>
+        <td><%= sports_club.mainaddress %></td>
+        <td><%= link_to 'Show', sports_club %></td>
+        <td><%= link_to 'Edit', edit_sports_club_path(sports_club) %></td>
+        <td><%= link_to 'Destroy', sports_club, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sports Club', new_sports_club_path %>
+
+<%= will_paginate @sports_clubs%>
