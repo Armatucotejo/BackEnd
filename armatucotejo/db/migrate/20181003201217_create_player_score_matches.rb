@@ -5,7 +5,7 @@ class CreatePlayerScoreMatches < ActiveRecord::Migration[5.2]
       t.string :playerqualified
       t.integer :scorepuntuality
       t.integer :scorefairplay
-      t.integer :scoretechnique
+      t.integer :score_skill
       t.string :match
 
       t.timestamps
