@@ -1,5 +1,19 @@
 {
-  "name": "armatucotejo",
+  "name": "armaTuCotejo",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@material-ui/core": "^3.9.2",
+    "@rails/webpacker": "3.5",
+    "babel-preset-react": "^6.24.1",
+    "material-ui-pickers": "^2.1.1",
+    "moment": "^2.22.2",
+    "prop-types": "^15.6.2",
+    "react": "^16.8.1",
+    "react-bootstrap": "^0.32.4",
+    "react-dom": "^16.8.1",
+    "react-router-dom": "^4.3.1"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "2.11.2"
+  }
 }

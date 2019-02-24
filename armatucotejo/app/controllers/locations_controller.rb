@@ -4,7 +4,7 @@ class LocationsController < ApplicationController
   # GET /locations
   # GET /locations.json
   def index
-    @locations = Location.all
+    @locations = Location.paginate(page: params[:page], per_page:5)
   end
 
   # GET /locations/1
@@ -69,6 +69,6 @@ class LocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def location_params
-      params.require(:location).permit(:address, :city, :contactnumber, :name)
+      params.require(:location).permit(:address, :contactnumber, :name)
     end
 end

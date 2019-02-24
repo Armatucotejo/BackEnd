@@ -15,6 +15,7 @@ class AdminsTest < ApplicationSystemTestCase
     click_on "New Admin"
 
     fill_in "Name", with: @admin.name
+    fill_in "Password", with: @admin.password
     fill_in "Username", with: @admin.username
     click_on "Create Admin"
 
@@ -27,6 +28,7 @@ class AdminsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Name", with: @admin.name
+    fill_in "Password", with: @admin.password
     fill_in "Username", with: @admin.username
     click_on "Update Admin"
 

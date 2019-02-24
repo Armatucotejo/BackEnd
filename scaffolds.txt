@@ -1,0 +1,17 @@
+ rails g scaffold Admin name:string username:string password:string
+ rails g scaffold Reason name:string
+ rails g scaffold Ban log:string starttime:datetime endtime:datetime   
+ rails g scaffold User email:string password:string name:string username:string
+ rails g scaffold Player score:integer birth:date gender:string cellphone:string
+ rails g scaffold SportInterest
+ rails g scaffold Sport name:string
+ rails g scaffold MatchParticipant
+ rails g scaffold Match description:string duration:integer datetime:datetime
+ rails g scaffold LocationSupportsSport  
+ rails g scaffold Location  address:string contactnumber:string name:string  
+ rails g scaffold City name:string
+ rails g scaffold Sponsor
+ rails g scaffold SportsClub mainaddress:string
+ rails g scaffold SportsStore address:string
+ rails g scaffold SportsSupply name:string
+ rails g scaffold StoreHasSupply

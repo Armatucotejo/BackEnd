@@ -1,13 +1,25 @@
+# == Schema Information
+#
+# Table name: matches
+#
+#  id          :integer          not null, primary key
+#  description :string
+#  duration    :integer
+#  datetime    :datetime
+#  location_id :integer
+#  sport_id    :integer
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
   description: MyString
   duration: 1
-  datetime: 2018-09-18
-  organizerid: one
+  datetime: 2018-09-18 19:51:47
 
 two:
   description: MyString
   duration: 1
-  datetime: 2018-09-18
-  organizerid: two
+  datetime: 2018-09-18 19:51:47
