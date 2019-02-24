@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page], per_page:5)
+    @users = User.paginate(page: params[:page], per_page:80)
   end
 
   # GET /users/1
@@ -47,6 +47,12 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    puts "Holaaaaaaaaaaa"
+    	p = Player.create(gender: "male")
+    	u.username = @user.email
+	    u.name = @user.email
+	    u.user_data_type = "Player"
+	    u.user_data_id = p.id
 
     respond_to do |format|
       if @user.save
