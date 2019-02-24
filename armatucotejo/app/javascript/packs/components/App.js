@@ -8,6 +8,7 @@ import Eventos from './Eventos'
 import Unirse from './Unirse'
 import Contra from './Contra'
 import Perfil from './Perfil'
+import PerfilF from './PerfilF'
 class App extends React.Component{
   render(){
     return(
@@ -21,6 +22,7 @@ class App extends React.Component{
         <Route exact path="/eventos" component={Eventos} />
         <Route exact path="/unirse" component={Unirse} />
         <Route exact path="/perfil" component={Perfil} />
+        <Route exact path="/perfilf" component={PerfilF} />
       </Switch>
     </div>
     )

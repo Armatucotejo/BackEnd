@@ -23,7 +23,7 @@ class Login extends React.Component{
 
 
     const login = (
-  <div className="secondbc col-6 divReg" style={styles}>
+  <div className="secondbc col-8 divReg" style={styles}>
 
     <div className="container containerReg welcomeText">
       <div >
@@ -51,7 +51,7 @@ class Login extends React.Component{
           <Link to="/contra"><h6 className="comfortaa  olvpass"><a>¿Olvidaste tu contraseña?</a></h6></Link>
         </div>
         <div className="col-10 centerdiv inputReg">
-          <Link to="/eventos"><button className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
+          <Link to="/Perfilf"><button className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Registrate Rapido</a>
         </div>
       </div>

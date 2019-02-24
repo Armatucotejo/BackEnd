@@ -28,7 +28,7 @@ class Contra extends React.Component{
             		<h1 className="fivec">Olvidaste tu contra...</h1>
             		<p className=""> Tu cotejo te espera</p>
             		<form>
-            			<input className="firstbc fourc" type="text" placeholder="Su e-mail cotejo@"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your e-mail address';}"></input>
+            			<input className="firstbc fourc" type="text" placeholder="Su e-mail cotejo@"  onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Your e-mail address';}"></input>
             			<input className="buttonReg divReg fivebc secondc" type="submit" value="Recuperar contra coteja"></input>
             		</form>
             	</div>

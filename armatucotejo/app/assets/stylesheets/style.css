@@ -101,6 +101,25 @@ body {
 }
 
 /*AJUSTES*/
+#delBottom{
+	margin-bottom: 0.1em !important;
+}
+
+.buttonAjustes{
+	width: 90%;
+	height: 40px;
+	font-size: 16px !important;
+}
+.buttonEstadisticas{
+	width: 100%;
+	height: 40px;
+	font-size: 16px !important;
+	margin-bottom: 5px !important;
+}
+.divEst{
+	padding-left: 3px !important;
+	padding-right: 3px !important;
+}
 
 .center{
 	text-align: center !important;
@@ -448,4 +467,54 @@ margin-top: 0.3em !important;
 .formulario2{
   font-family: 'Comfortaa', cursive;
   color: #ffffff !important;
+}
 
+.CircularProgressbar {
+	  width: 100%;
+	}
+
+	.CircularProgressbar .CircularProgressbar-path {
+	  stroke: #3e98c7;
+	  stroke-linecap: round;
+	  transition: stroke-dashoffset 0.5s ease 0s;
+	}
+
+	.CircularProgressbar .CircularProgressbar-trail {
+	  stroke: #d6d6d6;
+	}
+
+	.CircularProgressbar .CircularProgressbar-text {
+	  fill: #3e98c7;
+	  font-size: 20px;
+	  dominant-baseline: middle;
+	  text-anchor: middle;
+	}
+
+	.CircularProgressbar .CircularProgressbar-background {
+	  fill: #d6d6d6;
+	}
+
+	/*
+	 * Sample background styles. Use these with e.g.:
+	 *
+	 *   <CircularProgressbar
+	 *     className="CircularProgressbar-inverted"
+	 *     background
+	 *     percentage={50}
+	 *   />
+	 */
+	.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-background {
+	  fill: #3e98c7;
+	}
+
+	.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-text {
+	  fill: #fff;
+	}
+
+	.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-path {
+	  stroke: #fff;
+	}
+
+	.CircularProgressbar.CircularProgressbar-inverted .CircularProgressbar-trail {
+	  stroke: transparent;
+	}
