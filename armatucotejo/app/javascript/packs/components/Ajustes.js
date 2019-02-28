@@ -45,34 +45,37 @@ class Ajustes extends React.Component{
 
 		const pagina = (
 
-			<div className="container">
-				<div className="row">
-					<div className = "col">
-					</div>
+			<div id="containerEven" className="container">
 
-					<div className = "secondbc col-2">
+				<div className="row justify-content-md-center">
+
+					<div className = "secondbc  col col-lg-3">
 							<InfoUsuario/>
+
+					</div>
+					<div className="thirdbc col col-lg-6 justify-content-center divcol inputReg">
+						<div className="row justify-content-center">
+							<img alt="basketballpng1" src={basketballpng} style={styles.contenedor} />
+							<img alt="ciclismopng1" src={ciclismopng} style={styles.contenedor} />
+							<img alt="futballpng1" src={futballpng} style={styles.contenedor} />
+							<img alt="voleyballpng1" src={voleyballpng} style={styles.contenedor} />
+						</div>
+
+							<div className="row divcol inputReg justify-content-center">
+								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Nombre"></input>
+								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Apellido"></input>
+								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Usuario"></input>
+								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="E-mail"></input>
+								<input type="password" class=" comfortaa form-control formReg" id="inputPassword" placeholder="Contraseña"></input>
+								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Celular cotejo"></input>
+								<p><label for="date"class="comfortaa formReg" >Example date</label>  <input type="date" id="date"></input></p>
+								<textarea class="descForm form-control comfortaa" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción"></textarea>
+							</div>
+					</div>
+					<div className="col col-lg-1">
+
 					</div>
 
-					<div className = "thirdbc row-4">
-						<div className="">
-							<img alt="basketballpng1" src={basketballpng} style={styles.basketball} />
-						</div>
-						<div className="">
-							<img alt="ciclismopng1" src={ciclismopng} style={styles.basketball} />
-						</div>
-						<div className="">
-							<img alt="futballpng1" src={futballpng} style={styles.basketball} />
-						</div>
-						<div className="">
-							<img alt="voleyballpng1" src={voleyballpng} style={styles.basketball} />
-						</div>
-					</div>
-
-
-					<div className = "thirdbc col-5">
-          <h2>xd</h2>
-					</div>
 				</div>
 			</div>
 
