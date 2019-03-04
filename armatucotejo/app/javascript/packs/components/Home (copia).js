@@ -27,8 +27,19 @@ class Home extends React.Component{
       <div>
       <Navgbar/>
       {titleHome}
-      <Comentarios/>
-
+      <div className="container">
+        <div className="row">
+          <div className="col-4 justify-content-center">
+          </div>
+          <div className="col-4 justify-content-center">
+          <Login dp={this.state.login} onClick={this.ChangeDiv}/>
+          <Register dp={this.state.reg}/>
+          </div>
+          <div className="col-4 justify-content-center">
+          </div>
+        </div>
+      </div>
+      
       </div>
 		)
 	}
