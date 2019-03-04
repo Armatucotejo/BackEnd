@@ -51,7 +51,6 @@ class Ajustes extends React.Component{
 
 					<div className = "secondbc  col col-lg-3 justify-content-center divcol inputReg">
 							<AjustesUsuario/>
-
 					</div>
 					<div className="thirdbc  col col-lg-4 justify-content-center divcol inputReg">
 						<div id="DeporteAjustes" className="row justify-content-center dep-ajustes">
