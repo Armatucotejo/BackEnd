@@ -1,0 +1,27 @@
+body {
+    /*background-image: url(fondo.png);*/
+		background-color: #E1E6FA !important;
+		background-position: center;
+		background-attachment: fixed;
+		background-size: cover;
+		background-repeat: no-repeat;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		overflow-x:hidden;
+    border: 1 !important;
+    padding: 1 !important;
+}
+#DeporteAjustes{
+  padding-top: .4em;
+  margin: auto;
+  margin-bottom: .4em;
+}
+#InputAjustes{
+  padding-top: .2em;
+  margin: auto;
+  margin-bottom: .5em;
+}
+.dep-ajustes{
+  padding: .1rem 1rem !important;
+}
