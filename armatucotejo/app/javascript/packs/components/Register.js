@@ -1,9 +1,13 @@
+/*global fetch*/
+/*global Headers*/
+/*global Request*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logopng from '../../../assets/images/logo-png.png';
 import logonav from '../../../assets/images/logo-nav.png';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import axios from 'axios';
 
 class Register extends React.Component{
   render(){
@@ -36,37 +40,37 @@ class Register extends React.Component{
 
       <div className="form-group formGReg">
         <div className="col-10 centerdiv inputReg">
-          <input type="name" className="comfortaa form-control formReg" id="inputName" placeholder="Nombres"
+          <input type="name" className="comfortaa form-control formReg" id="inputName" ref="inputName" placeholder="Nombres"
           />
         </div>
         <div className="col-10 centerdiv inputReg">
-          <input type="lastname" className="comfortaa form-control formReg" id="inputLastName" placeholder="Apellidos"
+          <input type="lastname" className="comfortaa form-control formReg" id="inputLastName" ref="inputLastName"  placeholder="Apellidos"
           />
         </div>
 
-        <div className="col-10 centerdiv inputReg">
-          <input type="user" className="comfortaa form-control formReg" id="inputUserName" placeholder="Nombre de Usuario"
+        <div className="col-10 centerdiv inputReg">  
+          <input type="user" className="comfortaa form-control formReg" id="inputUserName" ref="inputUserName"  placeholder="Nombre de Usuario"
           />
         </div>
         <div className="col-10 centerdiv inputReg">
-          <input type="correo" className="comfortaa form-control formReg" id="inputCorreo" placeholder="Correo Electronico"
+          <input type="correo" className="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" placeholder="Correo Electronico"
           />
         </div>
         <div className="col-10 centerdiv inputReg">
-          <input type="correo" className="comfortaa form-control formReg" id="inputCelular" placeholder="Celular"
+          <input type="correo" className="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" placeholder="Celular"
           />
         </div>
         <div className="col-10 centerdiv inputReg">
-          <input type="password" className="comfortaa form-control formReg" id="inputPassword" placeholder="Contraseña"
+          <input type="password" className="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" placeholder="Contraseña"
           />
         </div>
         <div className="col-10 centerdiv inputReg">
-          <input type="password" className="comfortaa form-control formReg" id="inputPasswordC" placeholder="Confirmar Contraseña"
+          <input type="password" className="comfortaa form-control formReg" id="inputPasswordC" ref="inputPasswordC" placeholder="Confirmar Contraseña"
           />
         </div>
         <div className="col-10 centerdiv inputReg birthPicker">
           <form noValidate className="DivInfo">
-            <TextField
+            <TextField ref="date"
               id="date"
               label="Fecha de Nacimiento"
               type="date"
@@ -81,7 +85,7 @@ class Register extends React.Component{
 
 
         <div className="col-10 centerdiv inputReg">
-          <button className="btn comfortaa buttonReg fivebc firstc">Registrar</button>
+          <button className="btn comfortaa buttonReg fivebc firstc" onClick={()=>this.validateSingup()} >Registrar</button>
         </div>
 
         <div className="col-10 centerdiv inputReg">
@@ -101,6 +105,60 @@ class Register extends React.Component{
       </div>
 		)
 	}
+	
+	
+	    validateSingup(){
+        const data = {
+            name: this.refs.inputName.value,
+            lastname: this.refs.inputLastName.value,
+            username: this.refs.inputUserName.value,
+            email: this.refs.inputCorreo.value,
+            celphone: this.refs.inputCelular.value,
+            password: this.refs.inputPassword.value,
+            passwordc: this.refs.inputPasswordC.value,
+            datechoose: this.refs.date.value,
+            user_data_type: "Player",
+            user_data_id :1,
+            date :  new Date(),
+            sender_id: 1
+        }
+        console.log(data);
+        const headers = new Headers();
+        headers.append('Content-Type','application/json');
+        const options = {
+        method: 'POST',
+        headers,
+            body: JSON.stringify(data)
+        }
+        
+//                const options = {
+//  method: 'POST',
+//  headers,
+//  data: JSON.stringify(data),
+//  url :'https://armatucotejo2-pipemax85.c9users.io/users'
+//};
+//axios(options).then(function (response) {
+//    console.log(response);
+//  });
+        
+        
+        const request = new Request('https://armatucotejo2-pipemax85.c9users.io/users',options);
+        fetch(request).then(response => response.json())
+      .then(data => this.setState({ data }));;
+      console.log(this.state);
+        //const status = await response.status;
+        //if(status === 201){
+        //    const response = await fetch('http://127.0.0.1:3060/messages');
+        //    console.log(await response.json());
+        //    window.location.replace("http://127.0.0.1:3000/messages");
+        //}
+        
+        
+        
+
+    }
+	
+	
 }
 
 export default Register

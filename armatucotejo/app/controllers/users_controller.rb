@@ -27,6 +27,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.paginate(page: params[:page], per_page:5)
+    render json: @users, status: :ok
   end
 
   # GET /users/1
@@ -46,6 +47,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
+    puts 'Holaaaaaaaaaaaaaaaaaaaaaaaa'
+    puts user_params
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -91,6 +94,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:email, :password, :name, :username)
+      params.require(:user).permit(:email, :password, :name, :username, :user_data_type, :user_data_id)
     end
 end
