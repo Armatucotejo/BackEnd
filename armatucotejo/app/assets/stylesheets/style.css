@@ -112,8 +112,8 @@ body {
 }
 .buttonEstadisticas{
 	width: 100%;
-	height: 40px;
-	font-size: 16px !important;
+	height: 50px;
+	font-size: 22px !important;
 	margin-bottom: 5px !important;
 }
 .divEst{
@@ -152,8 +152,8 @@ body {
 
 #navlogo{
 	width: 2em;
-	margin-left: 6.5em;
 }
+
 #comencemos{
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
