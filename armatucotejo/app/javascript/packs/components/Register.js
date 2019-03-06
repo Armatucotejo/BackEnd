@@ -9,7 +9,23 @@ class Register extends React.Component{
   render(){
 
     const styles ={
-      display: this.props.dp
+      display: this.props.dp,
+      genero:{
+        fontSize: "14px",
+        marginTop: "6px",
+        marginLeft: "11px",
+        color: "#757d85"
+
+      },
+      divGenero:{
+        justifyContent: "center",
+        marginLeft: "0px",
+        backgroundColor: "white",
+        width: "41%",
+        borderRadius: ".25rem",
+        height: "27px",
+        marginTop: "2px"
+      }
     }
     const styleDP = {
       display: "flex",
@@ -64,13 +80,24 @@ class Register extends React.Component{
           <input type="password" className="comfortaa form-control formReg" id="inputPasswordC" placeholder="Confirmar Contraseña"
           />
         </div>
+        <div className="col-10 row centerdiv inputReg" style={{justifyContent: "center", marginLeft: "4px"}}>
+          <div style={styles.divGenero}>
+          <h1 style={styles.genero} className="comfortaa">Generó</h1>
+          </div>
+          <div style={{width:"49%"}}>
+          <select name="sexo" style={{marginLeft:"6px", width:"113%", fontSize:"16px", height:"31px"}}>
+           <option className="comfortaa" value="volvo">Masculino</option>
+           <option className="comfortaa" value="saab">Femenino</option>
+         </select>
+          </div>
+        </div>
         <div className="col-10 centerdiv inputReg birthPicker">
           <form noValidate className="DivInfo">
             <TextField
               id="date"
               label="Fecha de Nacimiento"
               type="date"
-              defaultValue="2019-01-31"
+              defaultValue="2000-01-01"
               style={styleDP}
               InputLabelProps={{
                 shrink: true,
@@ -81,7 +108,8 @@ class Register extends React.Component{
 
 
         <div className="col-10 centerdiv inputReg">
-          <button className="btn comfortaa buttonReg fivebc firstc">Registrar</button>
+          <button className="btn comfortaa buttonLogin fivebc firstc">Registrar</button>
+          <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Iniciar Sesión</a>
         </div>
 
         <div className="col-10 centerdiv inputReg">

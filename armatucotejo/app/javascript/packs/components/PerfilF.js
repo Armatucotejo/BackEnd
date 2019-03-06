@@ -47,11 +47,11 @@ class PerfilF extends React.Component{
 					<div className = "col">
 					</div>
 
-					<div className = "secondbc col-2">
+					<div className = "secondbc col-2"  style={{borderRadius:"5px"}}>
 							<InfoUsuario/>
 					</div>
 
-					<div className = "thirdbc col-5">
+					<div className = "thirdbc col-5"  style={{borderRadius:"5px"}}>
 							<Estadisticas/>
 					</div>
 					<div className = "col">

@@ -64,6 +64,7 @@ class InfoUsuario extends React.Component{
       <Link to="/">
       <MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="buttonAjustes" >
         Ajustes
+        <i style={{marginLeft:"5px"}} className="material-icons">settings</i>
       </Button></MuiThemeProvider>
       </Link>
       </div>

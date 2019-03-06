@@ -10,10 +10,14 @@ class Home extends React.Component{
   super(props);
   this.state = {login: 'block', reg:'none'};
   this.ChangeDiv = this.ChangeDiv.bind(this);
+  this.ChangeDivL = this.ChangeDivL.bind(this);
 }
 
   ChangeDiv(){
       this.setState({ login: 'none', reg:'block'});
+  }
+  ChangeDivL(){
+      this.setState({ login: 'block', reg:'none'});
   }
 
 
@@ -33,7 +37,7 @@ class Home extends React.Component{
           </div>
           <div className="col-4 justify-content-center">
           <Login dp={this.state.login} onClick={this.ChangeDiv}/>
-          <Register dp={this.state.reg}/>
+          <Register dp={this.state.reg} onClick={this.ChangeDivL}/>
           </div>
           <div className="col-4 justify-content-center">
           </div>

@@ -6,11 +6,12 @@ class Interes extends React.Component{
   render(){
     const styles={
       avatar:{
-        width:"60px",
-        height:"60px",
-        borderRadius: "60px",
+        width:"50px",
+        height:"50px",
+        borderRadius: "50px",
         marginRight: "5px",
         marginBottom: "5px",
+        marginTop: "18px"
       },
       text:{
         fontSize: "16px"
@@ -19,11 +20,8 @@ class Interes extends React.Component{
 
     return(
       <div>
-      <div style={{position:"relative"}}>
+      <div>
         <img alt="Avatar" src={avatar} style={styles.avatar} />
-      </div>
-      <div  style={{position:"absolute"}}>
-        <h1 style={styles.text} className="comfortaa">15</h1>
       </div>
       </div>
     );
