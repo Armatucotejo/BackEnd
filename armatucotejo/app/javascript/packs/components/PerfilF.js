@@ -5,6 +5,7 @@ import logopng from '../../../assets/images/logo-png.png';
 import avatarpng from '../../../assets/images/avatar.png';
 import estrellapng from '../../../assets/images/estrella.png';
 import Navgbar from './Navgbar';
+import Calificacion from './Calificacion';
 
 import InfoUsuario from './InfoUsuario';
 import Estadisticas from './Estadisticas';
@@ -55,6 +56,7 @@ class PerfilF extends React.Component{
 							<Estadisticas/>
 					</div>
 					<div className = "col">
+					    <Calificacion/>
 					</div>
 				</div>
 			</div>

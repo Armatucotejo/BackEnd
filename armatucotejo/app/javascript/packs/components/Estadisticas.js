@@ -91,6 +91,8 @@ class Estadisticas extends React.Component{
 
         </div>
       );
+
+
       const intereses = (
         <div className="row" style={styles.div}>
           <div align="center" className="row col-7" style={styles.interes}>
