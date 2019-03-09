@@ -1,9 +1,9 @@
 import React,{Componente} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import avatar from '../../../assets/images/avatarP.png';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
 class InfoUsuario extends React.Component{
@@ -44,9 +44,15 @@ class InfoUsuario extends React.Component{
             fontSize: "14px",
           }
         },
-
-
       }
+
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          main: '#183152',
+        },
+      },
+    });
 
     return(
     <div align="center" className="col" style={styles.contenedor}>
@@ -55,10 +61,12 @@ class InfoUsuario extends React.Component{
         <h3 id="delBottom" style={styles.text.name} className="comfortaa">{this.state.name}</h3>
         <h3 id="delBottom" style={styles.text.age} className="comfortaa">{this.state.age} Años</h3>
       <div style={styles.button}>
-      <Link to="/"> <Button variant="contained" color="primary" className="buttonAjustes" >
+      <Link to="/">
+      <MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="buttonAjustes" >
         Ajustes
-        <Icon></Icon>
-      </Button></Link>
+        <i style={{marginLeft:"5px"}} className="material-icons">settings</i>
+      </Button></MuiThemeProvider>
+      </Link>
       </div>
     </div>
     );
