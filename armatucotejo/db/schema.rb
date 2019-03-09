@@ -53,8 +53,8 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
     t.string "name"
     t.integer "city_id"
     t.integer "sports_club_id"
-    t.integer "googleMapsX"
-    t.integer "googleMapsY"
+    t.float "googleMapsX"
+    t.float "googleMapsY"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city_id"], name: "index_locations_on_city_id"
