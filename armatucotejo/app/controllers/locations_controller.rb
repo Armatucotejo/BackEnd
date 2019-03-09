@@ -5,7 +5,7 @@ class LocationsController < ApplicationController
   def listAll
     @locations = Location.first
     render json: {
-  park: Location.all
+  Location.all
 }
   end
   # GET /locations
