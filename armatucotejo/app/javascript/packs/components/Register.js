@@ -112,7 +112,7 @@ class Register extends React.Component{
 
 
         <div className="col-10 centerdiv inputReg">
-          <button className="btn comfortaa buttonLogin fivebc firstc">Registrar</button>
+          <button  onClick={()=>this.validateSingup()}  className="btn comfortaa buttonLogin fivebc firstc">Registrar</button>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Iniciar Sesión</a>
         </div>
 
@@ -149,7 +149,7 @@ class Register extends React.Component{
             date :  new Date(),
             sender_id: 1
         }
-        //console.log(data);
+        console.log(data);
         const headers = new Headers();
         headers.append('Content-Type','application/json');
         const options = {
