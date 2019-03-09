@@ -22,4 +22,6 @@ Rails.application.routes.draw do
 
   match 'parks', to: 'locations#listAll', via: :get
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  match 'parks', to: 'locations#listAll', via: :get
 end
