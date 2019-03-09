@@ -17,6 +17,8 @@ class Login extends React.Component{
         <img id="imgLogo" src={logonav} alt="logohome"/>
       </div>
       </div>
+
+
     );
 
 
@@ -28,6 +30,7 @@ class Login extends React.Component{
     <div className="container containerReg welcomeText">
       <div >
       <h1 id="textBienvenido" className="fivec pacifico">Bienvenido</h1>
+
       </div>
       <div>
       <h6 id="textLine" className="fivec carter">Arma tu cotejo en pocos pasos</h6>
@@ -48,7 +51,7 @@ class Login extends React.Component{
         <div className="col-10 centerdiv inputReg">
           <input type="password" className=" comfortaa form-control formReg" id="inputPassword" placeholder="Contraseña"
           />
-          <Link to="/contra"><h6 className="comfortaa  olvpass"><a>¿Olvidaste tu contraseña?</a></h6></Link>
+          <Link to="/contra"><h6 className="comfortaa  olvpass">¿Olvidaste tu contraseña?</h6></Link>
         </div>
         <div className="col-10 centerdiv inputReg">
           <Link to="/Perfilf"><button className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>

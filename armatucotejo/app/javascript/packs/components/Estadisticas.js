@@ -1,11 +1,13 @@
 import React,{Componente} from 'react';
-import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import CircularProgressbar from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import Circular from './CircularEst';
+import Interes from './Interes';
 import { Link } from 'react-router-dom';
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 class Estadisticas extends React.Component{
 
@@ -21,63 +23,113 @@ class Estadisticas extends React.Component{
   }
 
   render(){
+    const styles={
+      contenedor:{
+        margin:"0px auto",
+        paddingBottom: "10px",
+        paddingTop: "18px",
+      },
+      button:{
+        paddingTop: "10px",
+      },
+      interes:{
+        justifyContent: "center",
+        border: "2px solid #183152",
+        borderRadius: "10px",
+        marginLeft: "11px",
+        marginBottom: "4px"
+      },
+      califica:{
+        margin: "auto",
+        padding: "5px",
+        alignItems: "center",
+        justifyContent: "center",
+        border: "2px solid #183152",
+        borderRadius: "10px",
+        marginLeft: "25px",
+        marginBottom: "4px",
+      },
+      div:{
+        marginTop: "5px",
+        marginBottom: "5px",
+      },
+      circular:{
+        justifyContent: "center",
+        border: "2px solid #183152",
+        borderRadius: "10px",
+        marginBottom: "4px",
+        marginLeft: "-3px",
+        marginRight: "1px",
+        paddingTop: "16px",
+      },
+    }
+
+    const theme = createMuiTheme({
+          palette: {
+          primary: {
+          main: '#183152',
+        },
+      },
+  });
 
       const porcentaje = (this.state.valor1*100)/10;
 
       const estadistica = (
-        <div className="row">
+        <div className="row" style={styles.circular}>
           <div className="col">
           <Circular porcentaje={porcentaje} valor={this.state.valor1}/>
-          <p className="comfortaa">Técnica</p>
+          <p className="comfortaa fivec textPuntaje">Técnica</p>
           </div>
           <div className="col">
           <Circular porcentaje={porcentaje} valor={this.state.valor2}/>
-          <p className="comfortaa">Juego Limpio</p>
+          <p className="comfortaa fivec textPuntaje">Juego Limpio</p>
           </div>
           <div className="col">
           <Circular porcentaje={porcentaje} valor={this.state.valor3}/>
-          <p className="comfortaa">Puntualidad</p>
+          <p className="comfortaa fivec textPuntaje">Puntualidad</p>
           </div>
 
         </div>
       );
       const intereses = (
-        <div className="col-8">
-          Ya puedes empezar en un cotejo!
+        <div className="row" style={styles.div}>
+          <div align="center" className="row col-7" style={styles.interes}>
+              <div className="row" style={{height:"0", marginTop:"19px", justifyContent:"center"}}>
+                <h1 style={{fontSize: "20px", marginBottom:"3px"}} className="comfortaa fivec">Historial de Cotejos</h1>
+                <hr style={{height: "2px" ,backgroundColor: "#183152", width:"210px", margin: "0"}}/>
+              </div>
+              <div className="row">
+              <Interes/>
+              <Interes/>
+              <Interes/>
+              <Interes/>
+              </div>
+          </div>
+          <div className="col-4" style={styles.califica}>
+          <Link to="/eventos"><MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="comfortaa buttonAjustes" >
+            Calificar
+            <i style={{marginLeft:"5px"}} className="material-icons">check_circle</i>
+          </Button></MuiThemeProvider></Link>
+          <Link to="/eventos"><MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className=" comfortaa buttonAjustes" >
+            Crear
+            <i style={{marginLeft:"5px"}} className="material-icons">input</i>
+          </Button></MuiThemeProvider></Link>
+          <Link to="/unirse"><MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="comfortaa buttonAjustes" >
+            Unirse
+            <i style={{marginLeft:"5px"}} className="material-icons">search</i>
+          </Button></MuiThemeProvider></Link>
+
+          </div>
+
         </div>
       );
 
-      const styles={
-        contenedor:{
-          margin:"10px auto",
-          paddingBottom: "15px",
-          paddingTop: "15px",
-        },
-        button:{
-          paddingTop: "10px",
-        },
-      }
+
 
     return(
     <div align="center" className="col" style={styles.contenedor}>
       {estadistica}
       {intereses}
-      <div style={styles.button} className="row">
-      <div className="col">
-      </div>
-      <div className="col-5 divEst">
-      <Link to="/unirse"><Button variant="contained" color="primary" className="buttonEstadisticas" >
-        Unirse
-      </Button></Link>
-      </div>
-      <div className="col-5 divEst">
-      <Link to="/eventos"><Button variant="contained" color="primary" className="buttonEstadisticas" >
-        Crear
-      </Button></Link>
-      </div>
-      <div className="col">
-      </div>
-      </div>
     </div>
     );
   }
