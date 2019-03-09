@@ -3,12 +3,13 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import axios from 'axios';
 
 class InfoPartida extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'', data: ["hola"]};
+  this.state = {sport: '', lugar:'', data: []};
   this.handleChange = this.handleChange.bind(this);
   this.handleChangeL = this.handleChangeL.bind(this);
   this.loadData = this.loadData.bind(this);
@@ -22,6 +23,7 @@ class InfoPartida extends React.Component{
   }
 
   render(){
+
     const ranges = [
       {
         value: 'Futbol',
@@ -40,6 +42,7 @@ class InfoPartida extends React.Component{
         label: 'Basketball',
       },
     ];
+
 
     const parques = [
       {
@@ -164,14 +167,13 @@ class InfoPartida extends React.Component{
   }
 
   loadData() {
-  fetch('localhost:3000/parks')
-  .then(response => response.json())
-  .then(data => {
-  this.setState({data: data })
-  })
-  .catch(err => console.error(this.props.url, err.toString()))
-
-  console.log(this.state.data);
+    console.log("response.data");
+    axios.get('http://127.0.0.1:3000/parks')
+    .then(response => {
+      this.setState({data: response.data});
+      console.log(response.data)
+      console.log(this.state.data)
+    });
 }
 
 }

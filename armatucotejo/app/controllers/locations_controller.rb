@@ -3,10 +3,8 @@ class LocationsController < ApplicationController
 
 
   def listAll
-    @locations = Location.first
-    render json: {
-  Location.all
-}
+    @locations = Location.all
+    render :json => @locations
   end
   # GET /locations
   # GET /locations.json
