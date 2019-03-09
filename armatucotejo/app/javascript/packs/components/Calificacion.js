@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Navgbar from './Navgbar';
-import Interes from './Interes';
+import Comentarios from './Comentarios';
 
 class Calificacion extends React.Component{
   render(){
@@ -11,8 +11,8 @@ class Calificacion extends React.Component{
       },
     }
     var lis = [];
-    for (var i=0; i<10; i++) {
-    lis.push(<Interes/>);
+    for (var i=0; i<9; i++) {
+    lis.push(<Comentarios/>);
   }
     return(
 <div style={styles.calificacion} >

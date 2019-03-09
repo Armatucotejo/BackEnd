@@ -133,43 +133,6 @@ class Register extends React.Component{
       </div>
 		)
 	}
-	
-	    validateSingup(){
-        const data = {
-            name: this.refs.inputName.value,
-            lastname: this.refs.inputLastName.value,
-            username: this.refs.inputUserName.value,
-            email: this.refs.inputCorreo.value,
-            celphone: this.refs.inputCelular.value,
-            password: this.refs.inputPassword.value,
-            passwordc: this.refs.inputPasswordC.value,
-            datechoose: this.refs.date.value,
-            user_data_type: "Player",
-            user_data_id :1,
-            date :  new Date(),
-            sender_id: 1
-        }
-        console.log(data);
-        const headers = new Headers();
-        headers.append('Content-Type','application/json');
-        const options = {
-        method: 'POST',
-        headers,
-            body: JSON.stringify(data)
-        }
-        
-        
-      const request = new Request('https://armatucotejo2-pipemax85.c9users.io/users',options);
-        fetch(request)
-        .then(response => response.json())
-      .then(
-        data => console.log(data)
-        );
-      console.log(this.state);
-
-    }
-	
-	
 }
 
 export default Register

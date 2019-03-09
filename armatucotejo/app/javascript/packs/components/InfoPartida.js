@@ -8,9 +8,10 @@ class InfoPartida extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:''};
+  this.state = {sport: '', lugar:'', data: ["hola"]};
   this.handleChange = this.handleChange.bind(this);
   this.handleChangeL = this.handleChangeL.bind(this);
+  this.loadData = this.loadData.bind(this);
 }
 
   handleChange(event) {
@@ -146,7 +147,7 @@ class InfoPartida extends React.Component{
 
     const button = (
       <div>
-        <Link to="/"><button className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button></Link>
+          <button onClick={()=>this.loadData()} className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button>
       </div>
     );
 
@@ -161,6 +162,18 @@ class InfoPartida extends React.Component{
         </div>
     )
   }
+
+  loadData() {
+  fetch('localhost:3000/parks')
+  .then(response => response.json())
+  .then(data => {
+  this.setState({data: data })
+  })
+  .catch(err => console.error(this.props.url, err.toString()))
+
+  console.log(this.state.data);
+}
+
 }
 
 export default InfoPartida;

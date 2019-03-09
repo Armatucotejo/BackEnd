@@ -56,7 +56,7 @@ class PerfilF extends React.Component{
 							<Estadisticas/>
 					</div>
 					<div className = "col">
-					    <Calificacion/>
+					    <Calificacion dp="block"/>
 					</div>
 				</div>
 			</div>

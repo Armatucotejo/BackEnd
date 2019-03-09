@@ -97,4 +97,3 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :name, :username, :user_data_type, :user_data_id, :birth, :gender, :cellphone, :scorepunctuality, :scorefairplay, :scorepunctuality, :score_skill)
     end
-end
