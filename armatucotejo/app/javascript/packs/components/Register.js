@@ -106,7 +106,6 @@ class Register extends React.Component{
 		)
 	}
 	
-	
 	    validateSingup(){
         const data = {
             name: this.refs.inputName.value,
@@ -122,7 +121,7 @@ class Register extends React.Component{
             date :  new Date(),
             sender_id: 1
         }
-        console.log(data);
+        //console.log(data);
         const headers = new Headers();
         headers.append('Content-Type','application/json');
         const options = {
@@ -131,30 +130,14 @@ class Register extends React.Component{
             body: JSON.stringify(data)
         }
         
-//                const options = {
-//  method: 'POST',
-//  headers,
-//  data: JSON.stringify(data),
-//  url :'https://armatucotejo2-pipemax85.c9users.io/users'
-//};
-//axios(options).then(function (response) {
-//    console.log(response);
-//  });
         
-        
-        const request = new Request('https://armatucotejo2-pipemax85.c9users.io/users',options);
-        fetch(request).then(response => response.json())
-      .then(data => this.setState({ data }));;
+      const request = new Request('https://armatucotejo2-pipemax85.c9users.io/users',options);
+        fetch(request)
+        .then(response => response.json())
+      .then(
+        data => console.log(data)
+        );
       console.log(this.state);
-        //const status = await response.status;
-        //if(status === 201){
-        //    const response = await fetch('http://127.0.0.1:3060/messages');
-        //    console.log(await response.json());
-        //    window.location.replace("http://127.0.0.1:3000/messages");
-        //}
-        
-        
-        
 
     }
 	
