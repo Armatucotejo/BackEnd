@@ -25,7 +25,7 @@ Sport.create(name: "Ultimate")
 	u.email = Faker::Internet.email
 	u.password = Faker::Hacker.say_something_smart
 	u.username = Faker::Games::SuperSmashBros.fighter
-	u.name = Faker::HarryPotter.character
+	u.name = Faker::Name.name
 	u.user_data_type = "Player"
 	u.user_data_id = p.id
 	u.save
