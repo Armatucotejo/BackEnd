@@ -61,14 +61,14 @@ class Ajustes extends React.Component{
 						</div>
 
 							<div id="InputAjustes" className="row  justify-content-center thirdbc">
-								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Nombre"></input>
-								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Apellido"></input>
-								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Usuario"></input>
-								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="E-mail"></input>
-								<input type="password" class=" comfortaa form-control formReg" id="inputPassword" placeholder="Contraseña"></input>
-								<input type="name" class="comfortaa form-control formReg" id="inputUserName" placeholder="Celular cotejo"></input>
-								<p><label for="date"class="comfortaa formReg birthPicker" >Fecha de nacimiento</label>  <input type="date" id="date"></input></p>
-								<textarea class="descForm form-control comfortaa" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción"></textarea>
+								<input type="name" class="comfortaa form-control formReg" id="inputName" ref="inputName" placeholder="Nombre"></input>
+								<input type="lastname" class="comfortaa form-control formReg" id="inputLastName" ref="inputLastName" placeholder="Apellido"></input>
+								<input type="user" class="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" placeholder="Usuario"></input>
+								<input type="correo" class="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" placeholder="E-mail"></input>
+								<input type="password" class="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" placeholder="Contraseña"></input>
+								<input type="celular" class="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" placeholder="Celular cotejo"></input>
+								<p><label for="date"class="comfortaa formReg" >Fecha de nacimiento</label>  <input type="date" id="date" ref="date"></input></p>
+								<textarea class="descForm form-control comfortaa" id="FormControlTextarea1" rows="3" ref="inputDescription" placeholder="Descripción"></textarea>
 							</div>
 					</div>
 					<div className="col col-lg-1">
@@ -80,8 +80,6 @@ class Ajustes extends React.Component{
 
 
 		);
-
-
 		return(
 			<div>
 			<Navgbar/>
@@ -89,7 +87,37 @@ class Ajustes extends React.Component{
 			{pagina}
 			</div>
 		);
+
+
 	}
+	validateSingup(){
+		const data = {
+				name: this.refs.inputName.value,
+				lastname: this.refs.inputLastName.value,
+				username: this.refs.inputUserName.value,
+				email: this.refs.inputCorreo.value,
+				celphone: this.refs.inputCelular.value,
+				password: this.refs.inputPassword.value,
+				datechoose: this.refs.date.value
+		}
+		console.log(data);
+		const headers = new Headers();
+		headers.append('Content-Type','application/json');
+		const options = {
+		method: 'POST',
+		headers,
+				body: JSON.stringify(data)
+		}
+
+
+		const request = new Request('../users',options);
+		fetch(request).then(response => response.json())
+	.then(data => this.setState({ data }));;
+	console.log(this.state);
+
+}
+
+
 }
 
 

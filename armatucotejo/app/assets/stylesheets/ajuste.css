@@ -9,8 +9,8 @@ body {
 		-moz-background-size: cover;
 		-o-background-size: cover;
 		overflow-x:hidden;
-    border: 1 !important;
-    padding: 1 !important;
+    border: 2 !important;
+    padding: 2 !important;
 }
 #DeporteAjustes{
   padding-top: .4em;

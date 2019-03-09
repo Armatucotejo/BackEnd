@@ -55,7 +55,7 @@ class AjustesUsuario extends React.Component{
         <h3 id="delBottom" style={styles.text.name} className="comfortaa">{this.state.name}</h3>
         <h3 id="delBottom" style={styles.text.age} className="comfortaa">{this.state.age} Años</h3>
       <div style={styles.button}>
-      <Link to="/ajustes"> <Button variant="contained" color="primary" className="buttonAjustes" >
+      <Link to="/ajustes"> <Button variant="contained" color="primary" className="buttonGuardar" onClick={()=>this.validateSingup()} >
         Guardar
         <Icon></Icon>
       </Button></Link>
