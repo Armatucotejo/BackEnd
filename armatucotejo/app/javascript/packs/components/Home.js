@@ -3,6 +3,7 @@ import Navgbar from './Navgbar';
 import { Link } from 'react-router-dom';
 import Login from './Login';
 import Register from './Register';
+import axios from 'axios';
 
 class Home extends React.Component{
 
@@ -10,8 +11,7 @@ class Home extends React.Component{
   super(props);
   this.state = {login: 'block', reg:'none'};
   this.ChangeDiv = this.ChangeDiv.bind(this);
-  this.ChangeDivL = this.ChangeDivL.bind(this);
-}
+  this.ChangeDivL = this.ChangeDivL.bind(this);}
 
   ChangeDiv(){
       this.setState({ login: 'none', reg:'block'});
