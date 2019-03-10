@@ -158,7 +158,7 @@ class Register extends React.Component{
   }
 
 
-  const request = new Request('https://armatucotejo2-pipemax85.c9users.io/users',options);
+  const request = new Request('http://127.0.0.1:3000/users',options);
   fetch(request)
   .then(response => response.json())
   .then(

@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page], per_page:5)
+    @users = User.paginate(page: params[:page], per_page:50)
     render json: @users, status: :ok
   end
 
@@ -97,3 +97,4 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:email, :password, :name, :username, :user_data_type, :user_data_id, :birth, :gender, :cellphone, :scorepunctuality, :scorefairplay, :scorepunctuality, :score_skill)
     end
+  end
