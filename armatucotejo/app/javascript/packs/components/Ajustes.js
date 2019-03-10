@@ -16,7 +16,7 @@ class Ajustes extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state={ userName: "Mierda"};
+		this.state={ userName: "ARMATUCTEJO"};
 		}
 
 	render(){

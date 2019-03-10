@@ -44,6 +44,32 @@ class Unirse extends React.Component{
 
   		)
   	}
+    validateSingup(){
+  		const data = {
+  				name: this.refs.inputName.value,
+  				lastname: this.refs.inputLastName.value,
+  				username: this.refs.inputUserName.value,
+  				email: this.refs.inputCorreo.value,
+  				celphone: this.refs.inputCelular.value,
+  				password: this.refs.inputPassword.value,
+  				datechoose: this.refs.date.value
+  		}
+  		console.log(data);
+  		const headers = new Headers();
+  		headers.append('Content-Type','application/json');
+  		const options = {
+  		method: 'POST',
+  		headers,
+  				body: JSON.stringify(data)
+  		}
+
+
+  		const request = new Request('../users',options);
+  		fetch(request).then(response => response.json())
+  	.then(data => this.setState({ data }));;
+  	console.log(this.state);
+
+  }
   }
 
 export default Unirse
