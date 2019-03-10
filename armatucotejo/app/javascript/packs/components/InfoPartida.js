@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-
+import axios from 'axios';
 class InfoPartida extends React.Component{
 
   constructor(props) {
@@ -146,7 +146,7 @@ class InfoPartida extends React.Component{
 
     const button = (
       <div>
-        <Link to="/"><button className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button></Link>
+        <Link to="/perfilf"><button className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button></Link>
       </div>
     );
 

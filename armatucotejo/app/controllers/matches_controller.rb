@@ -5,6 +5,7 @@ class MatchesController < ApplicationController
   # GET /matches.json
   def index
     @matches = Match.paginate(page: params[:page], per_page:5)
+    ender json: @marches, status: :ok
   end
 
   # GET /matches/1
@@ -24,6 +25,8 @@ class MatchesController < ApplicationController
   # POST /matches
   # POST /matches.json
   def create
+    puts 'CREADO CORRECTAMENE'
+    puts match_params
     @match = Match.new(match_params)
 
     respond_to do |format|

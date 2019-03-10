@@ -64,7 +64,7 @@ class Register extends React.Component{
           />
         </div>
 
-        <div className="col-10 centerdiv inputReg">  
+        <div className="col-10 centerdiv inputReg">
           <input type="user" className="comfortaa form-control formReg" id="inputUserName" ref="inputUserName"  placeholder="Nombre de Usuario"
           />
         </div>
@@ -133,7 +133,7 @@ class Register extends React.Component{
       </div>
 		)
 	}
-	
+
 	    validateSingup(){
         const data = {
             name: this.refs.inputName.value,
@@ -157,9 +157,9 @@ class Register extends React.Component{
         headers,
             body: JSON.stringify(data)
         }
-        
-        
-      const request = new Request('https://armatucotejo2-pipemax85.c9users.io/users',options);
+
+
+      const request = new Request('../users',options);
         fetch(request)
         .then(response => response.json())
       .then(
@@ -168,8 +168,8 @@ class Register extends React.Component{
       console.log(this.state);
 
     }
-	
-	
+
+
 }
 
 export default Register
