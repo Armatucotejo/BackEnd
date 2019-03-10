@@ -11,6 +11,11 @@ body {
 		overflow-x:hidden;
 }
 
+.textos{
+	margin: 0;
+
+}
+
 /*BARRA NAVEGACION*/
 .navfont{
 	font-family: 'Comfortaa', cursive;
@@ -127,7 +132,10 @@ body {
 .separador{
 	padding: 1em;
 }
-
+.bloque{
+          margin-right: auto;
+          align-self: center;
+}
 
 /*FUENTES*/
 .comfortaa{
@@ -468,6 +476,8 @@ margin-top: 0.3em !important;
   font-family: 'Comfortaa', cursive;
   color: #ffffff !important;
 }
+
+
 
 .CircularProgressbar {
 	  width: 100%;
