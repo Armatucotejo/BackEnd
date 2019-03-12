@@ -89,9 +89,9 @@ class Register extends React.Component{
           <h1 style={styles.genero} className="comfortaa">Generó</h1>
           </div>
           <div style={{width:"49%"}}>
-          <select name="sexo" style={{marginLeft:"6px", width:"113%", fontSize:"16px", height:"31px"}}>
-           <option className="comfortaa" value="volvo">Masculino</option>
-           <option className="comfortaa" value="saab">Femenino</option>
+          <select  style={{marginLeft:"6px", width:"113%", fontSize:"16px", height:"31px"}}>
+           <option className="comfortaa" value="masculino">Masculino</option>
+           <option className="comfortaa" value="femenino">Femenino</option>
          </select>
           </div>
         </div>

@@ -14,10 +14,19 @@ class PerfilF extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state={ comentarios: "none"};
+		this.state={ comentarios: "none", data:[], name:"", username:""};
 	  this.ChangeDiv = this.ChangeDiv.bind(this);
 		this.ChangeDivN = this.ChangeDivN.bind(this);
-		}
+		axios.get('http://127.0.0.1:3000/users')
+		.then(response => {
+			this.setState({data: response.data});
+			console.log(this.state.data[2])
+			let name = this.state.data[this.state.data.length-1].name;
+			let username = this.state.data[this.state.data.length-1].username;
+			this.setState({name: name, username: username})
+			console.log(this.state.lugares)
+		});
+	}
 
 		ChangeDiv(){
 				this.setState({ comentarios: 'block'});
@@ -59,7 +68,7 @@ class PerfilF extends React.Component{
 					</div>
 
 					<div className = "secondbc col-2"  style={{borderRadius:"5px",height: "340px"}}>
-							<InfoUsuario/>
+							<InfoUsuario username={this.state.username} name={this.state.name}/>
 					</div>
 
 					<div className = "thirdbc col-5"  style={{borderRadius:"5px",height: "340px"}}>
