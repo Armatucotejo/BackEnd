@@ -26,6 +26,7 @@ class PlayersController < ApplicationController
     @players = Player.where(scorefairplay: score)
   end
 
+
   # GET /players
   # GET /players.json
   def index
@@ -87,9 +88,9 @@ class PlayersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  
-  def joinEvent 
+
+
+  def joinEvent
     params.require(:username)
     params.require(:event_id)
     @user = ::User.where(username: params[:username]).first
@@ -97,7 +98,7 @@ class PlayersController < ApplicationController
     @match_participant = MatchParticipant.create(player_id: @player.id, match_id: params[:event_id])
   end
 
-  def createEvent 
+  def createEvent
     params.require(:username)
     params.require(:sport)
     params.require(:location_id)
@@ -138,7 +139,7 @@ class PlayersController < ApplicationController
       params.require(:player).permit(:birth, :gender, :cellphone, :scorepunctuality, :scorefairplay, :score_skill)
 
     end
-    
-    
+
+
 
 end

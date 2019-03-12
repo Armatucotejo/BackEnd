@@ -21,7 +21,7 @@ class Login extends React.Component{
   }
 
 
-  const request = new Request('http://127.0.0.1:3000/loginown',options);
+  const request = new Request('http://127.0.0.1:3000/users',options);
   fetch(request)
   .then(response => response.json())
   .then(
