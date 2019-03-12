@@ -1,19 +1,19 @@
 import React,{Componente} from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import avatar from '../../../assets/images/avatarP.png';
+import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 
-class InfoUsuario extends React.Component{
+class AjustesUsuario extends React.Component{
 
   constructor(props){
     super(props);
     this.state = {
-        username:"AndresF09",
-        name: "Andres Felipe Cardenas",
-        age: 24,
+        username:"PepitoPrepa13",
+        name: "Pepito Preparatoria",
+        age: 20,
     };
   }
 
@@ -44,15 +44,9 @@ class InfoUsuario extends React.Component{
             fontSize: "14px",
           }
         },
-      }
 
-    const theme = createMuiTheme({
-      palette: {
-        primary: {
-          main: '#183152',
-        },
-      },
-    });
+
+      }
 
     return(
     <div align="center" className="col" style={styles.contenedor}>
@@ -61,16 +55,14 @@ class InfoUsuario extends React.Component{
         <h3 id="delBottom" style={styles.text.name} className="comfortaa">{this.state.name}</h3>
         <h3 id="delBottom" style={styles.text.age} className="comfortaa">{this.state.age} Años</h3>
       <div style={styles.button}>
-      <Link to="/ajustes">
-      <MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="buttonAjustes" >
-        Ajustes
-        <i style={{marginLeft:"5px"}} className="material-icons">settings</i>
-      </Button></MuiThemeProvider>
-      </Link>
+      <Link to="/ajustes"> <Button variant="contained" color="primary" className="buttonGuardar" onClick={()=>this.validateSingup()} >
+        Guardar
+        <Icon></Icon>
+      </Button></Link>
       </div>
     </div>
     );
   }
 }
 
-export default InfoUsuario;
+export default AjustesUsuario;

@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
     t.datetime "datetime"
     t.integer "location_id"
     t.integer "sport_id"
+    t.integer "organizer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_matches_on_location_id"
