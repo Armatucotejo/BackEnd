@@ -33,4 +33,5 @@ Rails.application.routes.draw do
   match 'change_username', to: 'users#changeUsername', via: :post
   match 'change_email', to: 'users#changeEmail', via: :post
 
+
 end

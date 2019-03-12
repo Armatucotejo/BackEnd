@@ -7,7 +7,6 @@ class CreateMatches < ActiveRecord::Migration[5.2]
 
       t.integer :location_id
       t.integer :sport_id
-      t.integer :organizer_id
 
       t.timestamps
     end
