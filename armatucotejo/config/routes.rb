@@ -22,7 +22,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   match 'parks', to: 'locations#listAll', via: :get
-  
   match 'join_event', to: 'players#joinEvent', via: :post
   match 'create_event', to: 'players#createEvent', via: :post
 
@@ -32,6 +31,5 @@ Rails.application.routes.draw do
   match 'change_name', to: 'users#changeName', via: :post
   match 'change_username', to: 'users#changeUsername', via: :post
   match 'change_email', to: 'users#changeEmail', via: :post
-
 
 end
