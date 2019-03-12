@@ -5,6 +5,7 @@ import logopng from '../../../assets/images/logo-png.png';
 import avatarpng from '../../../assets/images/avatar.png';
 import estrellapng from '../../../assets/images/estrella.png';
 import Navgbar from './Navgbar';
+import Calificacion from './Calificacion';
 
 import InfoUsuario from './InfoUsuario';
 import Estadisticas from './Estadisticas';
@@ -13,7 +14,16 @@ class PerfilF extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state={ userName: "Mierda"};
+		this.state={ comentarios: "none"};
+	  this.ChangeDiv = this.ChangeDiv.bind(this);
+		this.ChangeDivN = this.ChangeDivN.bind(this);
+		}
+
+		ChangeDiv(){
+				this.setState({ comentarios: 'block'});
+		}
+		ChangeDivN(){
+				this.setState({ comentarios: 'none'});
 		}
 
 	render(){
@@ -28,6 +38,7 @@ class PerfilF extends React.Component{
 				paddingTop: "40px",
 			}
 		}
+
 
 
 		const logo = (
@@ -47,14 +58,15 @@ class PerfilF extends React.Component{
 					<div className = "col">
 					</div>
 
-					<div className = "secondbc col-2"  style={{borderRadius:"5px"}}>
+					<div className = "secondbc col-2"  style={{borderRadius:"5px",height: "340px"}}>
 							<InfoUsuario/>
 					</div>
 
-					<div className = "thirdbc col-5"  style={{borderRadius:"5px"}}>
-							<Estadisticas/>
+					<div className = "thirdbc col-5"  style={{borderRadius:"5px",height: "340px"}}>
+							<Estadisticas onClick={this.ChangeDiv}/>
 					</div>
 					<div className = "col">
+					    <Calificacion dp={this.state.comentarios} onClick={this.ChangeDivN}/>
 					</div>
 				</div>
 			</div>

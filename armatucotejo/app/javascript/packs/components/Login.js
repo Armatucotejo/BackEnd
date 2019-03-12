@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logopng from '../../../assets/images/logo-png.png';
 import logonav from '../../../assets/images/logo-nav.png';
 
+
 class Login extends React.Component{
 
     render(){
@@ -69,6 +70,7 @@ class Login extends React.Component{
       <div>
         {logo}
         {login}
+
       </div>
     )
   }

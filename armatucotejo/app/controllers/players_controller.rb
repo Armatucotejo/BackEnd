@@ -26,6 +26,44 @@ class PlayersController < ApplicationController
     @players = Player.where(scorefairplay: score)
   end
 
+  def joinEvent 
+    params.require(:username)
+    params.require(:event_id)
+    @user = ::User.where(username: params[:username]).first
+    @player = Player.find_by(id: @user.user_data_id)
+    @match_participant = MatchParticipant.create(player_id: @player.id, match_id: params[:event_id])
+  end
+
+
+  def createEvent 
+    params.require(:username)
+    params.require(:sport)
+    params.require(:location_id)
+    @user = ::User.where(username: params[:username]).first
+    @sport = ::Sport.find_by(name: params[:sport])
+    @match_participant = Match.create(location_id: params[:location_id], sport_id: @sport.id, organizer_id: @user.id)
+  end
+
+
+  def changeGender
+    params.require(:username)
+    params.require(:new_gender)
+    @user = ::User.where(username: params[:username]).first
+    @player = Player.find_by(id: @user.user_data_id)
+    @player.gender = params[:new_gender]
+    @player.save
+  end
+
+
+  def changeCellphone
+    params.require(:username)
+    params.require(:new_cellphone)
+    @user = ::User.where(username: params[:username]).first
+    @player = Player.find_by(id: @user.user_data_id)
+    @player.cellphone = params[:new_cellphone]
+    @player.save
+  end
+
   # GET /players
   # GET /players.json
   def index

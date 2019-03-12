@@ -8,6 +8,8 @@
 #  name           :string
 #  city_id        :integer
 #  sports_club_id :integer
+#  googleMapsX    :float
+#  googleMapsY    :float
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

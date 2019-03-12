@@ -91,6 +91,8 @@ class Estadisticas extends React.Component{
 
         </div>
       );
+
+
       const intereses = (
         <div className="row" style={styles.div}>
           <div align="center" className="row col-7" style={styles.interes}>
@@ -106,10 +108,12 @@ class Estadisticas extends React.Component{
               </div>
           </div>
           <div className="col-4" style={styles.califica}>
-          <Link to="/eventos"><MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="comfortaa buttonAjustes" >
+          <div onClick={this.props.onClick}>
+          <MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="comfortaa buttonAjustes" >
             Calificar
             <i style={{marginLeft:"5px"}} className="material-icons">check_circle</i>
-          </Button></MuiThemeProvider></Link>
+          </Button></MuiThemeProvider>
+          </div>
           <Link to="/eventos"><MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className=" comfortaa buttonAjustes" >
             Crear
             <i style={{marginLeft:"5px"}} className="material-icons">input</i>

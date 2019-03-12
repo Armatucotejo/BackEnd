@@ -5,10 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Admin.create(password: "123456789",
+Admin.create(#password: "123456789",
     username: "backAdmin",
     name: "Backy, the Admin")
-Admin.create(password: "123456789",
+Admin.create(#password: "123456789",
     username: "frontAdmin",
     name: "Fronter, the Admin")
 
@@ -30,6 +30,7 @@ Sport.create(name: "Ultimatee")
 	u.user_data_id = p.id
 	u.save
 end
+
 
 City.create(name: "Bogota")
 
@@ -144,3 +145,5 @@ Location.create(name: " Parque Zonal  SAUZALITO ", googleMapsX: 4.65389276003262
 Location.create(name: " Parque Zonal  SUCRE O HIPPIES ", googleMapsX: 4.645523230166474, googleMapsY: -74.06250676092569, city_id: 1 )
 Location.create(name: " Parque Zonal  SERVITA ", googleMapsX: 4.741786468127493, googleMapsY: -74.02570926928962, city_id: 1 )
 Location.create(name: " Parque Zonal  ALTA BLANCA ", googleMapsX: 4.733602437856079, googleMapsY: -74.02821944586297, city_id: 1 )
+
+Match.create(location_id: 1, sport_id: 1, organizer_id: 1)
