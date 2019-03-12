@@ -17,7 +17,7 @@ class Eventos extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'Ninguno', data: [], lugares:[], lat:[], lon:[]};
+  this.state = {sport: '', lugar:'Ninguno', data: [], lugares:[], lat:[], lon:[], idLugar:''};
   this.handleChange = this.handleChange.bind(this);
   this.handleChangeL = this.handleChangeL.bind(this);
   axios.get('http://127.0.0.1:3000/parks')
@@ -88,10 +88,11 @@ class Eventos extends React.Component{
   }
 
   handleChange(event) {
-    this.setState({sport: event.target.value});
+    this.setState({sport: event.target.value });
   }
   handleChangeL(event) {
     this.setState({lugar: event.target.value});
+    console.log(this.state.lugar)
   }
 
   render(){
@@ -209,7 +210,7 @@ class Eventos extends React.Component{
 
       const button = (
         <div>
-            <button className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button>
+            <button onClick={()=>this.validateSingup()} className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button>
         </div>
       );
 
@@ -247,6 +248,46 @@ class Eventos extends React.Component{
       </div>
 		)
 }
+
+
+validateSingup(){
+
+var locationId = ""
+
+  for(var j = 0; j < this.state.data.length; j++){
+    if(this.state.data[j].name == this.state.lugar){
+      locationId = this.state.data[j].id
+    }
+}
+
+
+const data = {
+username: "PhillBill",
+sport: this.state.sport,
+locationId: locationId,
+
+}
+
+console.log(data);
+const headers = new Headers();
+headers.append('Content-Type','application/json');
+const options = {
+method: 'POST',
+headers,
+body: JSON.stringify(data)
+}
+
+
+const request = new Request('http://127.0.0.1:3000/create_event ',options);
+fetch(request)
+.then(response => response.json())
+.then(
+data => console.log(data)
+);
+console.log(this.state);
+
+}
+
 }
 
 export default Eventos

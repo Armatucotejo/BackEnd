@@ -19,68 +19,37 @@ class Comentarios extends React.Component{
         tecnica: "",
         juego: " ",
         puntualidad: "",
-        open: false,
-        openJ: false,
-        openP: false,
     };
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClose = this.handleClose.bind(this);
-    this.handleOpen = this.handleOpen.bind(this);
-    this.handleChangeJ = this.handleChangeJ.bind(this);
-    this.handleCloseJ = this.handleCloseJ.bind(this);
-    this.handleOpenJ = this.handleOpenJ.bind(this);
-    this.handleChangeP = this.handleChangeP.bind(this);
-    this.handleCloseP = this.handleCloseP.bind(this);
-    this.handleOpenP = this.handleOpenP.bind(this);
   };
 
-  handleChange(event){
-    this.setState({ tecnica: event.target.value });
-  };
-
-  handleClose(){
-    this.setState({ open: false });
-  };
-
-  handleOpen(){
-    this.setState({ open: true });
-  };
-
-  handleChangeJ(event){
-    this.setState({ juego: event.target.value });
-  };
-
-  handleCloseJ(){
-    this.setState({ openJ: false });
-  };
-
-  handleOpenJ(){
-    this.setState({ openJ: true });
-  };
-  handleChangeP(event){
-    this.setState({ puntualidad: event.target.value });
-  };
-
-  handleCloseP(){
-    this.setState({ openP: false });
-  };
-
-  handleOpenP(){
-    this.setState({ openP: true });
-  };
 
 
 
   render(){
       const styles={
         avatar:{
-          width:"20px",
-          height:"20px",
+          width:"30px",
+          height:"30px",
           borderRadius: "20px",
           paddingBottom: "1px",
         },
         button:{
           paddingTop: "1px",
+        },
+        label:{
+          fontSize: "9px",
+          marginBottom: "0",
+          marginTop: "5px",
+        },
+        input:{
+          width: "39px",
+          height: "30px",
+          fontSize: "16px",
+        },
+        divavatar:{
+          marginTop: "9px",
+          marginLeft: "5px",
+          marginRight: "5px"
         },
 
       }
@@ -88,77 +57,21 @@ class Comentarios extends React.Component{
     return(
     <div className="container secondbc">
       <div className="row">
-        <div className="">
+        <div className="" style={styles.divavatar}>
           <img alt="Avatar" src={avatar} style={styles.avatar} />
         </div>
-        <div className="">
-        <form autoComplete="off">
-        <FormControl>
-          <InputLabel htmlFor="demo-controlled-open-select">Tecníca</InputLabel>
-          <Select
-            open={this.state.open}
-            onClose={this.handleClose}
-            onOpen={this.handleOpen}
-            value={this.state.tecnica}
-            onChange={this.handleChange}
-            inputProps={{
-              name: 'tecnica',
-              id: 'demo-controlled-open-select',
-            }}
-          >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </form>
+        <div className="" align="center" style={{marginRight:"15px"}}>
+        <h5 className="comfortaa" style={styles.label}>Tecníca</h5>
+            <input  style={styles.input}  className="dato" type="number" placeholder="0"  min="1" max ="10"></input>
         </div>
-        <div className="">
-        <form autoComplete="off">
-        <FormControl>
-          <InputLabel htmlFor="demo-controlled-open-select">Juego Limpio</InputLabel>
-          <Select
-            open={this.state.openJ}
-            onClose={this.handleCloseJ}
-            onOpen={this.handleOpenJ}
-            value={this.state.juego}
-            onChange={this.handleChangeJ}
-            inputProps={{
-              name: 'juego',
-              id: 'demo-controlled-open-select',
-            }}
-          >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </form>
+        <div className="" align="center" style={{marginRight:"5px"}}>
+        <h5 className="comfortaa"  style={styles.label}>Fairplay</h5>
+            <input  style={styles.input} className="dato" type="number" placeholder="0"  min="1" max ="10"></input>
         </div>
-        <div className="">
-        <form autoComplete="off">
-        <FormControl>
-          <InputLabel htmlFor="demo-controlled-open-select">Puntualidad</InputLabel>
-          <Select
-            open={this.state.openP}
-            onClose={this.handleCloseP}
-            onOpen={this.handleOpenP}
-            value={this.state.puntualidad}
-            onChange={this.handleChangeP}
-            inputProps={{
-              name: 'puntualidad',
-              id: 'demo-controlled-open-select',
-            }}
-          >
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-        </FormControl>
-      </form>
+        <div className="" align="center">
+        <h5 className="comfortaa"  style={styles.label}>Puntualidad</h5>
+          <input  style={styles.input} className="dato" type="number" placeholder="0" min="1" max ="10"></input>
         </div>
-
-
 </div>
 </div>
 
