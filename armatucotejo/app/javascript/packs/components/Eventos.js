@@ -210,7 +210,7 @@ class Eventos extends React.Component{
 
       const button = (
         <div>
-            <button onClick={()=>this.validateSingup()} className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button>
+            <Link to="/eventoOn"><button onClick={()=>this.validateSingup()} className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button></Link>
         </div>
       );
 
