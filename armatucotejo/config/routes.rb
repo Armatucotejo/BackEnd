@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'pages#index'
   resources :sports_clubs
   resources :players
@@ -24,7 +23,6 @@ Rails.application.routes.draw do
 
   match 'parks', to: 'locations#listAll', via: :get
   match 'join_event', to: 'players#joinEvent', via: :post
-  match 'create_event', to: 'players#createEvent', via: :post
 
   match 'change_gender', to: 'players#changeGender', via: :post
   match 'change_cellphone', to: 'players#changeCellphone', via: :post

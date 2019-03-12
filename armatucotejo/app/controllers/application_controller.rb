@@ -1,6 +1,5 @@
-
-
 class ApplicationController < ActionController::Base
+<<<<<<< HEAD
      #protect_from_forgery with: :exception
 
      #before_action :configure_permitted_parameters, if: :devise_controller?
@@ -16,4 +15,6 @@ skip_before_action :verify_authenticity_token
 
 	  end
 
+=======
+>>>>>>> parent of b79408a... Devise almost implemented
 end

@@ -34,17 +34,6 @@ class PlayersController < ApplicationController
     @match_participant = MatchParticipant.create(player_id: @player.id, match_id: params[:event_id])
   end
 
-
-  def createEvent 
-    params.require(:username)
-    params.require(:sport)
-    params.require(:location_id)
-    @user = ::User.where(username: params[:username]).first
-    @sport = ::Sport.find_by(name: params[:sport])
-    @match_participant = Match.create(location_id: params[:location_id], sport_id: @sport.id, organizer_id: @user.id)
-  end
-
-
   def changeGender
     params.require(:username)
     params.require(:new_gender)
