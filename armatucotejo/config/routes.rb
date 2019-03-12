@@ -25,4 +25,11 @@ Rails.application.routes.draw do
   match 'parks', to: 'locations#listAll', via: :get
   match 'join_event', to: 'players#joinEvent', via: :post
 
+  match 'change_gender', to: 'players#changeGender', via: :post
+  match 'change_cellphone', to: 'players#changeCellphone', via: :post
+
+  match 'change_name', to: 'users#changeName', via: :post
+  match 'change_username', to: 'users#changeUsername', via: :post
+  match 'change_email', to: 'users#changeEmail', via: :post
+
 end

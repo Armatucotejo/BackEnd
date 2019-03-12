@@ -30,12 +30,29 @@ class PlayersController < ApplicationController
     params.require(:username)
     params.require(:event_id)
     @user = ::User.where(username: params[:username]).first
-puts "lol"
-puts params[:username]
-puts @user
     @player = Player.find_by(id: @user.user_data_id)
     @match_participant = MatchParticipant.create(player_id: @player.id, match_id: params[:event_id])
   end
+
+  def changeGender
+    params.require(:username)
+    params.require(:new_gender)
+    @user = ::User.where(username: params[:username]).first
+    @player = Player.find_by(id: @user.user_data_id)
+    @player.gender = params[:new_gender]
+    @player.save
+  end
+
+
+  def changeCellphone
+    params.require(:username)
+    params.require(:new_cellphone)
+    @user = ::User.where(username: params[:username]).first
+    @player = Player.find_by(id: @user.user_data_id)
+    @player.cellphone = params[:new_cellphone]
+    @player.save
+  end
+
   # GET /players
   # GET /players.json
   def index
