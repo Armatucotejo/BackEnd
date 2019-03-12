@@ -86,11 +86,39 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  
+  def changeName
+    params.require(:username)
+    params.require(:new_name)
+    @user = ::User.where(username: params[:username]).first
+    @user.name = params[:new_name]
+    @user.save
+  end
+
+
+  def changeUsername
+    params.require(:username)
+    params.require(:new_username)
+    @user = ::User.where(username: params[:username]).first
+    @user.username = params[:new_username]
+    @user.save
+  end
+
+  def changeEmail
+    params.require(:username)
+    params.require(:new_email)
+    @user = ::User.where(username: params[:username]).first
+    @user.email = params[:new_email]
+    @user.save
+  end
+
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
