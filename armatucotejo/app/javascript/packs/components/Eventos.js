@@ -26,7 +26,7 @@ class Eventos extends React.Component{
   this.dateChange = this.dateChange.bind(this);
   this.timeChange = this.timeChange.bind(this);
 
-  axios.get('http://127.0.0.1:3000/parks')
+  axios.get('../parks')
   .then(response => {
     this.setState({data: response.data});
     console.log(this.state.data[2])
@@ -43,7 +43,7 @@ class Eventos extends React.Component{
     console.log(this.state.lat)
     console.log(this.state.lon)
   });
-  axios.get('http://127.0.0.1:3000/users')
+  axios.get('../users')
   .then(response => {
     this.setState({datauser: response.data});
     let username = this.state.datauser[this.state.datauser.length-1].username;
@@ -300,7 +300,7 @@ body: JSON.stringify(data)
 }
 
 
-const request = new Request('http://127.0.0.1:3000/create_event ',options);
+const request = new Request('../create_event ',options);
 fetch(request)
 .then(response => response.json())
 .then(
