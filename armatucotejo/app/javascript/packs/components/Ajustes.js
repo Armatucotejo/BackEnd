@@ -49,6 +49,23 @@ class Ajustes extends React.Component{
 				paddingBottom:"5px",
 				width: "255px"
 			},
+			genero:{
+        fontSize: "14px",
+        marginTop: "5px",
+				paddingTop: "3px",
+        marginLeft: "2px",
+        color: "#757d85"
+
+      },
+      divGenero:{
+        justifyContent: "center",
+        marginLeft: "-133px",
+        backgroundColor: "white",
+        width: "34%",
+        borderRadius: ".25rem",
+        height: "37px",
+        marginTop: "2px"
+      },
 		}
 
 
@@ -78,8 +95,9 @@ class Ajustes extends React.Component{
 								<input type="password" class="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
 								<input type="celular" class="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" style={styles.input} placeholder="Celular cotejo"></input>
 								</div>
-								<div>
-								<label for="date"class="comfortaa" style={{fontSize:"14px", marginBottom:"0"}}>Fecha de nacimiento</label><input style={{fontSize:"15px"}} type="date" id="date" ref="date"></input>
+								<div style={styles.divGenero}>
+			          <h1 style={styles.genero} className="comfortaa">Fecha de Nacimiento</h1>
+								<input style={{fontSize:"15px"}} type="date" id="date" ref="date"></input>
 								</div>
 								<div style={styles.button}>
 								<Link to="/PerfilF">
