@@ -37,6 +37,7 @@ class PlayersController < ApplicationController
 
 
   def createEvent 
+    puts "createEvent"
     params.require(:username)
     params.require(:sport)
     params.require(:location_id)
