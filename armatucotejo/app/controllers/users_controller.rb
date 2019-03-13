@@ -126,10 +126,17 @@ class UsersController < ApplicationController
     params.require(:username)
     params.require(:password)
     @user = ::User.where(username: params[:username]).first
-    if(@user.password == params[:password])
-      format.json { render :show, status: :ok, location: @user }
+    puts @user
+    puts @user.password 
+    puts params[:password]
+    if(@user.nil? || @user.password != params[:password])
+      render json: @user, status: :unprocessable_entity
     else 
-      format.json { render json: @user.errors, status: :unprocessable_entity }
+      puts  DateTime.now
+      puts "hola"
+      @user.logindate = DateTime.now
+      @user.save
+      render json: @users, status: :ok
     end
   end
 

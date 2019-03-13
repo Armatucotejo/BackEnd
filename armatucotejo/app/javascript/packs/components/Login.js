@@ -1,3 +1,6 @@
+/*global fetch*/
+/*global Headers*/
+/*global Request*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logopng from '../../../assets/images/logo-png.png';
@@ -20,13 +23,13 @@ class Login extends React.Component{
   body: JSON.stringify(data)
   }
 
-  const request = new Request('http://127.0.0.1:3000/loginown',options);
+  const request = new Request('../loginown',options);
   fetch(request)
   .then(response => response.json())
   .then(
-  data => console.log(data)
+  data => console.log(data+" hola")
   );
-  console.log(this.state);
+  //console.log(this.state);
 
 }
     render(){
@@ -78,7 +81,7 @@ class Login extends React.Component{
           <Link to="/contra"><h6 className="comfortaa  olvpass">¿Olvidaste tu contraseña?</h6></Link>
         </div>
         <div className="col-10 centerdiv inputReg">
-          <Link to="/Perfilf"><button /* onClick={()=>this.validateSingup()}*/ className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
+          <Link to="/Perfilf"><button  onClick={()=>this.validateSingup()} className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Registrate Rapido</a>
         </div>
       </div>
