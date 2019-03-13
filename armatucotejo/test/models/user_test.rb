@@ -7,6 +7,8 @@
 #  password       :string
 #  name           :string
 #  username       :string
+#  logindate      :datetime
+#  logoutdate     :datetime
 #  user_data_id   :integer
 #  user_data_type :string
 #  created_at     :datetime         not null
