@@ -9,7 +9,7 @@ import Calificacion from './Calificacion';
 
 import InfoUsuario from './InfoUsuario';
 import Estadisticas from './Estadisticas';
-
+import axios from 'axios';
 class PerfilF extends React.Component{
 
 	constructor(props){

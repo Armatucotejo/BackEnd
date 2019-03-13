@@ -112,7 +112,7 @@ class Register extends React.Component{
 
 
         <div className="col-10 centerdiv inputReg">
-          <button  onClick={()=>this.validateSingup()}  className="btn comfortaa buttonLogin fivebc firstc">Registrar</button>
+            <Link to="/perfilf"><button  onClick={()=>this.validateSingup()}  className="btn comfortaa buttonLogin fivebc firstc">Registrar</button></Link>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Iniciar Sesión</a>
         </div>
 
