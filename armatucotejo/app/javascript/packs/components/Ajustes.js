@@ -86,7 +86,8 @@ class Ajustes extends React.Component{
 					<div className="thirdbc col-3 divcol inputReg" align="center">
 
 							<div id="InputAjustes" className="thirdbc">
-								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Información de Usuario</h1>
+								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Ajustes</h1>
+								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"14px", marginTop:"3px"}}>Edita tu información personal</h1>
 								<div style={{width:"230px"}}>
 								<input type="name" class="comfortaa form-control formReg" id="inputName" ref="inputName" style={styles.input} placeholder="Nombre"></input>
 								<input type="lastname" class="comfortaa form-control formReg" id="inputLastName" ref="inputLastName" style={styles.input} placeholder="Apellido"></input>
@@ -95,9 +96,13 @@ class Ajustes extends React.Component{
 								<input type="password" class="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
 								<input type="celular" class="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" style={styles.input} placeholder="Celular cotejo"></input>
 								</div>
-								<div style={styles.divGenero}>
+								<div className="row">
+								<div style={styles.divGenero} className="col">
 			          <h1 style={styles.genero} className="comfortaa">Fecha de Nacimiento</h1>
+								</div>
+								<div className="col">
 								<input style={{fontSize:"15px"}} type="date" id="date" ref="date"></input>
+								</div>
 								</div>
 								<div style={styles.button}>
 								<Link to="/PerfilF">
