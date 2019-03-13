@@ -7,9 +7,14 @@ import logonav from '../../../assets/images/logo-nav.png';
 class Contra extends React.Component{
 
     render(){
+      const styles ={
+        titulo:{
+          fontSize: "14px",
+        },
+      }
 
       const logo = (
-        <div id="LogoEvento" className="col-4">
+        <div id="LogoEvento" className="col-4" align="center">
         <div className="col-8 mAuto">
           <img id="imgEvento" src={logonav} alt="logohome"/>
         </div>
@@ -21,21 +26,20 @@ class Contra extends React.Component{
         <Navgbar/>
         {logo}
         <div id="containerEven" className="container col-4 thirdbc">
-
           <div className="row">
-            <div className="col">
-            <div className="element-main secondbc">
-            		<h1 className="fivec">Olvidaste tu contra...</h1>
-            		<p className=""> Tu cotejo te espera</p>
-            		<form>
-            			<input className="firstbc fourc" type="text" placeholder="Su e-mail cotejo@"  onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Your e-mail address';}"></input>
-            			<input className="buttonReg divReg fivebc secondc" type="submit" value="Recuperar contra coteja"></input>
-            		</form>
-            	</div>
+              <div className="col">
+                <div className="element-main secondbc" style={{alignItems:"center"}}>
+              		<h1 style={styles.titulo} className="fivec comfortaa">Recuperación de Contraseña</h1>
+              		<p className=""> Tu cotejo te espera</p>
+              		<form>
+              			<input className="firstbc fourc" type="text" placeholder="Su e-mail cotejo@"  onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Your e-mail address';}"></input>
+              			<input className="buttonReg divReg fivebc secondc" type="submit" value="Recuperar contra coteja"></input>
+              		</form>
+              	</div>
+              </div>
+              </div>
             </div>
-            </div>
-            </div>
-            </div>
+        </div>
     		)
   	}
   }

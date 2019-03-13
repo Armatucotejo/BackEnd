@@ -112,8 +112,8 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
-  
+
+
   def changeName
     params.require(:username)
     params.require(:new_name)
@@ -121,7 +121,7 @@ class UsersController < ApplicationController
     @user.name = params[:new_name]
     @user.save
   end
-  
+
   def loginown
     params.require(:username)
     params.require(:password)
