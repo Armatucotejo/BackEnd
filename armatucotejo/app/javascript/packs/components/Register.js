@@ -64,7 +64,7 @@ class Register extends React.Component{
           />
         </div>
 
-        <div className="col-10 centerdiv inputReg">  
+        <div className="col-10 centerdiv inputReg">
           <input type="user" className="comfortaa form-control formReg" id="inputUserName" ref="inputUserName"  placeholder="Nombre de Usuario"
           />
         </div>
@@ -89,9 +89,9 @@ class Register extends React.Component{
           <h1 style={styles.genero} className="comfortaa">Generó</h1>
           </div>
           <div style={{width:"49%"}}>
-          <select name="sexo" style={{marginLeft:"6px", width:"113%", fontSize:"16px", height:"31px"}}>
-           <option className="comfortaa" value="volvo">Masculino</option>
-           <option className="comfortaa" value="saab">Femenino</option>
+          <select  style={{marginLeft:"6px", width:"113%", fontSize:"16px", height:"31px"}}>
+           <option className="comfortaa" value="masculino">Masculino</option>
+           <option className="comfortaa" value="femenino">Femenino</option>
          </select>
           </div>
         </div>
@@ -112,7 +112,7 @@ class Register extends React.Component{
 
 
         <div className="col-10 centerdiv inputReg">
-          <button  onClick={()=>this.validateSingup()}  className="btn comfortaa buttonLogin fivebc firstc">Registrar</button>
+            <Link to="/perfilf"><button  onClick={()=>this.validateSingup()}  className="btn comfortaa buttonLogin fivebc firstc">Registrar</button></Link>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Iniciar Sesión</a>
         </div>
 
@@ -133,43 +133,40 @@ class Register extends React.Component{
       </div>
 		)
 	}
-	
-	    validateSingup(){
-        const data = {
-            name: this.refs.inputName.value,
-            lastname: this.refs.inputLastName.value,
-            username: this.refs.inputUserName.value,
-            email: this.refs.inputCorreo.value,
-            celphone: this.refs.inputCelular.value,
-            password: this.refs.inputPassword.value,
-            passwordc: this.refs.inputPasswordC.value,
-            datechoose: this.refs.date.value,
-            user_data_type: "Player",
-            user_data_id :1,
-            date :  new Date(),
-            sender_id: 1
-        }
-        console.log(data);
-        const headers = new Headers();
-        headers.append('Content-Type','application/json');
-        const options = {
-        method: 'POST',
-        headers,
-            body: JSON.stringify(data)
-        }
-        
-        
-      const request = new Request('https://armatucotejo2-pipemax85.c9users.io/users',options);
-        fetch(request)
-        .then(response => response.json())
-      .then(
-        data => console.log(data)
-        );
-      console.log(this.state);
+  validateSingup(){
+  const data = {
+  name: this.refs.inputName.value,
+  lastname: this.refs.inputLastName.value,
+  username: this.refs.inputUserName.value,
+  email: this.refs.inputCorreo.value,
+  celphone: this.refs.inputCelular.value,
+  password: this.refs.inputPassword.value,
+  passwordc: this.refs.inputPasswordC.value,
+  datechoose: this.refs.date.value,
+  user_data_type: "Player",
+  user_data_id :1,
+  date : new Date(),
+  sender_id: 1
+  }
+  console.log(data);
+  const headers = new Headers();
+  headers.append('Content-Type','application/json');
+  const options = {
+  method: 'POST',
+  headers,
+  body: JSON.stringify(data)
+  }
 
-    }
-	
-	
+
+  const request = new Request('../users',options);
+  fetch(request)
+  .then(response => response.json())
+  .then(
+  data => console.log(data)
+  );
+  console.log(this.state);
+
+  }
 }
 
 export default Register

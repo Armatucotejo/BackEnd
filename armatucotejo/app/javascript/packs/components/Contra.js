@@ -3,13 +3,34 @@ import Navgbar from './Navgbar';
 import {Button,Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import Checkbox from '@material-ui/core/Checkbox';
 import logonav from '../../../assets/images/logo-nav.png';
+import ReactDOM from 'react-dom';
+import { Link } from 'react-router-dom';
 
 class Contra extends React.Component{
 
     render(){
+      const styles ={
+        titulo:{
+          fontSize: "19px",
+          paddingTop: "12px",
+          marginBottom: "0",
+        },
+        label:{
+          marginBottom: "5px",
+          fontSize: "14px",
+        },
+        input:{
+          paddingBottom: "5px",
+          width: "300px",
+        },
+        button:{
+          width: "288px",
+          marginBottom: "10px",
+        }
+      }
 
       const logo = (
-        <div id="LogoEvento" className="col-4">
+        <div id="LogoEvento" className="col-4" align="center">
         <div className="col-8 mAuto">
           <img id="imgEvento" src={logonav} alt="logohome"/>
         </div>
@@ -20,22 +41,26 @@ class Contra extends React.Component{
         <div>
         <Navgbar/>
         {logo}
-        <div id="containerEven" className="container col-4 thirdbc">
-
-          <div className="row">
-            <div className="col">
-            <div className="element-main secondbc">
-            		<h1 className="fivec">Olvidaste tu contra...</h1>
-            		<p className=""> Tu cotejo te espera</p>
-            		<form>
-            			<input className="firstbc fourc" type="text" placeholder="Su e-mail cotejo@"  onFocus="this.value = '';" onBlur="if (this.value == '') {this.value = 'Your e-mail address';}"></input>
-            			<input className="buttonReg divReg fivebc secondc" type="submit" value="Recuperar contra coteja"></input>
-            		</form>
-            	</div>
+        <div id="containerEven" className="container col-4">
+        <div className="row">
+              <div className="col">
+              </div>
+              <div className="col-8">
+                <div className="element-main secondbc" style={{textAlign:"center"}}>
+              		<h1 style={styles.titulo} className="fivec comfortaa">Recuperación de Contraseña</h1>
+              		<h1 style={styles.label} className="comfortaa">Ingresa tu Correo Electronico</h1>
+                  <div className="col-10 centerdiv inputReg" style={styles.input}>
+                    <input type="email" placeholder="example@mail.com" className="comfortaa form-control formReg" id="inputEmail" ref="inputEmail"
+                    />
+                  </div>
+                  <Link to="/"><button /* onClick={()=>this.validateSingup()}*/ style={styles.button}className="btn comfortaa buttonLogin fivebc firstc">Recuperar</button></Link>
+              	</div>
+              </div>
+              <div className="col">
+              </div>
             </div>
             </div>
-            </div>
-            </div>
+        </div>
     		)
   	}
   }

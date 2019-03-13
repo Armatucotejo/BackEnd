@@ -7,8 +7,8 @@ import Deportes from './Deportes'
 import Eventos from './Eventos'
 import Unirse from './Unirse'
 import Contra from './Contra'
-import Perfil from './Perfil'
 import PerfilF from './PerfilF'
+import EventoOn from './EventoOn'
 import Ajustes from './Ajustes'
 class App extends React.Component{
   render(){
@@ -22,9 +22,9 @@ class App extends React.Component{
         <Route exact path="/deportes" component={Deportes} />
         <Route exact path="/eventos" component={Eventos} />
         <Route exact path="/unirse" component={Unirse} />
-        <Route exact path="/perfil" component={Perfil} />
         <Route exact path="/perfilf" component={PerfilF} />
         <Route exact path="/ajustes" component={Ajustes} />
+        <Route exact path="/eventoOn" component={EventoOn} />
       </Switch>
     </div>
     )

@@ -14,10 +14,9 @@ class Estadisticas extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-        valor1: 9.2,
+        valor1: 7.5,
         valor2: 8.5,
-        valor3: 7.8,
-        name: "Andres Felipe Cardenas",
+        valor3: 9.5,
         age: 24,
     };
   }
@@ -72,25 +71,29 @@ class Estadisticas extends React.Component{
       },
   });
 
-      const porcentaje = (this.state.valor1*100)/10;
+      const porcentaje1 = (this.state.valor1*100)/10;
+      const porcentaje2 = (this.state.valor2*100)/10;
+      const porcentaje3 = (this.state.valor3*100)/10;
 
       const estadistica = (
         <div className="row" style={styles.circular}>
           <div className="col">
-          <Circular porcentaje={porcentaje} valor={this.state.valor1}/>
+          <Circular porcentaje={porcentaje1} valor={this.state.valor1}/>
           <p className="comfortaa fivec textPuntaje">Técnica</p>
           </div>
           <div className="col">
-          <Circular porcentaje={porcentaje} valor={this.state.valor2}/>
+          <Circular porcentaje={porcentaje2} valor={this.state.valor2}/>
           <p className="comfortaa fivec textPuntaje">Juego Limpio</p>
           </div>
           <div className="col">
-          <Circular porcentaje={porcentaje} valor={this.state.valor3}/>
+          <Circular porcentaje={porcentaje3} valor={this.state.valor3}/>
           <p className="comfortaa fivec textPuntaje">Puntualidad</p>
           </div>
 
         </div>
       );
+
+
       const intereses = (
         <div className="row" style={styles.div}>
           <div align="center" className="row col-7" style={styles.interes}>
@@ -106,10 +109,12 @@ class Estadisticas extends React.Component{
               </div>
           </div>
           <div className="col-4" style={styles.califica}>
-          <Link to="/eventos"><MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="comfortaa buttonAjustes" >
+          <div onClick={this.props.onClick}>
+          <MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="comfortaa buttonAjustes" >
             Calificar
             <i style={{marginLeft:"5px"}} className="material-icons">check_circle</i>
-          </Button></MuiThemeProvider></Link>
+          </Button></MuiThemeProvider>
+          </div>
           <Link to="/eventos"><MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className=" comfortaa buttonAjustes" >
             Crear
             <i style={{marginLeft:"5px"}} className="material-icons">input</i>

@@ -5,7 +5,6 @@ class LocationsController < ApplicationController
   def listAll
     @locations = Location.all
     render :json => @locations
-
   end
   # GET /locations
   # GET /locations.json

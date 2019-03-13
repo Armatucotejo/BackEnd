@@ -57,8 +57,8 @@ class InfoUsuario extends React.Component{
     return(
     <div align="center" className="col" style={styles.contenedor}>
       <img alt="Avatar" src={avatar} style={styles.avatar} />
-        <h3 id="delBottom" style={styles.text.username} className="comfortaa">@{this.state.username}</h3>
-        <h3 id="delBottom" style={styles.text.name} className="comfortaa">{this.state.name}</h3>
+        <h3 id="delBottom" style={styles.text.username} className="comfortaa">@{this.props.username}</h3>
+        <h3 id="delBottom" style={styles.text.name} className="comfortaa">{this.props.name}</h3>
         <h3 id="delBottom" style={styles.text.age} className="comfortaa">{this.state.age} Años</h3>
       <div style={styles.button}>
       <Link to="/ajustes">

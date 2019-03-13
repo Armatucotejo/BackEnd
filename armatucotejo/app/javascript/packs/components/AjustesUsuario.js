@@ -53,13 +53,7 @@ class AjustesUsuario extends React.Component{
       <img alt="Avatar" src={avatar} style={styles.avatar} />
         <h3 id="delBottom" style={styles.text.username} className="comfortaa">@{this.state.username}</h3>
         <h3 id="delBottom" style={styles.text.name} className="comfortaa">{this.state.name}</h3>
-        <h3 id="delBottom" style={styles.text.age} className="comfortaa">{this.state.age} Años</h3>
-      <div style={styles.button}>
-      <Link to="/ajustes"> <Button variant="contained" color="primary" className="buttonGuardar" onClick={()=>this.validateSingup()} >
-        Guardar
-        <Icon></Icon>
-      </Button></Link>
-      </div>
+        <h3 id="delBottom" style={styles.text.age} className="comfortaa">{this.state.age} Años</h3>      
     </div>
     );
   }
