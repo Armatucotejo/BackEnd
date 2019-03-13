@@ -23,6 +23,7 @@ class Eventos extends React.Component{
   this.state = {sport: '', lugar:'Ninguno', data: [], datauser:[], lugares:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
   this.handleChange = this.handleChange.bind(this);
   this.handleChangeL = this.handleChangeL.bind(this);
+  this.ChangeLugar = this.ChangeLugar.bind(this);
   this.dateChange = this.dateChange.bind(this);
   this.timeChange = this.timeChange.bind(this);
 
@@ -80,20 +81,32 @@ class Eventos extends React.Component{
     // Start Google Maps API loading since we know we'll soon need it
     this.getGoogleMaps();
   }
+
+  ChangeLugar(data){
+    this.setState({lugar: data });
+  }
+
   componentDidMount() {
     // Once the Google Maps API has finished loading, initialize the map
     this.getGoogleMaps().then((google) => {
       const bogota = {lat: 4.639530, lng: -74.085363};
       const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
+        zoom: 11,
         center: bogota
       });
 
       for (var i = 0; i < this.state.data.length; i++) {
+              var infowindow = new google.maps.InfoWindow({
+                content: this.state.data[i].name
+              });
               const marker = new google.maps.Marker({
                     position: new google.maps.LatLng(this.state.lat[i], this.state.lon[i]),
                     map: map,
                 });
+              marker.addListener('click', function(){
+                infowindow.open(map, marker);
+                this.ChangeLugar(this.state.data[i].name)
+              });
               marker.setMap(map);
         }
     });
@@ -175,7 +188,7 @@ class Eventos extends React.Component{
           id="date"
           label="Fecha de Juego"
           type="date"
-          defaultValue="2019-01-31"
+          defaultValue="2019-03-14"
           style={styleDP}
           onChange={this.dateChange}
           InputLabelProps={{

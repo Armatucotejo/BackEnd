@@ -19,7 +19,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import axios from 'axios';
 
-import Comentarios from './Comentarios';
+import Players from './Players';
 class Unirse extends React.Component{
 
 
@@ -86,7 +86,7 @@ class Unirse extends React.Component{
     this.getGoogleMaps().then((google) => {
       const bogota = {lat: 4.639530, lng: -74.085363};
       const map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 15,
+        zoom: 11,
         center: bogota
       });
 
@@ -134,6 +134,7 @@ class Unirse extends React.Component{
       </div>
     );
 
+
     const styleS = {
         display: "flex",
         fontFamily: "comfortaa",
@@ -163,11 +164,11 @@ class Unirse extends React.Component{
 
       var lis = [];
       for (var i=0; i<6; i++) {
-      lis.push(<Comentarios/>);
+      lis.push(<Players name="Felipe" username="FelipeTK"/>);
       }
 
-      const cotejos=(
-        <div>
+      const players=(
+        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px"}}>
         {lis}
         </div>
       );
@@ -307,7 +308,8 @@ class Unirse extends React.Component{
               <div id="Pickers" className="firstbc" style={{paddingLeft: "15px", paddingRight: "15px"}}>
               <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Unete a un Cotejo</h1>
               {selectSport}
-              {cotejos}
+              <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Jugadores</h1>
+              {players}
               </div>
           </div>
 
