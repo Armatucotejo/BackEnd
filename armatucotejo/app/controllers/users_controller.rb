@@ -124,10 +124,20 @@ class UsersController < ApplicationController
 
   def loginown
     params.require(:username)
-    params.require(:new_name)
+    params.require(:password)
     @user = ::User.where(username: params[:username]).first
-    @user.name = params[:new_name]
-    @user.save
+    puts @user
+    puts @user.password 
+    puts params[:password]
+    if(@user.nil? || @user.password != params[:password])
+      render json: @user, status: :unprocessable_entity
+    else 
+      puts  DateTime.now
+      puts "hola"
+      @user.logindate = DateTime.now
+      @user.save
+      render json: @users, status: :ok
+    end
   end
 
   def changeUsername
