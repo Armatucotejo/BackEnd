@@ -1,4 +1,4 @@
-7class UsersController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -124,10 +124,13 @@
   
   def loginown
     params.require(:username)
-    params.require(:new_name)
+    params.require(:password)
     @user = ::User.where(username: params[:username]).first
-    @user.name = params[:new_name]
-    @user.save
+    if(@user.password == params[:password])
+      format.json { render :show, status: :ok, location: @user }
+    else 
+      format.json { render json: @user.errors, status: :unprocessable_entity }
+    end
   end
 
   def changeUsername
