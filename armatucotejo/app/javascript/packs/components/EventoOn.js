@@ -18,12 +18,12 @@ class EventoOn extends React.Component{
   constructor(props) {
   super(props);
   this.state = {sport: '', lugar:'Ninguno', data: []};
-  axios.get('../create_event')
-  .then(response => {
-    this.setState({data: response.data});
-    console.log(this.state.data[2])
-    let lugar = this.state.lugar;
-  });
+//  axios.get('../create_event')
+//  .then(response => {
+//    this.setState({data: response.data});
+//    console.log(this.state.data[2])
+//    let lugar = this.state.lugar;
+//  });
 }
 
 getGoogleMaps() {

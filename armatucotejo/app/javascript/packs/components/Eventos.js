@@ -284,7 +284,7 @@ var locationId = ""
 const data = {
 username: this.state.username,
 sport: this.state.sport,
-locationId: locationId,
+location_id: locationId,
 fecha: this.state.fecha,
 hora: this.state.hora,
 
@@ -305,8 +305,8 @@ fetch(request)
 .then(response => response.json())
 .then(
 data => console.log(data)
-);
-console.log(this.state);
+).then(console.log("Hola request de crear eventos"));
+//console.log(this.state);
 
 }
 
