@@ -26,6 +26,7 @@ class PlayersController < ApplicationController
     @players = Player.where(scorefairplay: score)
   end
 
+
   # GET /players
   # GET /players.json
   def index
