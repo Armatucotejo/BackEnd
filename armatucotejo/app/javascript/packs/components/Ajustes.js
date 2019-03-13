@@ -14,12 +14,24 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import AjustesUsuario from './AjustesUsuario';
 import Estadisticas from './Estadisticas';
+import axios from 'axios';
 
 class Ajustes extends React.Component{
 
 	constructor(props){
 		super(props);
 		this.state={ userName: "ARMATUCTEJO"};
+		axios.get('../users')
+		.then(response => {
+			console.log("HolaAjustes");
+			this.setState({data: response.data});
+			console.log( this.state.data[response.data.length-1]);
+			this.refs.inputName.value = response.data[response.data.length-1].name;
+			this.refs.inputLastName.value = response.data[response.data.length-1].lastname;
+			this.refs.inputUserName.value = response.data[response.data.length-1].username;
+			this.refs.inputCorreo.value = response.data[response.data.length-1].email;
+			this.refs.inputPassword.value = response.data[response.data.length-1].password;
+		});
 		}
 
 	render(){
@@ -94,7 +106,6 @@ class Ajustes extends React.Component{
 								<input type="user" class="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" style={styles.input} placeholder="Usuario"></input>
 								<input type="correo" class="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" style={styles.input} placeholder="E-mail"></input>
 								<input type="password" class="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
-								<input type="celular" class="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" style={styles.input} placeholder="Celular cotejo"></input>
 								</div>
 								<div className="row">
 								<div style={styles.divGenero} className="col">
