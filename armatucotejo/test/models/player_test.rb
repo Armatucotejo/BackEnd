@@ -2,13 +2,16 @@
 #
 # Table name: players
 #
-#  id         :integer          not null, primary key
-#  score      :integer
-#  birth      :date
-#  gender     :string
-#  cellphone  :string
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id                  :integer          not null, primary key
+#  birth               :date
+#  gender              :string
+#  cellphone           :string
+#  scorepunctuality    :integer
+#  score_sportsmanship :integer
+#  scorefairplay       :integer
+#  score_skill         :integer
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
 #
 
 require 'test_helper'
