@@ -8,6 +8,9 @@ import ciclismopng from '../../../assets/images/ciclismo.png';
 import futballpng from '../../../assets/images/futball.png';
 import voleyballpng from '../../../assets/images/voleyball.png';
 import Navgbar from './Navgbar';
+import Button from '@material-ui/core/Button';
+
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import AjustesUsuario from './AjustesUsuario';
 import Estadisticas from './Estadisticas';
@@ -21,6 +24,14 @@ class Ajustes extends React.Component{
 
 	render(){
 
+		const theme = createMuiTheme({
+			palette: {
+				primary: {
+					main: '#183152',
+				},
+			},
+		});
+
 		const styles={
 			logoApp:{
 				width: "70%",
@@ -29,52 +40,60 @@ class Ajustes extends React.Component{
 			},
 			divLogo:{
 				paddingTop: "40px",
-			}
+			},
+			input:{
+				marginBottom: "3px",
+			},
+			button:{
+				paddingTop: "10px",
+				paddingBottom:"5px",
+				width: "255px"
+			},
 		}
 
 
 		const logo = (
-			<div align ="center" style={styles.divLogo}>
-				<div id="logohome" className="col-3">
-      				<div style={styles.ajuste}>
-        				<img id="imgLogo" src={logonav} alt="logohome"/>
-      				</div>
-      	</div>
+			<div id="LogoEvento" className="col-4" align="center">
+			<div className="col-8 mAuto">
+				<img id="imgEvento" src={logonav} alt="logohome"/>
+			</div>
 			</div>
 		);
 
 		const pagina = (
 
 			<div id="containerEven" className="container">
+				<div className="row">
+				<div className="col">
+				</div>
+					<div className="thirdbc col-3 divcol inputReg" align="center">
 
-				<div className="row justify-content-md-center">
-
-					<div className = "secondbc  col col-lg-3 justify-content-center divcol inputReg">
-							<AjustesUsuario/>
-					</div>
-					<div className="thirdbc  col col-lg-4 justify-content-center divcol inputReg">
-						<div id="DeporteAjustes" className="row justify-content-center dep-ajustes">
-							<img alt="basketballpng1" src={basketballpng} style={styles.ajuste} />
-							<img alt="ciclismopng1" src={ciclismopng} style={styles.ajuste} />
-							<img alt="futballpng1" src={futballpng} style={styles.ajuste} />
-							<img alt="voleyballpng1" src={voleyballpng} style={styles.ajuste} />
-						</div>
-
-							<div id="InputAjustes" className="row  justify-content-center thirdbc">
-								<input type="name" class="comfortaa form-control formReg" id="inputName" ref="inputName" placeholder="Nombre"></input>
-								<input type="lastname" class="comfortaa form-control formReg" id="inputLastName" ref="inputLastName" placeholder="Apellido"></input>
-								<input type="user" class="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" placeholder="Usuario"></input>
-								<input type="correo" class="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" placeholder="E-mail"></input>
-								<input type="password" class="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" placeholder="Contraseña"></input>
-								<input type="celular" class="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" placeholder="Celular cotejo"></input>
-								<p><label for="date"class="comfortaa formReg" >Fecha de nacimiento</label>  <input type="date" id="date" ref="date"></input></p>
-								<textarea class="descForm form-control comfortaa" id="FormControlTextarea1" rows="3" ref="inputDescription" placeholder="Descripción"></textarea>
+							<div id="InputAjustes" className="thirdbc">
+								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Información de Usuario</h1>
+								<div style={{width:"230px"}}>
+								<input type="name" class="comfortaa form-control formReg" id="inputName" ref="inputName" style={styles.input} placeholder="Nombre"></input>
+								<input type="lastname" class="comfortaa form-control formReg" id="inputLastName" ref="inputLastName" style={styles.input} placeholder="Apellido"></input>
+								<input type="user" class="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" style={styles.input} placeholder="Usuario"></input>
+								<input type="correo" class="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" style={styles.input} placeholder="E-mail"></input>
+								<input type="password" class="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
+								<input type="celular" class="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" style={styles.input} placeholder="Celular cotejo"></input>
+								</div>
+								<div>
+								<label for="date"class="comfortaa" style={{fontSize:"14px", marginBottom:"0"}}>Fecha de nacimiento</label><input style={{fontSize:"15px"}} type="date" id="date" ref="date"></input>
+								</div>
+								<div style={styles.button}>
+								<Link to="/PerfilF">
+					      <MuiThemeProvider theme={theme}><Button style={{paddingBottom:"5px"}}variant="contained" color="primary" className="buttonAjustes" >
+					        Guardar
+					        <i style={{marginLeft:"5px"}} className="material-icons">done</i>
+					      </Button></MuiThemeProvider>
+					      </Link>
+					      </div>
 							</div>
 					</div>
-					<div className="col col-lg-1">
+					<div className="col">
 
 					</div>
-
 				</div>
 			</div>
 

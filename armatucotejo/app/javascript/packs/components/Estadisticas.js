@@ -71,20 +71,22 @@ class Estadisticas extends React.Component{
       },
   });
 
-      const porcentaje = (this.state.valor1*100)/10;
+      const porcentaje1 = (this.state.valor1*100)/10;
+      const porcentaje2 = (this.state.valor2*100)/10;
+      const porcentaje3 = (this.state.valor3*100)/10;
 
       const estadistica = (
         <div className="row" style={styles.circular}>
           <div className="col">
-          <Circular porcentaje={porcentaje} valor={this.state.valor1}/>
+          <Circular porcentaje={porcentaje1} valor={this.state.valor1}/>
           <p className="comfortaa fivec textPuntaje">Técnica</p>
           </div>
           <div className="col">
-          <Circular porcentaje={porcentaje} valor={this.state.valor2}/>
+          <Circular porcentaje={porcentaje2} valor={this.state.valor2}/>
           <p className="comfortaa fivec textPuntaje">Juego Limpio</p>
           </div>
           <div className="col">
-          <Circular porcentaje={porcentaje} valor={this.state.valor3}/>
+          <Circular porcentaje={porcentaje3} valor={this.state.valor3}/>
           <p className="comfortaa fivec textPuntaje">Puntualidad</p>
           </div>
 

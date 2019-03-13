@@ -1,3 +1,6 @@
+/*global fetch*/
+/*global Headers*/
+/*global Request*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logonav from '../../../assets/images/logo-nav.png';
@@ -6,10 +9,11 @@ import avatarpng from '../../../assets/images/avatar.png';
 import estrellapng from '../../../assets/images/estrella.png';
 import Navgbar from './Navgbar';
 import Calificacion from './Calificacion';
-
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import InfoUsuario from './InfoUsuario';
 import Estadisticas from './Estadisticas';
 import axios from 'axios';
+
 class PerfilF extends React.Component{
 
 	constructor(props){

@@ -1,3 +1,6 @@
+/*global fetch*/
+/*global Headers*/
+/*global Request*/
 import React, { Component } from 'react';
 import Navgbar from './Navgbar';
 import {Button,Navbar, Nav, NavItem, NavDropdown } from 'react-bootstrap';
