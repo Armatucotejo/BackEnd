@@ -20,14 +20,13 @@ class Login extends React.Component{
   body: JSON.stringify(data)
   }
 
-/*FALTA SABER A QUE DIRECCION SE ENVIAN LOS DATOS DE ACCESO
-  /*const request = new Request('http://127.0.0.1:3000/users',options);
+  const request = new Request('http://127.0.0.1:3000/loginown',options);
   fetch(request)
   .then(response => response.json())
   .then(
   data => console.log(data)
   );
-  console.log(this.state);*/
+  console.log(this.state);
 
 }
     render(){

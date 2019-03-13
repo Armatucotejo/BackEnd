@@ -14,10 +14,9 @@ class Estadisticas extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-        valor1: 9.2,
+        valor1: 7.5,
         valor2: 8.5,
-        valor3: 7.8,
-        name: "Andres Felipe Cardenas",
+        valor3: 9.5,
         age: 24,
     };
   }

@@ -1,4 +1,4 @@
-7class UsersController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -112,8 +112,8 @@
       format.json { head :no_content }
     end
   end
-  
-  
+
+
   def changeName
     params.require(:username)
     params.require(:new_name)
@@ -121,7 +121,7 @@
     @user.name = params[:new_name]
     @user.save
   end
-  
+
   def loginown
     params.require(:username)
     params.require(:new_name)
