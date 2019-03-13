@@ -165,11 +165,11 @@ Rails.application.routes.draw do
 
   match 'change_gender', to: 'players#changeGender', via: :post
   match 'change_cellphone', to: 'players#changeCellphone', via: :post
+  match 'create_event', to: 'players#create_event', via: :post
 
   match 'change_name', to: 'users#changeName', via: :post
   match 'change_username', to: 'users#changeUsername', via: :post
   match 'change_email', to: 'users#changeEmail', via: :post
-  match 'create_event', to: 'users#create_event', via: :post
   match 'loginown', to: 'users#loginown', via: :post
 
 
