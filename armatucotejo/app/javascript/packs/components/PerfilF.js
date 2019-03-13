@@ -21,8 +21,10 @@ class PerfilF extends React.Component{
 		this.state={ comentarios: "none", data:[], name:"", username:""};
 	  this.ChangeDiv = this.ChangeDiv.bind(this);
 		this.ChangeDivN = this.ChangeDivN.bind(this);
-		axios.get('http://127.0.0.1:3000/users')
+		console.log("Hola prev");
+		axios.get('../users')
 		.then(response => {
+			console.log("Hola");
 			this.setState({data: response.data});
 			console.log(this.state.data[2])
 			let name = this.state.data[this.state.data.length-1].name;
