@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+7class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -22,6 +22,32 @@ class UsersController < ApplicationController
     @sport_interest = SportInterest.where(player_id: @player.id, sport_id: @sport.id)
     @sport_interest.destroy
   end
+
+ def changeName
+    params.require(:username)
+    params.require(:new_name)
+    @user = ::User.where(username: params[:username]).first
+    @user.name = params[:new_name]
+    @user.save
+  end
+
+
+  def changeUsername
+    params.require(:username)
+    params.require(:new_username)
+    @user = ::User.where(username: params[:username]).first
+    @user.username = params[:new_username]
+    @user.save
+  end
+
+  def changeEmail
+    params.require(:username)
+    params.require(:new_email)
+    @user = ::User.where(username: params[:username]).first
+    @user.email = params[:new_email]
+    @user.save
+  end
+
 
   # GET /users
   # GET /users.json
@@ -95,7 +121,14 @@ class UsersController < ApplicationController
     @user.name = params[:new_name]
     @user.save
   end
-
+  
+  def loginown
+    params.require(:username)
+    params.require(:new_name)
+    @user = ::User.where(username: params[:username]).first
+    @user.name = params[:new_name]
+    @user.save
+  end
 
   def changeUsername
     params.require(:username)

@@ -139,6 +139,8 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
     t.string "password"
     t.string "name"
     t.string "username"
+    t.datetime "logindate"
+    t.datetime "logoutdate"
     t.integer "user_data_id"
     t.string "user_data_type"
     t.datetime "created_at", null: false
