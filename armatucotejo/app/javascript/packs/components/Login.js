@@ -1,10 +1,37 @@
+/*global fetch*/
+/*global Headers*/
+/*global Request*/
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logopng from '../../../assets/images/logo-png.png';
 import logonav from '../../../assets/images/logo-nav.png';
+import axios from 'axios';
 
 class Login extends React.Component{
 
+  validateSingup(){
+  const data = {
+  username: this.refs.inputUserName.value,
+  password: this.refs.inputPassword.value,
+  }
+  console.log(data);
+  const headers = new Headers();
+  headers.append('Content-Type','application/json');
+  const options = {
+  method: 'POST',
+  headers,
+  body: JSON.stringify(data)
+  }
+
+  const request = new Request('../loginown',options);
+  fetch(request)
+  .then(response => response.json())
+  .then(
+  data => console.log(data+" hola")
+  );
+  //console.log(this.state);
+
+}
     render(){
 
     const styles ={
@@ -44,17 +71,17 @@ class Login extends React.Component{
 
 
         <div className="col-10 centerdiv inputReg">
-          <input type="user" className="comfortaa form-control formReg" id="inputUserName" placeholder="Nombre de Usuario"
+          <input type="user" className="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" placeholder="Nombre de Usuario"
           />
         </div>
 
         <div className="col-10 centerdiv inputReg">
-          <input type="password" className=" comfortaa form-control formReg" id="inputPassword" placeholder="Contraseña"
+          <input type="password" className=" comfortaa form-control formReg" id="inputPassword" ref="inputPassword" placeholder="Contraseña"
           />
           <Link to="/contra"><h6 className="comfortaa  olvpass">¿Olvidaste tu contraseña?</h6></Link>
         </div>
         <div className="col-10 centerdiv inputReg">
-          <Link to="/Perfilf"><button className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
+          <Link to="/Perfilf"><button  onClick={()=>this.validateSingup()} className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Registrate Rapido</a>
         </div>
       </div>
@@ -69,6 +96,7 @@ class Login extends React.Component{
       <div>
         {logo}
         {login}
+
       </div>
     )
   }

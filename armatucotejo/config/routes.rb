@@ -19,11 +19,10 @@ Rails.application.routes.draw do
   resources :reasons
   resources :admins
   resources :eventos
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   match 'parks', to: 'locations#listAll', via: :get
+
   match 'join_event', to: 'players#joinEvent', via: :post
-  match 'create_event', to: 'players#createEvent', via: :post
 
   match 'change_gender', to: 'players#changeGender', via: :post
   match 'change_cellphone', to: 'players#changeCellphone', via: :post
@@ -31,5 +30,8 @@ Rails.application.routes.draw do
   match 'change_name', to: 'users#changeName', via: :post
   match 'change_username', to: 'users#changeUsername', via: :post
   match 'change_email', to: 'users#changeEmail', via: :post
+  match 'create_event', to: 'users#create_event', via: :post
+  match 'loginown', to: 'users#loginown', via: :post
+
 
 end

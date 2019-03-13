@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
     t.datetime "datetime"
     t.integer "location_id"
     t.integer "sport_id"
+    t.integer "organizer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_matches_on_location_id"
@@ -138,6 +139,8 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
     t.string "password"
     t.string "name"
     t.string "username"
+    t.datetime "logindate"
+    t.datetime "logoutdate"
     t.integer "user_data_id"
     t.string "user_data_type"
     t.datetime "created_at", null: false

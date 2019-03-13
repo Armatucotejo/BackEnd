@@ -3,14 +3,16 @@ import ReactDOM from 'react-dom';
 import { Link } from 'react-router-dom';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
+import axios from 'axios';
 
 class InfoPartida extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:''};
+  this.state = {sport: '', lugar:'', data: []};
   this.handleChange = this.handleChange.bind(this);
   this.handleChangeL = this.handleChangeL.bind(this);
+  this.loadData = this.loadData.bind(this);
 }
 
   handleChange(event) {
@@ -21,6 +23,7 @@ class InfoPartida extends React.Component{
   }
 
   render(){
+
     const ranges = [
       {
         value: 'Futbol',
@@ -39,6 +42,7 @@ class InfoPartida extends React.Component{
         label: 'Basketball',
       },
     ];
+
 
     const parques = [
       {
@@ -146,7 +150,7 @@ class InfoPartida extends React.Component{
 
     const button = (
       <div>
-        <Link to="/"><button className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button></Link>
+          <button onClick={()=>this.loadData()} className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button>
       </div>
     );
 
@@ -161,6 +165,17 @@ class InfoPartida extends React.Component{
         </div>
     )
   }
+
+  loadData() {
+    console.log("response.data");
+    axios.get('http://127.0.0.1:3000/parks')
+    .then(response => {
+      this.setState({data: response.data});
+      console.log(response.data)
+      console.log(this.state.data)
+    });
+}
+
 }
 
 export default InfoPartida;

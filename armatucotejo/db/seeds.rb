@@ -31,6 +31,7 @@ Sport.create(name: "Ultimatee")
 	u.save
 end
 
+
 City.create(name: "Bogota")
 
 Location.create(name: " Parque Zonal  TIBABUYES ", googleMapsX: 4.746028912087841, googleMapsY: -74.11043629156272, city_id: 1 )
@@ -144,3 +145,5 @@ Location.create(name: " Parque Zonal  SAUZALITO ", googleMapsX: 4.65389276003262
 Location.create(name: " Parque Zonal  SUCRE O HIPPIES ", googleMapsX: 4.645523230166474, googleMapsY: -74.06250676092569, city_id: 1 )
 Location.create(name: " Parque Zonal  SERVITA ", googleMapsX: 4.741786468127493, googleMapsY: -74.02570926928962, city_id: 1 )
 Location.create(name: " Parque Zonal  ALTA BLANCA ", googleMapsX: 4.733602437856079, googleMapsY: -74.02821944586297, city_id: 1 )
+
+Match.create(location_id: 1, sport_id: 1, organizer_id: 1)

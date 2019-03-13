@@ -5,6 +5,8 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :password
       t.string :name
       t.string :username
+      t.datetime :logindate
+      t.datetime :logoutdate
 
       #Polymorphism stuff
       t.integer :user_data_id

@@ -1,4 +1,4 @@
-7class UsersController < ApplicationController
+class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   skip_before_action :verify_authenticity_token
 
@@ -52,7 +52,7 @@
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page], per_page:5)
+    @users = User.paginate(page: params[:page], per_page:50)
     render json: @users, status: :ok
   end
 
@@ -112,8 +112,8 @@
       format.json { head :no_content }
     end
   end
-  
-  
+
+
   def changeName
     params.require(:username)
     params.require(:new_name)
@@ -122,6 +122,23 @@
     @user.save
   end
 
+  def loginown
+    params.require(:username)
+    params.require(:password)
+    @user = ::User.where(username: params[:username]).first
+    puts @user
+    puts @user.password 
+    puts params[:password]
+    if(@user.nil? || @user.password != params[:password])
+      render json: @user, status: :unprocessable_entity
+    else 
+      puts  DateTime.now
+      puts "hola"
+      @user.logindate = DateTime.now
+      @user.save
+      render json: @users, status: :ok
+    end
+  end
 
   def changeUsername
     params.require(:username)
@@ -144,11 +161,11 @@
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      
+       @user = User.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:email, :password, :name, :username, :user_data_type, :user_data_id, :birth, :gender, :cellphone, :scorepunctuality, :scorefairplay, :scorepunctuality, :score_skill)
     end
-end
+  end
