@@ -17,9 +17,12 @@ class Eventos extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'Ninguno', data: [], lugares:[], lat:[], lon:[], idLugar:''};
+  this.state = {sport: '', lugar:'Ninguno', data: [], datauser:[], lugares:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
   this.handleChange = this.handleChange.bind(this);
   this.handleChangeL = this.handleChangeL.bind(this);
+  this.dateChange = this.dateChange.bind(this);
+  this.timeChange = this.timeChange.bind(this);
+
   axios.get('http://127.0.0.1:3000/parks')
   .then(response => {
     this.setState({data: response.data});
@@ -36,6 +39,12 @@ class Eventos extends React.Component{
     console.log(this.state.lugares)
     console.log(this.state.lat)
     console.log(this.state.lon)
+  });
+  axios.get('http://127.0.0.1:3000/users')
+  .then(response => {
+    this.setState({datauser: response.data});
+    let username = this.state.datauser[this.state.datauser.length-1].username;
+    this.setState({username: username})
   });
 }
 
@@ -90,9 +99,15 @@ class Eventos extends React.Component{
   handleChange(event) {
     this.setState({sport: event.target.value });
   }
+
   handleChangeL(event) {
-    this.setState({lugar: event.target.value});
-    console.log(this.state.lugar)
+    this.setState({lugar: event.target.value});s
+  }
+  dateChange(event) {
+    this.setState({fecha: event.target.value });
+  }
+  timeChange(event) {
+    this.setState({hora: event.target.value });
   }
 
   render(){
@@ -159,6 +174,7 @@ class Eventos extends React.Component{
           type="date"
           defaultValue="2019-01-31"
           style={styleDP}
+          onChange={this.dateChange}
           InputLabelProps={{
             shrink: true,
           }}
@@ -174,6 +190,7 @@ class Eventos extends React.Component{
           type="time"
           defaultValue="07:00"
           style={styleDP}
+          onChange={this.timeChange}
           InputLabelProps={{
             shrink: true,
           }}
@@ -262,9 +279,11 @@ var locationId = ""
 
 
 const data = {
-username: "PhillBill",
+username: this.state.username,
 sport: this.state.sport,
 locationId: locationId,
+fecha: this.state.fecha,
+hora: this.state.hora,
 
 }
 
