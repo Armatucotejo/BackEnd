@@ -95,7 +95,14 @@ class UsersController < ApplicationController
     @user.name = params[:new_name]
     @user.save
   end
-
+  
+  def loginown
+    params.require(:username)
+    params.require(:new_name)
+    @user = ::User.where(username: params[:username]).first
+    @user.name = params[:new_name]
+    @user.save
+  end
 
   def changeUsername
     params.require(:username)
