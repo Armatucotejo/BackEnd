@@ -1,6 +1,12 @@
 class MatchesController < ApplicationController
   before_action :set_match, only: [:show, :edit, :update, :destroy]
 
+  def listAll
+    @matches = Match.all
+    render :json => @matches
+  end
+
+
   # GET /matches
   # GET /matches.json
   def index
