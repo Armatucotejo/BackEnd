@@ -6,30 +6,69 @@ import { Link } from 'react-router-dom';
 import logopng from '../../../assets/images/logo-png.png';
 import logonav from '../../../assets/images/logo-nav.png';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 class Login extends React.Component{
-
-  validateSingup(){
-  const data = {
-  username: this.refs.inputUserName.value,
-  password: this.refs.inputPassword.value,
-  }
-  console.log(data);
-  const headers = new Headers();
-  headers.append('Content-Type','application/json');
-  const options = {
-  method: 'POST',
-  headers,
-  body: JSON.stringify(data)
+  
+  constructor(props) {
+    super(props);
+    this.state = {redirect: false};
+    
+        const data = {
+      username: "Sonic",
+      password: "The SMS array is down, synthesize the bluetooth application so we can back up the HTTP matrix!",
+    }
+    console.log(data);
+    const headers = new Headers();
+    headers.append('Content-Type','application/json');
+    const options = {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(data)
   }
 
   const request = new Request('../loginown',options);
   fetch(request)
   .then(response => response.json())
   .then(
-  data => console.log(data+" hola")
-  );
-  //console.log(this.state);
+      this.state = {redirect: (data && data.id) }
+  )  .then(data => console.log(data+" hola"))
+  ;
+    
+  }
+
+  validateSingup(){
+    const data = {
+      username: this.refs.inputUserName.value,
+      password: this.refs.inputPassword.value,
+    }
+    console.log(data);
+    const headers = new Headers();
+    headers.append('Content-Type','application/json');
+    const options = {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(data)
+  }
+
+  const request = new Request('../loginown',options);
+  fetch(request)
+  .then(response => response.json())
+  .then(
+       data => this.setState({redirect: (data && data.id != null)?true:false })
+
+  )
+  .then(data => console.log(data+" hola"))
+  .then(
+    data => console.log(this.state)
+    );
+//  console.log("Antes");
+//    var start = new Date().getTime();
+//   var end = start;
+//   while(end < start + 5000) {
+//     end = new Date().getTime();
+//  }
+//  console.log("Despues");
 
 }
     render(){
@@ -81,7 +120,7 @@ class Login extends React.Component{
           <Link to="/contra"><h6 className="comfortaa  olvpass">¿Olvidaste tu contraseña?</h6></Link>
         </div>
         <div className="col-10 centerdiv inputReg">
-          <Link to="/Perfilf"><button  onClick={()=>this.validateSingup()} className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
+          <button  onClick={()=>this.validateSingup()} className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Registrate Rapido</a>
         </div>
       </div>
@@ -91,6 +130,10 @@ class Login extends React.Component{
 
   </div>
     );
+    
+      if (this.state.redirect) {
+        return <Redirect push to="/perfilf" />
+      }
 
     return(
       <div>

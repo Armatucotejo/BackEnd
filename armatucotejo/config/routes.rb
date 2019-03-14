@@ -176,5 +176,6 @@ Rails.application.routes.draw do
   match 'change_email', to: 'users#changeEmail', via: :post
   match 'loginown', to: 'users#loginown', via: :post
 
+ # match 'perfilf', to: 'users#index', via: :get
 
 end

@@ -37,7 +37,7 @@ class Calificacion extends React.Component{
   </Button></MuiThemeProvider>
   </div>
 </div>
-    )
+    ) 
   }
 }
 
