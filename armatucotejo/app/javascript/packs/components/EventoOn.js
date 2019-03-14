@@ -20,7 +20,7 @@ class EventoOn extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {lugar:'Ninguno', data: [], matches:[],lugares: "", lat: "", lon:"", sport:"", description:"", date:"", time:""};
+  this.state = {lugar:'Ninguno', data: [], matches:[],lugares: "", lat: "", lon:"", sport:"", description:"", date:"", time:"", latM: "", lonM:""};
   axios.get('../parks')
   .then(response => {
     this.setState({data: response.data});
@@ -69,11 +69,29 @@ class EventoOn extends React.Component{
       deporte = "Basketball"
     }
 
-    this.setState({lugar: location, description: description, sport: deporte, time: time, date: date, lat: lat, lon: lon})
+    this.setState({lugar: location, description: description, sport: deporte, time: time, date: date, latM: lat, lonM: lon})
     console.log(this.state.matches)
-    console.log(this.state.lat)
-    console.log(this.state.lon)
+    console.log(this.state.latM)
+    console.log(this.state.lonM)
+
+    this.getGoogleMaps().then((google) => {
+      console.log(this.state.latM)
+      console.log(this.state.lonM)
+      const bogota = new google.maps.LatLng(this.state.latM,this.state.lonM);
+      const map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 15,
+        center: bogota
+      });
+
+      const marker = new google.maps.Marker({
+          position: new google.maps.LatLng(this.state.latM, this.state.lonM),
+          map: map,
+          });
+          marker.setMap(map);
+        });
   });
+
+
 }
 
 getGoogleMaps() {
@@ -104,23 +122,25 @@ getGoogleMaps() {
 componentWillMount() {
   // Start Google Maps API loading since we know we'll soon need it
   this.getGoogleMaps();
-}
+}/*
 componentDidMount() {
   // Once the Google Maps API has finished loading, initialize the map
   this.getGoogleMaps().then((google) => {
-    const bogota = new google.maps.LatLng(this.state.lat,this.state.lon);
+    console.log(this.state.latM)
+    console.log(this.state.lonM)
+    const bogota = new google.maps.LatLng(this.state.latM,this.state.lonM);
     const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
       center: bogota
     });
 
     const marker = new google.maps.Marker({
-        position: new google.maps.LatLng(this.state.lat, this.state.lon),
+        position: new google.maps.LatLng(this.state.latM, this.state.lonM),
         map: map,
         });
         marker.setMap(map);
       });
-}
+}*/
 
 
   render(){
