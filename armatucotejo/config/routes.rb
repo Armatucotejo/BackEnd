@@ -160,6 +160,7 @@ Rails.application.routes.draw do
   resources :eventos
 
   match 'parks', to: 'locations#listAll', via: :get
+  match 'matchesJson', to: 'matches#listAll', via: :get
 
   match 'join_event', to: 'players#joinEvent', via: :post
 
