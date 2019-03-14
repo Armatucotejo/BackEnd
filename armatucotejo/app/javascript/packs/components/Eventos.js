@@ -20,9 +20,10 @@ class Eventos extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'Ninguno', data: [], datauser:[], lugares:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
+  this.state = {sport: '', lugar:'Ninguno', data: [], datauser:[], lugares:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:"", description:""};
   this.handleChange = this.handleChange.bind(this);
   this.handleChangeL = this.handleChangeL.bind(this);
+  this.desChange = this.desChange.bind(this);
   this.ChangeLugar = this.ChangeLugar.bind(this);
   this.dateChange = this.dateChange.bind(this);
   this.timeChange = this.timeChange.bind(this);
@@ -125,6 +126,9 @@ class Eventos extends React.Component{
   timeChange(event) {
     this.setState({hora: event.target.value });
   }
+  desChange(event) {
+    this.setState({description: event.target.value });
+  }
 
   render(){
     const deportes = [
@@ -219,7 +223,7 @@ class Eventos extends React.Component{
 
       const comentarios = (
         <div className="input-group">
-          <textarea className="descForm form-control comfortaa" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción"></textarea>
+          <textarea  onChange={this.desChange.bind(this)} className="descForm form-control comfortaa" id="exampleFormControlTextarea1" rows="3" placeholder="Descripción"></textarea>
         </div>
       );
 
@@ -298,8 +302,7 @@ const data = {
 username: this.state.username,
 sport: this.state.sport,
 locationId: locationId,
-fecha: this.state.fecha,
-hora: this.state.hora,
+description: this.state.description,
 
 }
 
