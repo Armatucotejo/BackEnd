@@ -80,7 +80,7 @@ class PerfilF extends React.Component{
 					<div className = "thirdbc col-5"  style={{borderRadius:"5px",height: "340px"}}>
 							<Estadisticas onClick={this.ChangeDiv}/>
 					</div>
-					<div className = "col">
+					<div className = "col" style={{width: "250px"}} >
 					    <Calificacion dp={this.state.comentarios} onClick={this.ChangeDivN}/>
 					</div>
 				</div>

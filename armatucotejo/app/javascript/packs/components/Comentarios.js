@@ -61,6 +61,10 @@ class Comentarios extends React.Component{
           <img alt="Avatar" src={avatar} style={styles.avatar} />
         </div>
         <div className="" align="center" style={{marginRight:"15px"}}>
+        <h5 className="comfortaa" style={styles.label}>{this.props.data.id}</h5>
+            <input  style={styles.input}  className="dato" type="number" placeholder="0"  min="1" max ="10"></input>
+        </div>
+        <div className="" align="center" style={{marginRight:"15px"}}>
         <h5 className="comfortaa" style={styles.label}>Tecníca</h5>
             <input  style={styles.input}  className="dato" type="number" placeholder="0"  min="1" max ="10"></input>
         </div>
