@@ -128,6 +128,7 @@ class Eventos extends React.Component{
   }
   desChange(event) {
     this.setState({description: event.target.value });
+    console.log(this.state.description)
   }
 
   render(){
