@@ -13,10 +13,9 @@ Admin.create(password: "123456789",
     name: "Fronter, the Admin")
 
 Sport.create(name: "Futbol")
-Sport.create(name: "Baloncesto")
+Sport.create(name: "Futsal")
 Sport.create(name: "Volleybol")
-Sport.create(name: "Futbol americano")
-Sport.create(name: "Ultimatee")
+Sport.create(name: "Basketbol")
 
 20.times do |x|
 	p = Player.create(gender: "male")
