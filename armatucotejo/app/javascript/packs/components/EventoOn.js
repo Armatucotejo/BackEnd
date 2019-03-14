@@ -12,18 +12,21 @@ import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
 import axios from 'axios';
 
+
+import Players from './Players';
+
 class EventoOn extends React.Component{
 
 
   constructor(props) {
   super(props);
   this.state = {sport: '', lugar:'Ninguno', data: []};
-  axios.get('../create_event')
-  .then(response => {
-    this.setState({data: response.data});
-    console.log(this.state.data[2])
-    let lugar = this.state.lugar;
-  });
+//  axios.get('../create_event')
+//  .then(response => {
+//    this.setState({data: response.data});
+//    console.log(this.state.data[2])
+//    let lugar = this.state.lugar;
+//  });
 }
 
 getGoogleMaps() {
@@ -60,7 +63,7 @@ componentDidMount() {
   this.getGoogleMaps().then((google) => {
     const bogota = {lat: 4.639530, lng: -74.085363};
     const map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 15,
+      zoom: 11,
       center: bogota
     });
 
@@ -121,6 +124,16 @@ componentDidMount() {
         </div>
       );
 
+      var lis = [];
+      for (var i=0; i<6; i++) {
+      lis.push(<Players name="Felipe" username="FelipeTK"/>);
+      }
+
+      const players=(
+        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px", marginBottom:"5px"}}>
+        {lis}
+        </div>
+      );
     return(
       <div>
       <Navgbar/>
@@ -131,7 +144,7 @@ componentDidMount() {
           <div className="col">
           </div>
 
-          <div className="fivebc EventoDivUp col-6 justify-content-center">
+          <div className="fivebc EventoDivUp col-6 justify-content-center" style={{height:"413px"}}>
               <div className="EventoDiv" id="map">
               </div>
           </div>
@@ -139,11 +152,13 @@ componentDidMount() {
           <div className="fivebc EventoDivUp col-3 justify-content-center">
               <div id="Pickers" className="firstbc" style={{paddingLeft: "15px", paddingRight: "15px"}}>
               <div>
-              <h1 style={styles.titulo} className="comfortaa fivec" aling="center">Cotejo Activo</h1>
+              <h1 style={styles.titulo} className="comfortaa fivec" align="center">Cotejo Activo</h1>
               <h1 style={styles.text} className="comfortaa">Deporte</h1>
               <h1 style={styles.text} className="comfortaa">Lugar</h1>
               <h1 style={styles.text} className="comfortaa">Fecha</h1>
-              <h1 style={styles.text} className="comfortaa">Hora</h1>
+              <h1 style={styles.text} className="comfortaa">Hora</h1>              
+              <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Jugadores</h1>
+              {players}
               {button}
               </div>
               </div>

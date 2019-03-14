@@ -1,6 +1,6 @@
 class PlayersController < ApplicationController
   before_action :set_player, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :verify_authenticity_token
 
   def getPlayersByPunctuality
     params.require(:score)
@@ -43,9 +43,9 @@ class PlayersController < ApplicationController
     params.require(:location_id)
     @user = ::User.where(username: params[:username]).first
     @sport = ::Sport.find_by(name: params[:sport])
-    @match = Match.create(description: "", duration: 2, dkatetime: fecha, location_id: params[:location_id], sport_id: @sport.id, organizer_id: @user.id)
+    @match = Match.create(description: "", duration: 2, datetime: params[:fecha], location_id: params[:location_id], sport_id: @sport.id, organizer_id: @user.id)
     @match.save
-    @match_participant = Match.create(player_id, organizer_id: @user.id)
+    @match_participant = MatchParticipant.create(player_id: @player.id, match_id: params[:event_id])
   end
 
 

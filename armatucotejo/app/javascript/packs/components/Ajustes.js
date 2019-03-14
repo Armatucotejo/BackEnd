@@ -14,12 +14,23 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 import AjustesUsuario from './AjustesUsuario';
 import Estadisticas from './Estadisticas';
+import axios from 'axios';
 
 class Ajustes extends React.Component{
 
 	constructor(props){
 		super(props);
 		this.state={ userName: "ARMATUCTEJO"};
+		axios.get('../users')
+		.then(response => {
+			console.log("HolaAjustes");
+			this.setState({data: response.data});
+			console.log( this.state.data[response.data.length-1]);
+			this.refs.inputName.value = response.data[response.data.length-1].name;
+			this.refs.inputLastName.value = response.data[response.data.length-1].lastname;
+			this.refs.inputUserName.value = response.data[response.data.length-1].username;
+			this.refs.inputCorreo.value = response.data[response.data.length-1].email;
+		});
 		}
 
 	render(){
@@ -51,17 +62,16 @@ class Ajustes extends React.Component{
 			},
 			genero:{
         fontSize: "14px",
-        marginTop: "5px",
 				paddingTop: "3px",
-        marginLeft: "2px",
+        marginLeft: "1px",
         color: "#757d85"
 
       },
       divGenero:{
         justifyContent: "center",
-        marginLeft: "-133px",
+        marginLeft: "0px",
         backgroundColor: "white",
-        width: "34%",
+        width: "94px",
         borderRadius: ".25rem",
         height: "37px",
         marginTop: "2px"
@@ -86,18 +96,22 @@ class Ajustes extends React.Component{
 					<div className="thirdbc col-3 divcol inputReg" align="center">
 
 							<div id="InputAjustes" className="thirdbc">
-								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Información de Usuario</h1>
+								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Ajustes</h1>
+								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"14px", marginTop:"3px"}}>Edita tu información personal</h1>
 								<div style={{width:"230px"}}>
-								<input type="name" class="comfortaa form-control formReg" id="inputName" ref="inputName" style={styles.input} placeholder="Nombre"></input>
-								<input type="lastname" class="comfortaa form-control formReg" id="inputLastName" ref="inputLastName" style={styles.input} placeholder="Apellido"></input>
-								<input type="user" class="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" style={styles.input} placeholder="Usuario"></input>
-								<input type="correo" class="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" style={styles.input} placeholder="E-mail"></input>
-								<input type="password" class="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
-								<input type="celular" class="comfortaa form-control formReg" id="inputCelular" ref="inputCelular" style={styles.input} placeholder="Celular cotejo"></input>
+								<input type="name" className="comfortaa form-control formReg" id="inputName" ref="inputName" style={styles.input} placeholder="Nombre"></input>
+								<input type="lastname" className="comfortaa form-control formReg" id="inputLastName" ref="inputLastName" style={styles.input} placeholder="Apellido"></input>
+								<input type="user" className="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" style={styles.input} placeholder="Usuario"></input>
+								<input type="correo" className="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" style={styles.input} placeholder="E-mail"></input>
+								<input type="password" className="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
 								</div>
-								<div style={styles.divGenero}>
+								<div className="row" style={{marginLeft:"23px"}}>
+								<div style={styles.divGenero} className="">
 			          <h1 style={styles.genero} className="comfortaa">Fecha de Nacimiento</h1>
-								<input style={{fontSize:"15px"}} type="date" id="date" ref="date"></input>
+								</div>
+								<div className="" style={{margin: "6px 5px 0px"}}>
+								<input style={{fontSize:"13px", width:"129px"}} type="date" id="date" ref="date" defaultValue="2000-01-01"></input>
+								</div>
 								</div>
 								<div style={styles.button}>
 								<Link to="/PerfilF">
