@@ -26,7 +26,7 @@ class Unirse extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {desc:"",date: [], time:[], idlugar:[], idsport: [], organizer:[], sport: 'Futsal', lugar:'Ninguno', data: [], datauser:[], lugares:[], matches:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
+  this.state = {desc:"",date: [], time:[], idlugar:[], idsport: [], idevento:"", organizer:[], sport: '', lugar:'Ninguno', data: [], datauser:[], lugares:[], matches:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
   this.handleChange = this.handleChange.bind(this);
   this.mostrarInfo = this.mostrarInfo.bind(this);
   axios.get('../parks')
@@ -135,11 +135,12 @@ class Unirse extends React.Component{
   }
   mostrarInfo(id) {
     console.log(id)
+
       for( var i =0; i< this.state.matches.length; i++){
         if(id  == this.state.matches[i].id){
           console.log(this.state.matches[i].date)
           console.log(this.state.matches[i].time)
-          this.setState({fecha:this.state.matches[i].date, hora:this.state.matches[i].time , desc: this.state.matches[i].description})
+          this.setState({fecha:this.state.matches[i].date, hora:this.state.matches[i].time , desc: this.state.matches[i].description, idevento:id})
           for( var j =0; j< this.state.data.length; j++){
             if(this.state.matches[i].location_id == this.state.data[j].id){
               this.setState({lugar:this.state.data[j].name })
@@ -233,7 +234,7 @@ class Unirse extends React.Component{
         if(this.state.idsport[i] == 1 && this.state.sport=="Futbol"){
           matches.push(<Matches click={()=>this.mostrarInfo(aux)} username={this.state.organizer[i]} numplayers= "0" numMax={numMax}/>);
         } //Futbol
-        if(this.state.idsport[i]== 2 && this.state.sport=="Futsal"){
+        if(this.state.idsport[i] == 2 && this.state.sport=="Futsal"){
           matches.push(<Matches click={()=>this.mostrarInfo(aux)} username= {this.state.organizer[i]}  numplayers= "0" numMax={numMax}/>);
         } //Futsal
         if(this.state.idsport[i] == 3 && this.state.sport=="Voleyball"){
@@ -299,11 +300,6 @@ class Unirse extends React.Component{
 }
 
 
-      const button = (
-        <div>
-            <Link to="/eventoOn"><button onClick={()=>this.validateSingup()} className="btn comfortaa buttonCrear fivebc firstc">Crear Cotejo</button></Link>
-        </div>
-      );
 
       const theme = createMuiTheme({
         palette: {
@@ -359,8 +355,8 @@ class Unirse extends React.Component{
                 readOnly: true,
               }}
             />
-            <Link to="/ajustes">
-            <MuiThemeProvider theme={theme}><Button style={{width: "183px", marginTop: "20px", marginLeft: "29px"}} variant="contained" color="primary" className="buttonAjustes" >
+            <Link to="/eventoOn">
+            <MuiThemeProvider theme={theme}><Button onClick={()=>this.validateSingup()} style={{width: "183px", marginTop: "20px", marginLeft: "29px"}} variant="contained" color="primary" className="buttonAjustes" >
               Unirse
               <i style={{marginLeft:"5px"}} className="material-icons">settings</i>
             </Button></MuiThemeProvider>
@@ -413,7 +409,7 @@ validateSingup(){
 
 const data = {
 username: this.state.username,
-event_id: this.state.sport,
+event_id: this.state.idevento,
 
 }
 
