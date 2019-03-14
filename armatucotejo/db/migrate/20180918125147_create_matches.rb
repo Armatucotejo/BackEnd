@@ -3,7 +3,8 @@ class CreateMatches < ActiveRecord::Migration[5.2]
     create_table :matches do |t|
       t.string :description
       t.integer :duration
-      t.datetime :datetime
+      t.date :date
+      t.string :time
 
       t.integer :location_id
       t.integer :sport_id

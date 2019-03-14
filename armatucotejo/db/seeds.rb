@@ -145,4 +145,3 @@ Location.create(name: " Parque Zonal  SUCRE O HIPPIES ", googleMapsX: 4.64552323
 Location.create(name: " Parque Zonal  SERVITA ", googleMapsX: 4.741786468127493, googleMapsY: -74.02570926928962, city_id: 1 )
 Location.create(name: " Parque Zonal  ALTA BLANCA ", googleMapsX: 4.733602437856079, googleMapsY: -74.02821944586297, city_id: 1 )
 
-Match.create(location_id: 1, sport_id: 1, organizer_id: 1)
