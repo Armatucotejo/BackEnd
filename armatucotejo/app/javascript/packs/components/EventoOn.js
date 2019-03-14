@@ -20,7 +20,7 @@ class EventoOn extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'Ninguno', data: [], matches:[],lugares: "", lat: "", lon:"", sport:"", description:""};
+  this.state = {lugar:'Ninguno', data: [], matches:[],lugares: "", lat: "", lon:"", sport:"", description:"", date:"", time:""};
   axios.get('../parks')
   .then(response => {
     this.setState({data: response.data});
@@ -42,17 +42,37 @@ class EventoOn extends React.Component{
     this.setState({matches: response.data});
     let lugar = this.state.matches[this.state.matches.length-1].location_id
     let sport = this.state.matches[this.state.matches.length-1].sport_id
+    let date = this.state.matches[this.state.matches.length-1].date
+    let time = this.state.matches[this.state.matches.length-1].time
     let description = this.state.matches[this.state.matches.length-1].description
 
     var location = ""
+    var deporte = ""
+    var lat = ""
+    var lon = ""
       for(var j = 0; j < this.state.data.length; j++){
         if(this.state.data[j].id == lugar){
           location = this.state.data[j].name
+          lat = this.state.data[j].googleMapsX
+          lon = this.state.data[j].googleMapsY
         }
     }
+    if(sport == 1){
+      deporte = "Futbol"
+    }
+    if(sport == 2){
+      deporte = "Futsal"
+    }
+    if(sport == 3){
+      deporte = "Voleyball"
+    }if(sport == 4){
+      deporte = "Basketball"
+    }
 
-    this.setState({lugar: location, description: description, sport: sport})
+    this.setState({lugar: location, description: description, sport: deporte, time: time, date: date, lat: lat, lon: lon})
     console.log(this.state.matches)
+    console.log(this.state.lat)
+    console.log(this.state.lon)
   });
 }
 
@@ -88,20 +108,18 @@ componentWillMount() {
 componentDidMount() {
   // Once the Google Maps API has finished loading, initialize the map
   this.getGoogleMaps().then((google) => {
-    const bogota = {lat: 4.639530, lng: -74.085363};
+    const bogota = new google.maps.LatLng(this.state.lat,this.state.lon);
     const map = new google.maps.Map(document.getElementById('map'), {
       zoom: 11,
       center: bogota
     });
 
-    for (var i = 0; i < this.state.data.length; i++) {
-            const marker = new google.maps.Marker({
-                  position: new google.maps.LatLng(this.state.lat[i], this.state.lon[i]),
-                  map: map,
-              });
-            marker.setMap(map);
-      }
-  });
+    const marker = new google.maps.Marker({
+        position: new google.maps.LatLng(this.state.lat, this.state.lon),
+        map: map,
+        });
+        marker.setMap(map);
+      });
 }
 
 
@@ -138,6 +156,16 @@ componentDidMount() {
           marginLeft: "4px",
           color: "#757d85",
           height: "28px",
+          backgroundColor: "white",
+          paddingTop: "4px",
+          paddingLeft: "8px",
+        },
+        text2:{
+          fontSize: "16px",
+          marginTop: "6px",
+          marginLeft: "4px",
+          color: "#757d85",
+          height: "44px",
           backgroundColor: "white",
           paddingTop: "4px",
           paddingLeft: "8px",
@@ -180,10 +208,10 @@ componentDidMount() {
               <div id="Pickers" className="firstbc" style={{paddingLeft: "15px", paddingRight: "15px"}}>
               <div>
               <h1 style={styles.titulo} className="comfortaa fivec" align="center">Cotejo Activo</h1>
-              <h1 style={styles.text} className="comfortaa">{this.state.}</h1>
-              <h1 style={styles.text} className="comfortaa">Lugar</h1>
-              <h1 style={styles.text} className="comfortaa">Fecha</h1>
-              <h1 style={styles.text} className="comfortaa">Hora</h1>
+              <h1 style={styles.text} className="comfortaa">{this.state.sport}</h1>
+              <h1 style={styles.text2} className="comfortaa">{this.state.lugar}</h1>
+              <h1 style={styles.text} className="comfortaa">{this.state.date}</h1>
+              <h1 style={styles.text} className="comfortaa">{this.state.time}</h1>
               <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Jugadores</h1>
               {players}
               {button}
