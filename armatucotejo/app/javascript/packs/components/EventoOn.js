@@ -20,7 +20,7 @@ class EventoOn extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'Ninguno', data: [], matches:[],lugares: "", lat: "", lon:""};
+  this.state = {sport: '', lugar:'Ninguno', data: [], matches:[],lugares: "", lat: "", lon:"", sport:"", description:""};
   axios.get('../parks')
   .then(response => {
     this.setState({data: response.data});
@@ -37,10 +37,21 @@ class EventoOn extends React.Component{
     console.log(this.state.lat)
     console.log(this.state.lon)
   });
-  axios.get('../matches')
+  axios.get('../matchesJson')
   .then(response => {
     this.setState({matches: response.data});
-    console.log("CArgaaa")
+    let lugar = this.state.matches[this.state.matches.length-1].location_id
+    let sport = this.state.matches[this.state.matches.length-1].sport_id
+    let description = this.state.matches[this.state.matches.length-1].description
+
+    var location = ""
+      for(var j = 0; j < this.state.data.length; j++){
+        if(this.state.data[j].id == lugar){
+          location = this.state.data[j].name
+        }
+    }
+
+    this.setState({lugar: location, description: description, sport: sport})
     console.log(this.state.matches)
   });
 }
@@ -169,7 +180,7 @@ componentDidMount() {
               <div id="Pickers" className="firstbc" style={{paddingLeft: "15px", paddingRight: "15px"}}>
               <div>
               <h1 style={styles.titulo} className="comfortaa fivec" align="center">Cotejo Activo</h1>
-              <h1 style={styles.text} className="comfortaa">Deporte</h1>
+              <h1 style={styles.text} className="comfortaa">{this.state.}</h1>
               <h1 style={styles.text} className="comfortaa">Lugar</h1>
               <h1 style={styles.text} className="comfortaa">Fecha</h1>
               <h1 style={styles.text} className="comfortaa">Hora</h1>
