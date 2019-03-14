@@ -72,6 +72,12 @@ class PlayersController < ApplicationController
   end
 
 
+  def listAll
+    @players = Player.all
+    render :json => @players
+  end
+
+
   # GET /players
   # GET /players.json
   def index
