@@ -31,6 +31,23 @@ class UsersController < ApplicationController
     @user.save
   end
 
+  def changeEverything
+    params.require(:name)
+    params.require(:username)
+    params.require(:usernameOld)
+    params.require(:email)
+    params.require(:cellphone)
+    params.require(:password)
+    @user = ::User.where(username: params[:usernameOld]).first
+    @user.name = params[:name]
+    @user.username = params[:username]
+    @user.password = params[:password]
+    @user.email = params[:email]
+    @user.save
+    @player = Player.find_by(id: @user.user_data_id)
+    @player.cellphone = params[:cellphone]
+    @player.save
+  end
 
   def changeUsername
     params.require(:username)
