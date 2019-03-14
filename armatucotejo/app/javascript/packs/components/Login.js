@@ -16,7 +16,7 @@ class Login extends React.Component{
     axios.get('../users')
 		  .then(response => {
 			    console.log("Hola");
-			    this.setState({redirect: false, data: response.data});
+			    this.setState({redirect: false, data: response.data, error: ""});
 			    console.log("data " + this.state.data);
 		  });
   }
@@ -51,7 +51,8 @@ class Login extends React.Component{
     for (var i=0; i<this.state.data.length; i++) {
         var temp = this.state.data[i];
         if (temp.username == data.username && temp.password == data.password ){
-            this.setState({redirect: true, data: this.data});
+            this.setState({redirect: true, data: this.data, error:"Datos de acceso incorrectos"});
+            
         }
         console.log("Holaaaaaaaaaaa");
     }
@@ -111,6 +112,7 @@ class Login extends React.Component{
         <div className="col-10 centerdiv inputReg">
           <button  onClick={()=>this.validateSingup()} className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Registrate Rapido</a>
+          <h1>{this.state.error}</h1>
         </div>
       </div>
       </form>

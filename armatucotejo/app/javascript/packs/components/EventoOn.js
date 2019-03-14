@@ -195,7 +195,7 @@ componentDidMount() {
 
       const button = (
         <div>
-            <button className="btn comfortaa buttonCrear fivebc firstc">Cancelar</button>
+            <Link to="/perfilf"><button className="btn comfortaa buttonCrear fivebc firstc">Cancelar</button></Link>
         </div>
       );
 

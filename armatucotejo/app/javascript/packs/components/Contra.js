@@ -1,3 +1,7 @@
+/*global fetch*/
+/*global Headers*/
+/*global Request*/
+
 import React, { Component } from 'react';
 import Navgbar from './Navgbar';
 import {Button,Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
@@ -53,7 +57,7 @@ class Contra extends React.Component{
                     <input type="email" placeholder="example@mail.com" className="comfortaa form-control formReg" id="inputEmail" ref="inputEmail"
                     />
                   </div>
-                  <Link to="/"><button /* onClick={()=>this.validateSingup()}*/ style={styles.button}className="btn comfortaa buttonLogin fivebc firstc">Recuperar</button></Link>
+                  <Link to="/"><button onClick={()=>this.validateSingup()} style={styles.button}className="btn comfortaa buttonLogin fivebc firstc">Recuperar</button></Link>
               	</div>
               </div>
               <div className="col">
@@ -63,5 +67,27 @@ class Contra extends React.Component{
         </div>
     		)
   	}
+  	
+  		validateSingup(){
+		const data = {
+				email: this.refs.inputEmail.value,
+		}
+		console.log(data);
+		const headers = new Headers();
+		headers.append('Content-Type','application/json');
+		const options = {
+		method: 'POST',
+		headers,
+				body: JSON.stringify(data)
+		}
+
+		const request = new Request('../contra ',options);
+		fetch(request)
+		.then(response => response.json())
+		.then(
+		data => console.log(data)
+		);
+
+}
   }
   export default Contra

@@ -29,7 +29,25 @@ class PerfilF extends React.Component{
 			console.log(this.state.data[2])
 			let name = this.state.data[this.state.data.length-1].name;
 			let username = this.state.data[this.state.data.length-1].username;
-			this.setState({name: name, username: username})
+			var usuarioelegido = null;
+			    for (var i=0; i<this.state.data.length; i++) {
+			        var temp = this.state.data[i];
+			        if (usuarioelegido == null ){
+			            usuarioelegido = temp;
+			        }else if(temp.logindate != null && usuarioelegido != null){
+			        		var dateNew= new Date(temp.logindate);
+			        		var dateOld= new Date(usuarioelegido.logindate);// some mock date
+							var millisecondsNew = dateNew.getTime(); 
+							var millisecondsOld = dateOld.getTime(); 
+							if(millisecondsNew > millisecondsOld){
+								usuarioelegido = temp;
+							}
+			  
+			        }
+			        console.log("Holaaaaaaaaaaa");
+			    }
+			    
+			this.setState({name: usuarioelegido.name, username: usuarioelegido.username})
 			console.log(this.state.lugares)
 		});
 	}

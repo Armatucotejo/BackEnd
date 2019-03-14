@@ -31,7 +31,7 @@ class InfoUsuario extends React.Component{
           paddingTop: "15px",
         },
         button:{
-          paddingTop: "10px",
+          paddingTop: "4px",
         },
         text:{
           username:{
@@ -65,6 +65,12 @@ class InfoUsuario extends React.Component{
       <MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="buttonAjustes" >
         Ajustes
         <i style={{marginLeft:"5px"}} className="material-icons">settings</i>
+      </Button></MuiThemeProvider>
+      </Link>
+      <Link to="/">
+      <MuiThemeProvider theme={theme}><Button variant="contained" color="primary" className="buttonAjustes" >
+        Logout
+        <i style={{marginLeft:"5px"}} className="material-icons">power_settings_new</i>
       </Button></MuiThemeProvider>
       </Link>
       </div>

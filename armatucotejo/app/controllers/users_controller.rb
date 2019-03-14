@@ -93,12 +93,12 @@ class UsersController < ApplicationController
     puts 'Holaaaaaaaaaaaaaaaaaaaaaaaa'
     puts user_params
     @user = User.new(user_params)
-
+    @user.logindate = DateTime.now
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
-        puts @users
+    
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -144,6 +144,7 @@ class UsersController < ApplicationController
     params.require(:password)
     @user = ::User.where(username: params[:username]).first
     puts @user
+    puts "HOla llegue a loginow"
     #puts @user.password 
     puts params[:password]
     if(@user.nil? || @user.password != params[:password])
@@ -152,6 +153,22 @@ class UsersController < ApplicationController
       puts  DateTime.now
       puts "hola"
       @user.logindate = DateTime.now
+      @user.save
+      render json: @users, status: :ok
+    end
+  end
+  def contra
+    params.require(:email)
+    @user = ::User.where(email: params[:email]).first
+    puts @user
+    puts "Llegue a contra"
+    #puts @user.password 
+    if(@user.nil?)
+      render json: @user, status: :unprocessable_entity
+    else 
+      puts  DateTime.now
+      puts "hola"
+      @user.password = "000000"
       @user.save
       render json: @users, status: :ok
     end
