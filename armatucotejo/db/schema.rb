@@ -72,7 +72,8 @@ ActiveRecord::Schema.define(version: 2018_10_12_190513) do
   create_table "matches", force: :cascade do |t|
     t.string "description"
     t.integer "duration"
-    t.datetime "datetime"
+    t.date "date"
+    t.string "time"
     t.integer "location_id"
     t.integer "sport_id"
     t.integer "organizer_id"
