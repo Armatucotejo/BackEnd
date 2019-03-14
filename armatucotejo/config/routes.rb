@@ -162,6 +162,7 @@ Rails.application.routes.draw do
   match 'parks', to: 'locations#listAll', via: :get
   match 'matchesJson', to: 'matches#listAll', via: :get
   match 'playersJson', to: 'players#listAll', via: :get
+  match 'match_participantsJson', to: 'match_participants#listAll', via: :get
 
   match 'join_event', to: 'players#joinEvent', via: :post
 

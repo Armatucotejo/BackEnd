@@ -44,11 +44,13 @@ class PlayersController < ApplicationController
     params.require(:description)
     @user = ::User.where(username: params[:username]).first
     @sport = ::Sport.find_by(name: params[:sport])
+    @player = Player.find_by(id: @user.user_data_id)
     puts @sport
     puts @user
     @match = Match.create(description: params[:description], duration: 2, date: Date.today.to_s, time: "16:00", location_id: params[:locationId], sport_id: @sport.id, organizer_id: @user.id)
     @match.save
-    @match_participant = MatchParticipant.create(player_id: @user.id)
+    @match_participant = MatchParticipant.create(player_id: @player.id, match_id: @match.id)
+    @match_participant.save
   end
 
 
