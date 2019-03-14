@@ -144,7 +144,7 @@ class UsersController < ApplicationController
     params.require(:password)
     @user = ::User.where(username: params[:username]).first
     puts @user
-    puts @user.password 
+    #puts @user.password 
     puts params[:password]
     if(@user.nil? || @user.password != params[:password])
       render json: @user, status: :unprocessable_entity

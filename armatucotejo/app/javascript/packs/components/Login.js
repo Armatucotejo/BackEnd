@@ -6,21 +6,38 @@ import { Link } from 'react-router-dom';
 import logopng from '../../../assets/images/logo-png.png';
 import logonav from '../../../assets/images/logo-nav.png';
 import axios from 'axios';
+import { Redirect } from 'react-router';
 
 class Login extends React.Component{
 
-  validateSingup(){
-  const data = {
-  username: this.refs.inputUserName.value,
-  password: this.refs.inputPassword.value,
+  constructor(props) {
+    super(props);
+    this.state = { redirect: false, data:[] };
+    axios.get('../users')
+		  .then(response => {
+			    console.log("Hola");
+			    this.setState({redirect: false, data: response.data});
+			    console.log("data " + this.state.data);
+		  });
   }
-  console.log(data);
-  const headers = new Headers();
-  headers.append('Content-Type','application/json');
-  const options = {
-  method: 'POST',
-  headers,
-  body: JSON.stringify(data)
+  
+  validateSingup2(){
+    console.log("validateSingup2");
+  }
+  
+  validateSingup(){
+    const data = {
+      username: this.refs.inputUserName.value,
+      password: this.refs.inputPassword.value,
+    }
+    
+        console.log(data);
+    const headers = new Headers();
+    headers.append('Content-Type','application/json');
+    const options = {
+    method: 'POST',
+    headers,
+    body: JSON.stringify(data)
   }
 
   const request = new Request('../loginown',options);
@@ -30,6 +47,17 @@ class Login extends React.Component{
   data => console.log(data+" hola")
   );
   //console.log(this.state);
+    
+    for (var i=0; i<this.state.data.length; i++) {
+        var temp = this.state.data[i];
+        if (temp.username == data.username && temp.password == data.password ){
+            this.setState({redirect: true, data: this.data});
+        }
+        console.log("Holaaaaaaaaaaa");
+    }
+    
+    
+
 
 }
     render(){
@@ -81,7 +109,7 @@ class Login extends React.Component{
           <Link to="/contra"><h6 className="comfortaa  olvpass">¿Olvidaste tu contraseña?</h6></Link>
         </div>
         <div className="col-10 centerdiv inputReg">
-          <Link to="/Perfilf"><button  onClick={()=>this.validateSingup()} className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button></Link>
+          <button  onClick={()=>this.validateSingup()} className="btn comfortaa buttonLogin fivebc firstc">Iniciar Sesion</button>
           <a onClick={this.props.onClick} className="btn comfortaa buttonReg fivebc firstc">Registrate Rapido</a>
         </div>
       </div>
@@ -91,7 +119,9 @@ class Login extends React.Component{
 
   </div>
     );
-
+      if (this.state.redirect) {
+        return <Redirect push to="/perfilf" />
+      }
     return(
       <div>
         {logo}
