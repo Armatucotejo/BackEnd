@@ -20,18 +20,23 @@ class Ajustes extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state={ userName: "ARMATUCTEJO"};
+		this.state={ username: "", data:[], player:[]};
 		axios.get('../users')
 		.then(response => {
-			console.log("HolaAjustes");
 			this.setState({data: response.data});
 			console.log( this.state.data[response.data.length-1]);
 			this.refs.inputName.value = response.data[response.data.length-1].name;
-			this.refs.inputLastName.value = response.data[response.data.length-1].lastname;
 			this.refs.inputUserName.value = response.data[response.data.length-1].username;
 			this.refs.inputCorreo.value = response.data[response.data.length-1].email;
+			this.refs.inputPassword.value = response.data[response.data.length-1].password;
+			this.setState({username: response.data[response.data.length-1].username});
 		});
-		}
+	/*	axios.get('../players')
+		.then(response => {
+			this.setState({players: response.data});
+			this.refs.Cellphone.value = response.data[response.data.length-1].name;
+		});*/
+	}
 
 	render(){
 
@@ -100,18 +105,10 @@ class Ajustes extends React.Component{
 								<h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"14px", marginTop:"3px"}}>Edita tu información personal</h1>
 								<div style={{width:"230px"}}>
 								<input type="name" className="comfortaa form-control formReg" id="inputName" ref="inputName" style={styles.input} placeholder="Nombre"></input>
-								<input type="lastname" className="comfortaa form-control formReg" id="inputLastName" ref="inputLastName" style={styles.input} placeholder="Apellido"></input>
 								<input type="user" className="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" style={styles.input} placeholder="Usuario"></input>
 								<input type="correo" className="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" style={styles.input} placeholder="E-mail"></input>
-								<input type="password" className="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
-								</div>
-								<div className="row" style={{marginLeft:"23px"}}>
-								<div style={styles.divGenero} className="">
-			          <h1 style={styles.genero} className="comfortaa">Fecha de Nacimiento</h1>
-								</div>
-								<div className="" style={{margin: "6px 5px 0px"}}>
-								<input style={{fontSize:"13px", width:"129px"}} type="date" id="date" ref="date" defaultValue="2000-01-01"></input>
-								</div>
+								<input type="cellphone" className="comfortaa form-control formReg" id="inputCellphone" ref="inputCellphone" style={styles.input} placeholder="Cellphone"></input>
+								<input type="password" className="comfortaa form-control formReg" id="inputPassword" ref="" style={styles.input} placeholder="Contraseña"></input>
 								</div>
 								<div style={styles.button}>
 								<Link to="/PerfilF">
@@ -144,12 +141,11 @@ class Ajustes extends React.Component{
 	validateSingup(){
 		const data = {
 				name: this.refs.inputName.value,
-				lastname: this.refs.inputLastName.value,
 				username: this.refs.inputUserName.value,
+				usernameOld: this.state.username,
 				email: this.refs.inputCorreo.value,
-				celphone: this.refs.inputCelular.value,
+				cellphone: this.refs.inputCellphone.value,
 				password: this.refs.inputPassword.value,
-				datechoose: this.refs.date.value
 		}
 		console.log(data);
 		const headers = new Headers();
@@ -161,7 +157,7 @@ class Ajustes extends React.Component{
 		}
 
 
-		const request = new Request('../users',options);
+		const request = new Request('../userChangeInfo',options);
 		fetch(request).then(response => response.json())
 	.then(data => this.setState({ data }));;
 	console.log(this.state);
