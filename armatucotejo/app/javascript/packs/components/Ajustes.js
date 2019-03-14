@@ -20,7 +20,7 @@ class Ajustes extends React.Component{
 
 	constructor(props){
 		super(props);
-		this.state={ username: "", data:[], player:[]};
+		this.state={ username: "", data:[], players:[]};
 		axios.get('../users')
 		.then(response => {
 			this.setState({data: response.data});
@@ -28,14 +28,13 @@ class Ajustes extends React.Component{
 			this.refs.inputName.value = response.data[response.data.length-1].name;
 			this.refs.inputUserName.value = response.data[response.data.length-1].username;
 			this.refs.inputCorreo.value = response.data[response.data.length-1].email;
-			this.refs.inputPassword.value = response.data[response.data.length-1].password;
 			this.setState({username: response.data[response.data.length-1].username});
 		});
-	/*	axios.get('../players')
+		axios.get('../playersJson')
 		.then(response => {
 			this.setState({players: response.data});
-			this.refs.Cellphone.value = response.data[response.data.length-1].name;
-		});*/
+			this.refs.inputCellphone.value = this.state.players[this.state.players.length-1].cellphone;
+		});
 	}
 
 	render(){
@@ -108,11 +107,11 @@ class Ajustes extends React.Component{
 								<input type="user" className="comfortaa form-control formReg" id="inputUserName" ref="inputUserName" style={styles.input} placeholder="Usuario"></input>
 								<input type="correo" className="comfortaa form-control formReg" id="inputCorreo" ref="inputCorreo" style={styles.input} placeholder="E-mail"></input>
 								<input type="cellphone" className="comfortaa form-control formReg" id="inputCellphone" ref="inputCellphone" style={styles.input} placeholder="Cellphone"></input>
-								<input type="password" className="comfortaa form-control formReg" id="inputPassword" ref="" style={styles.input} placeholder="Contraseña"></input>
+								<input type="password" className="comfortaa form-control formReg" id="inputPassword" ref="inputPassword" style={styles.input} placeholder="Contraseña"></input>
 								</div>
 								<div style={styles.button}>
 								<Link to="/PerfilF">
-					      <MuiThemeProvider theme={theme}><Button style={{paddingBottom:"5px"}}variant="contained" color="primary" className="buttonAjustes" >
+					      <MuiThemeProvider theme={theme}><Button onClick={()=>this.validateSingup()} style={{paddingBottom:"5px"}}variant="contained" color="primary" className="buttonAjustes" >
 					        Guardar
 					        <i style={{marginLeft:"5px"}} className="material-icons">done</i>
 					      </Button></MuiThemeProvider>
@@ -156,11 +155,12 @@ class Ajustes extends React.Component{
 				body: JSON.stringify(data)
 		}
 
-
-		const request = new Request('../userChangeInfo',options);
-		fetch(request).then(response => response.json())
-	.then(data => this.setState({ data }));;
-	console.log(this.state);
+		const request = new Request('../userChangeInfo ',options);
+		fetch(request)
+		.then(response => response.json())
+		.then(
+		data => console.log(data)
+		);
 
 }
 

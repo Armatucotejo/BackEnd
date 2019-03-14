@@ -20,12 +20,13 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import axios from 'axios';
 
 import Players from './Players';
+import Matches from './Matches';
 class Unirse extends React.Component{
 
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'Ninguno', data: [], datauser:[], lugares:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
+  this.state = {sport: 'Futsal', lugar:'Ninguno', data: [], datauser:[], lugares:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
   this.handleChange = this.handleChange.bind(this);
   axios.get('../parks')
   .then(response => {
@@ -167,9 +168,34 @@ class Unirse extends React.Component{
       lis.push(<Players name="Felipe" username="FelipeTK"/>);
       }
 
+
+      var numMax = "";
+      if(this.state.sport == "Basketball"){
+        numMax = "10";
+      }
+      if(this.state.sport == "Futbol"){
+        numMax = "24";
+      }
+      if(this.state.sport == "Futsal"){
+        numMax = "12";
+      }
+      if(this.state.sport == "Voleyball"){
+        numMax = "12";
+      }
+
+      var matches = [];
+      for (var i=0; i<6; i++) {
+      matches.push(<Matches name="Felipe" username="FelipeTK" numplayers= "0" numMax={numMax}/>);
+      }
+
       const players=(
-        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px"}}>
+        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px", overflowY:"scroll", height:"254px"}}>
         {lis}
+        </div>
+      );
+      const matchesD=(
+        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px", overflowY:"scroll", height:"254px"}}>
+        {matches}
         </div>
       );
 
@@ -305,9 +331,11 @@ class Unirse extends React.Component{
           </div>
 
           <div className="fivebc EventoDivUp col-3 justify-content-center" style={{height:"412px"}}>
-              <div id="Pickers" className="firstbc" style={{paddingLeft: "15px", paddingRight: "15px"}}>
+              <div id="Pickers" className="firstbc" style={{paddingLeft: "10px", paddingRight: "10px"}}>
               <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Unete a un Cotejo</h1>
               {selectSport}
+              <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Cotejos</h1>
+              {matchesD}
               <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Jugadores</h1>
               {players}
               </div>

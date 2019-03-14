@@ -21,7 +21,7 @@ class Interes extends React.Component{
     return(
       <div>
       <div>
-        <img alt="Avatar" src={avatar} style={styles.avatar} />
+        <img alt="Avatar" src={this.props.src} style={styles.avatar} />
       </div>
       </div>
     );

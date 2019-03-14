@@ -7,6 +7,11 @@ import Circular from './CircularEst';
 import Interes from './Interes';
 import { Link } from 'react-router-dom';
 
+import futbol from '../../../assets/images/avatarP.png';
+import futsal from '../../../assets/images/avatarP.png';
+import basketball from '../../../assets/images/avatarP.png';
+import voleyball from '../../../assets/images/avatarP.png';
+
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 class Estadisticas extends React.Component{
@@ -102,10 +107,10 @@ class Estadisticas extends React.Component{
                 <hr style={{height: "2px" ,backgroundColor: "#183152", width:"210px", margin: "0"}}/>
               </div>
               <div className="row">
-              <Interes/>
-              <Interes/>
-              <Interes/>
-              <Interes/>
+              <Interes src={futbol}/>
+              <Interes src={futsal}/>
+              <Interes src={basketball}/>
+              <Interes src={voleyball}/>
               </div>
           </div>
           <div className="col-4" style={styles.califica}>
