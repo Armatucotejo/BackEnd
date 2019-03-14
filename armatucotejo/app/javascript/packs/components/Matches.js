@@ -41,6 +41,11 @@ class Matches extends React.Component{
           marginBottom: "0",
           marginTop: "11px",
         },
+        label2:{
+          fontSize: "11px",
+          marginBottom: "0",
+          marginTop: "17px",
+        },
         puntaje:{
           fontSize: "14px",
           marginBottom: "0",
@@ -71,11 +76,10 @@ class Matches extends React.Component{
     <div className="container secondbc">
       <div className="row">
         <div className="" style={styles.divavatar}>
-          <img alt="Avatar" src={avatar} style={styles.avatar} />
+          <img onClick={this.props.click} alt="Avatar" src={avatar} style={styles.avatar} />
         </div>
         <div className="" align="" style={{marginRight:"10px", width:"50px", marginLeft:"7px"}}>
-        <h5 className="comfortaa" style={styles.label}>{this.props.username}</h5>
-        <h5 className="comfortaa"  style={styles.name}>{this.props.name}</h5>
+        <h5 className="comfortaa" style={styles.label2}>{this.props.username}</h5>
         </div>
         <div className="" align="" style={{marginRight:"10px", width:"50px", marginLeft:"7px"}}>
         <h5 className="comfortaa" style={styles.label}>No.Jugadores</h5>

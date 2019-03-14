@@ -26,8 +26,9 @@ class Unirse extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: 'Futsal', lugar:'Ninguno', data: [], datauser:[], lugares:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
+  this.state = {desc:"",date: [], time:[], idlugar:[], idsport: [], organizer:[], sport: 'Futsal', lugar:'Ninguno', data: [], datauser:[], lugares:[], matches:[], lat:[], lon:[], idLugar:'', username:'', fecha:"", hora:""};
   this.handleChange = this.handleChange.bind(this);
+  this.mostrarInfo = this.mostrarInfo.bind(this);
   axios.get('../parks')
   .then(response => {
     this.setState({data: response.data});
@@ -50,6 +51,32 @@ class Unirse extends React.Component{
     this.setState({datauser: response.data});
     let username = this.state.datauser[this.state.datauser.length-1].username;
     this.setState({username: username})
+  });
+  axios.get('../matchesJson')
+  .then(response => {
+    this.setState({matches: response.data});
+    let idsport = this.state.idsport
+    let organizer = this.state.organizer
+    let date = this.state.date
+    let time = this.state.time
+    let desc = this.state.desc
+    let idlugar = this.state.idlugar
+    for (var i = 0; i <this.state.matches.length ; i++) {
+      idsport.push(this.state.matches[i].sport_id)
+      date.push(this.state.matches[i].date)
+      time.push(this.state.matches[i].time)
+      desc.push(this.state.matches[i].desc)
+      idlugar.push(this.state.matches[i].location_id)
+      this.setState({idsport: idsport, date:date,time:time, idlugar: idlugar, desc:desc})
+      for (var j = 0; j <this.state.datauser.length ; j++) {
+        if( this.state.matches[i].organizer_id == this.state.datauser[j].id){
+          organizer.push(this.state.datauser[j].username)
+          this.setState({organizer: organizer})
+        }
+      }
+    }
+
+
   });
 }
 
@@ -101,8 +128,26 @@ class Unirse extends React.Component{
     });
   }
 
+
   handleChange(event) {
       this.setState({sport: event.target.value });
+
+  }
+  mostrarInfo(id) {
+    console.log(id)
+      for( var i =0; i< this.state.matches.length; i++){
+        if(id  == this.state.matches[i].id){
+          console.log(this.state.matches[i].date)
+          console.log(this.state.matches[i].time)
+          this.setState({fecha:this.state.matches[i].date, hora:this.state.matches[i].time , desc: this.state.matches[i].description})
+          for( var j =0; j< this.state.data.length; j++){
+            if(this.state.matches[i].location_id == this.state.data[j].id){
+              this.setState({lugar:this.state.data[j].name })
+          }
+        }
+        }
+
+      }
   }
 
 
@@ -168,7 +213,6 @@ class Unirse extends React.Component{
       lis.push(<Players name="Felipe" username="FelipeTK"/>);
       }
 
-
       var numMax = "";
       if(this.state.sport == "Basketball"){
         numMax = "10";
@@ -182,19 +226,31 @@ class Unirse extends React.Component{
       if(this.state.sport == "Voleyball"){
         numMax = "12";
       }
-
       var matches = [];
-      for (var i=0; i<6; i++) {
-      matches.push(<Matches name="Felipe" username="FelipeTK" numplayers= "0" numMax={numMax}/>);
+
+      for (var i=0; i < this.state.matches.length; i++) {
+        var aux = this.state.matches[i].id
+        if(this.state.idsport[i] == 1 && this.state.sport=="Futbol"){
+          matches.push(<Matches click={()=>this.mostrarInfo(aux)} username={this.state.organizer[i]} numplayers= "0" numMax={numMax}/>);
+        } //Futbol
+        if(this.state.idsport[i]== 2 && this.state.sport=="Futsal"){
+          matches.push(<Matches click={()=>this.mostrarInfo(aux)} username= {this.state.organizer[i]}  numplayers= "0" numMax={numMax}/>);
+        } //Futsal
+        if(this.state.idsport[i] == 3 && this.state.sport=="Voleyball"){
+          matches.push(<Matches click={()=>this.mostrarInfo(aux)} username={this.state.organizer[i]}  numplayers= "0" numMax={numMax}/>);
+        } //Voleyball
+        if(this.state.idsport[i]== 4 && this.state.sport=="Basketball"){
+          matches.push(<Matches  click={()=>this.mostrarInfo(aux)} username={this.state.organizer[i]}  numplayers= "0" numMax={numMax}/>);
+        } //Basketball
       }
 
       const players=(
-        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px", overflowY:"scroll", height:"254px"}}>
+        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px", overflowY:"scroll", height:"202px"}}>
         {lis}
         </div>
       );
       const matchesD=(
-        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px", overflowY:"scroll", height:"254px"}}>
+        <div  style={{justifyContent: "center", border: "2px solid #183152", marginLeft: "0px", marginRight: "2px", overflowY:"scroll", height:"202px"}}>
         {matches}
         </div>
       );
@@ -263,7 +319,8 @@ class Unirse extends React.Component{
             <TextField
               id="standard-read-only-input"
               label="Lugar"
-              defaultValue=""
+              rows="2"
+              value={this.state.lugar}
               style={styles.textFieldL}
               margin="normal"
               InputProps={{
@@ -273,7 +330,7 @@ class Unirse extends React.Component{
             <TextField
               id="standard-read-only-input"
               label="Fecha"
-              defaultValue=""
+              value={this.state.fecha}
               style={styles.textField}
               margin="normal"
               InputProps={{
@@ -283,7 +340,7 @@ class Unirse extends React.Component{
             <TextField
               id="standard-read-only-input"
               label="Hora"
-              defaultValue=""
+              value={this.state.hora}
               style={styles.textField}
               margin="normal"
               InputProps={{
@@ -295,7 +352,7 @@ class Unirse extends React.Component{
               label="Comentarios"
               multiline
               rows="2"
-              defaultValue=""
+              value={this.state.desc}
               style={styles.textFieldC}
               margin="normal"
               InputProps={{
@@ -316,7 +373,7 @@ class Unirse extends React.Component{
       <div>
       <Navgbar/>
       {logo}
-      <div id="containerEven" className="container">
+      <div id="containerEven" className="container" style={{marginBottom:"25px"}}>
 
         <div className="row">
           <div className="col">
@@ -330,7 +387,7 @@ class Unirse extends React.Component{
               </div>
           </div>
 
-          <div className="fivebc EventoDivUp col-3 justify-content-center" style={{height:"412px"}}>
+          <div className="fivebc EventoDivUp col-3 justify-content-center" style={{height:"611px"}}>
               <div id="Pickers" className="firstbc" style={{paddingLeft: "10px", paddingRight: "10px"}}>
               <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Unete a un Cotejo</h1>
               {selectSport}
@@ -351,25 +408,12 @@ class Unirse extends React.Component{
 }
 
 
-/*
 
 validateSingup(){
 
-var locationId = ""
-
-  for(var j = 0; j < this.state.data.length; j++){
-    if(this.state.data[j].name == this.state.lugar){
-      locationId = this.state.data[j].id
-    }
-}
-
-
 const data = {
 username: this.state.username,
-sport: this.state.sport,
-locationId: locationId,
-fecha: this.state.fecha,
-hora: this.state.hora,
+event_id: this.state.sport,
 
 }
 
@@ -383,7 +427,7 @@ body: JSON.stringify(data)
 }
 
 
-const request = new Request('../create_event ',options);
+const request = new Request('../join_event ',options);
 fetch(request)
 .then(response => response.json())
 .then(
@@ -391,7 +435,7 @@ data => console.log(data)
 );
 console.log(this.state);
 
-}*/
+}
 
 }
 export default Unirse
