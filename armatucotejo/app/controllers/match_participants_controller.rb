@@ -7,6 +7,11 @@ class MatchParticipantsController < ApplicationController
     @players = MatchParticipant.joins(:match, :user).where(match_id: @match_id)
   end
 
+  def listAll
+    @match_participants = MatchParticipant.all
+    render :json => @match_participants
+  end
+
   # GET /match_participants
   # GET /match_participants.json
   def index
