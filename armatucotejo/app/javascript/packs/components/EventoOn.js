@@ -20,12 +20,28 @@ class EventoOn extends React.Component{
 
   constructor(props) {
   super(props);
-  this.state = {sport: '', lugar:'Ninguno', data: []};
-  axios.get('../create_event')
+  this.state = {sport: '', lugar:'Ninguno', data: [], matches:[],lugares: "", lat: "", lon:""};
+  axios.get('../parks')
   .then(response => {
     this.setState({data: response.data});
-    console.log(this.state.data[2])
-    let lugar = this.state.lugar;
+    let lugares = this.state.lugares;
+    let lat = this.state.lat;
+    let lon = this.state.lon;
+    for (var i = 0; i <this.state.data.length ; i++) {
+      lugares.push(this.state.data[i].name)
+      lat.push(this.state.data[i].googleMapsX)
+      lon.push(this.state.data[i].googleMapsY)
+      this.setState({lugares: lugares, lat: lat, lon:lon})
+  }
+    console.log(this.state.lugares)
+    console.log(this.state.lat)
+    console.log(this.state.lon)
+  });
+  axios.get('../matches')
+  .then(response => {
+    this.setState({matches: response.data});
+    console.log("CArgaaa")
+    console.log(this.state.matches)
   });
 }
 
@@ -156,7 +172,7 @@ componentDidMount() {
               <h1 style={styles.text} className="comfortaa">Deporte</h1>
               <h1 style={styles.text} className="comfortaa">Lugar</h1>
               <h1 style={styles.text} className="comfortaa">Fecha</h1>
-              <h1 style={styles.text} className="comfortaa">Hora</h1>              
+              <h1 style={styles.text} className="comfortaa">Hora</h1>
               <h1 className="comfortaa fivec" style={{textAlign:"center", fontSize:"20px", marginTop:"11px"}}>Jugadores</h1>
               {players}
               {button}
