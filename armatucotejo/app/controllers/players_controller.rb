@@ -41,8 +41,6 @@ class PlayersController < ApplicationController
     params.require(:username)
     params.require(:sport)
     params.require(:locationId)
-    params.require(:fecha)
-    params.require(:hora)
     params.require(:description)
     @user = ::User.where(username: params[:username]).first
     @sport = ::Sport.find_by(name: params[:sport])
