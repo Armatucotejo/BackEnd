@@ -19,7 +19,10 @@
         <td><%= match.description %></td>
         <td><%= match.duration %></td>
         <td><%= match.datetime %></td>
+        <td><%= match.id %></td>
+        <td><%= match.location_id %></td>
         <td><%= match.organizer_id %></td>
+        <td><%= match.sport_id %></td>
         <td><%= link_to 'Show', match %></td>
         <td><%= link_to 'Edit', edit_match_path(match) %></td>
         <td><%= link_to 'Destroy', match, method: :delete, data: { confirm: 'Are you sure?' } %></td>
